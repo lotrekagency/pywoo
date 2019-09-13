@@ -19,7 +19,8 @@ def map_models():
         for _class in classes:
             for member in inspect.getmembers(_class[1]):
                 if '__init__' in member:
-                    _vars = frozenset([arg for arg in inspect.signature(member[1]).parameters.keys() if arg != 'self' and arg != 'api'])
+                    _vars = [arg for arg in inspect.signature(member[1]).parameters.keys() if
+                             arg != 'self' and arg != 'api']
                     mapping[_vars] = _class[1]
 
 
@@ -57,31 +58,29 @@ class Api:
         headers["content-type"] = "application/json;charset=utf-8"
         return headers
 
-    def create_coupon(self, code):
-        json_coupon = {
-            "code" : code
-        }
+    def _create(self, url, **kwargs):
         resp = requests.post(
-            self.__get_oauth_url(f'{self.url}/coupons', 'POST'),
-            data = json_coupon,
+            self.__get_oauth_url(f'{self.url}/{url}', 'POST'),
+            data=kwargs,
             headers=self._get_default_headers()
         )
-        return resp.json()
+        return resp
 
-    def get_coupon(self, id):
+    def _get(self, url, id=''):
         resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/coupons/{id}', 'GET')
+            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'GET')
         )
-        return resp.json()
+        return resp
 
-    def get_products(self):
-        resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/products', 'GET'),
-        )
-        return resp.json()
+    def create_coupon(self, **kwargs):
+        return self._create('coupons', kwargs).text
 
-    def get_coupons(self):
-        resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/coupons', 'GET'),
-        )
-        return resp.json()
+    def get_coupons(self, id=''):
+        return self._get('coupons', id=id).text
+
+    def create_customer(self, **kwargs):
+        return self._create('customer', kwargs).text
+
+    def get_customers(self, id=''):
+        return self._get('customer', id=id).text
+

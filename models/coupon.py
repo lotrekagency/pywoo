@@ -32,6 +32,7 @@ class Coupon(ApiObject):
         self.free_shipping = free_shipping
         self.product_categories = product_categories # TODO put a list of objects
         self.excluded_product_categories = excluded_product_categories # TODO same as above
+        self.exclude_sale_items = exclude_sale_items
         self.minimum_amount = minimum_amount
         self.maximum_amount = maximum_amount
         self.email_restrictions = email_restrictions
@@ -45,11 +46,6 @@ class Coupon(ApiObject):
     @classmethod
     def create_coupon(cls, api, code):
         return Coupon.from_json(json.dumps(api.create_coupon(code)), api)
-
-    @staticmethod
-    def from_json(json_data, api):
-        coupon = json.loads(json_data)
-        return Coupon(coupon['id'], coupon['code'], coupon['amount'], coupon['date_created'], coupon['date_created_gmt'], coupon['date_modified'], coupon['date_modified_gmt'], coupon['discount_type'], coupon['description'], coupon['date_expires'], coupon['date_expires_gmt'], coupon['usage_count'], coupon['individual_use'], coupon['product_ids'], coupon['excluded_product_ids'], coupon['usage_limit'], coupon['usage_limit_per_user'], coupon['limit_usage_to_x_items'], coupon['free_shipping'], coupon['product_categories'], coupon['excluded_product_categories'], coupon['exclude_sale_items'], coupon['minimum_amount'], coupon['maximum_amount'], coupon['email_restrictions'], coupon['used_by'], coupon['meta_data'], api)
 
     @property
     def id(self):
