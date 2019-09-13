@@ -1,10 +1,33 @@
+import inspect
+import sys
+from pprint import pprint
+
 import requests
 import os
+import glob
 from time import time
+from models import *
 
 from utils.oauth import OAuth
 
-class ApiWoo():
+mapping = {}
+
+
+def map_models():
+    modules = [key for key, value in sys.modules.items() if key.startswith("models.")]
+    for module in modules:
+        classes = inspect.getmembers(sys.modules[module], inspect.isclass)
+        for _class in classes:
+            for member in inspect.getmembers(_class[1]):
+                if '__init__' in member:
+                    _vars = frozenset([arg for arg in inspect.signature(member[1]).parameters.keys() if arg != 'self' and arg != 'api'])
+                    mapping[_vars] = _class[1]
+
+
+map_models()
+
+
+class ApiWoo:
 
     def _get_env_var(self, var):
         try:
@@ -29,7 +52,7 @@ class ApiWoo():
             version='wc/v3'
         )
         return oauth.get_oauth_url()
-    
+
     def get_products(self):
         resp = requests.get(
             self.__get_oauth_url(f'{self.url}/products', 'GET'),
