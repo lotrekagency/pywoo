@@ -7,7 +7,7 @@ import os
 import json
 from time import time
 from models import *
-
+from models.coupon import Coupon
 from utils.oauth import OAuth
 
 mapping = {}
@@ -68,6 +68,28 @@ class Api:
             headers=self._get_default_headers()
         )
         return resp.json()
+    
+    def delete_coupon(self, id):
+        json_coupon = {
+            "id" : id
+        }
+        resp = requests.delete(
+            self.__get_oauth_url(f'{self.url}/coupons', 'DELETE'),
+            data = json.dumps(json_coupon),
+            headers=self._get_default_headers()
+        )
+        return resp.json()
+
+    '''
+    def update_coupon(self, id):
+        json_coupon = Coupon.from_json()
+        resp = requests.put(
+            self.__get_oauth_url(f'{self.url}/coupons/{id}', 'PUT'),
+            data = json.dumps(json_coupon),
+            headers=self._get_default_headers()
+        )
+        return resp.json()
+    '''
 
     def get_coupon(self, id):
         resp = requests.get(
@@ -85,4 +107,7 @@ class Api:
         resp = requests.get(
             self.__get_oauth_url(f'{self.url}/coupons', 'GET'),
         )
-        return resp.json()
+        resp_json = resp.json()
+        for index, element in enumerate(resp_json):
+            print(resp_json[index])
+        #return resp.json()
