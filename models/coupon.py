@@ -7,7 +7,7 @@ from utils.models import ApiObject, MetaData
 class Coupon(ApiObject):
     def __init__(self, id, code, amount, date_created, date_created_gmt, date_modified, date_modified_gmt,
                  discount_type, description, date_expires, date_expires_gmt, usage_count, individual_use, product_ids,
-                 excluded_products_ids, usage_limit, usage_limit_per_user, limit_usage_to_x_items, free_shipping,
+                 excluded_product_ids, usage_limit, usage_limit_per_user, limit_usage_to_x_items, free_shipping,
                  product_categories, excluded_product_categories, exclude_sale_items, minimum_amount, maximum_amount,
                  email_restrictions, used_by, meta_data, api):
         super().__init__(api)
@@ -25,7 +25,7 @@ class Coupon(ApiObject):
         self._usage_count = usage_count
         self.individual_use = individual_use
         self.product_ids = product_ids # TODO put a list of product objects
-        self.excluded_product_ids = excluded_products_ids # TODO same as above
+        self.excluded_product_ids = excluded_product_ids # TODO same as above
         self.usage_limit = usage_limit
         self.usage_limit_per_user = usage_limit_per_user
         self.limit_usage_to_x_items = limit_usage_to_x_items
@@ -36,7 +36,20 @@ class Coupon(ApiObject):
         self.maximum_amount = maximum_amount
         self.email_restrictions = email_restrictions
         self._used_by = used_by # TODO same as others
-        self.meta_data = [json.loads(m_d, object_hook=lambda o: MetaData(*o.values)) for m_d in meta_data]
+        self.meta_data = meta_data
+
+    @classmethod
+    def get_coupon(cls, api, id):
+        return Coupon.from_json(json.dumps(api.get_coupon(id)), api)
+
+    @classmethod
+    def create_coupon(cls, api, code):
+        return Coupon.from_json(json.dumps(api.create_coupon(code)), api)
+
+    @staticmethod
+    def from_json(json_data, api):
+        coupon = json.loads(json_data)
+        return Coupon(coupon['id'], coupon['code'], coupon['amount'], coupon['date_created'], coupon['date_created_gmt'], coupon['date_modified'], coupon['date_modified_gmt'], coupon['discount_type'], coupon['description'], coupon['date_expires'], coupon['date_expires_gmt'], coupon['usage_count'], coupon['individual_use'], coupon['product_ids'], coupon['excluded_product_ids'], coupon['usage_limit'], coupon['usage_limit_per_user'], coupon['limit_usage_to_x_items'], coupon['free_shipping'], coupon['product_categories'], coupon['excluded_product_categories'], coupon['exclude_sale_items'], coupon['minimum_amount'], coupon['maximum_amount'], coupon['email_restrictions'], coupon['used_by'], coupon['meta_data'], api)
 
     @property
     def id(self):
@@ -55,7 +68,7 @@ class Coupon(ApiObject):
         return self._date_modified
 
     @property
-    def date_modified(self):
+    def date_modified_gmt(self):
         return self._date_modified_gmt
 
     @property
