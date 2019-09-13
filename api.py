@@ -1,5 +1,6 @@
 import requests
 import os
+import json
 from time import time
 
 from utils.oauth import OAuth
@@ -41,7 +42,7 @@ class Api():
         }
         resp = requests.post(
             self.__get_oauth_url(f'{self.url}/coupons', 'POST'),
-            data = json_coupon,
+            data = json.dumps(json_coupon),
             headers=self._get_default_headers()
         )
         return resp.json()

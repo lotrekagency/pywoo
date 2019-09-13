@@ -46,6 +46,10 @@ class Coupon(ApiObject):
     def create_coupon(cls, api, code):
         return Coupon.from_json(json.dumps(api.create_coupon(code)), api)
 
+    @classmethod
+    def delete_coupon(cls, api, id):
+        
+
     @staticmethod
     def from_json(json_data, api):
         coupon = json.loads(json_data)
