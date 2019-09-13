@@ -19,8 +19,8 @@ class Customer(ApiObject):
         self._role = role
         self.username = username
         # self.password = None # TODO write-only field
-        self.billing = billing  # TODO
-        self.shipping = shipping  # TODO
+        self.billing = billing
+        self.shipping = shipping
         self._is_paying_customer = is_paying_customer
         self._avatar_url = avatar_url
         self.meta_data = meta_data
@@ -54,10 +54,9 @@ class Customer(ApiObject):
         return self._avatar_url
 
 
-class CustomerBilling(ApiObject):
-    def __init__(self, first_name, last_name, company, address_1, address_2, city, state, postcode, country, email,
-                 phone, api):
-        super().__init__(api)
+class CustomerBilling:
+    def __init__(self, first_name=None, last_name=None, company=None, address_1=None, address_2=None, city=None,
+                 state=None, postcode=None, country=None, email=None, phone=None):
         self.first_name = first_name
         self.last_name = last_name
         self.company = company
@@ -71,9 +70,9 @@ class CustomerBilling(ApiObject):
         self.phone = phone
 
 
-class CustomerShipping(ApiObject):
-    def __init__(self, first_name, last_name, company, address_1, address_2, city, state, postcode, country, api):
-        super().__init__(api)
+class CustomerShipping:
+    def __init__(self, first_name=None, last_name=None, company=None, address_1=None, address_2=None, city=None,
+                 state=None, postcode=None, country=None):
         self.first_name = first_name
         self.last_name = last_name
         self.company = company

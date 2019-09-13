@@ -1,5 +1,3 @@
-import inspect
-import sys
 from pprint import pprint
 
 import requests
@@ -9,23 +7,10 @@ from time import time
 from models import *
 from models.coupon import Coupon
 from utils.oauth import OAuth
-
-mapping = {}
-
-
-def map_models():
-    modules = [key for key, value in sys.modules.items() if key.startswith("models.")]
-    for module in modules:
-        classes = inspect.getmembers(sys.modules[module], inspect.isclass)
-        for _class in classes:
-            for member in inspect.getmembers(_class[1]):
-                if '__init__' in member:
-                    _vars = frozenset([arg for arg in inspect.signature(member[1]).parameters.keys() if arg != 'self' and arg != 'api'])
-                    mapping[_vars] = _class[1]
+from utils.parse import map_models
 
 
 map_models()
-
 
 class Api:
 
@@ -58,56 +43,29 @@ class Api:
         headers["content-type"] = "application/json;charset=utf-8"
         return headers
 
-    def create_coupon(self, code):
-        json_coupon = {
-            "code" : code
-        }
+    def _create(self, url, kwargs):
         resp = requests.post(
-            self.__get_oauth_url(f'{self.url}/coupons', 'POST'),
-            data = json.dumps(json_coupon),
+            self.__get_oauth_url(f'{self.url}/{url}', 'POST'),
+            data=kwargs,
             headers=self._get_default_headers()
         )
-        return resp.json()
-    
-    def delete_coupon(self, id):
-        json_coupon = {
-            "id" : id
-        }
-        resp = requests.delete(
-            self.__get_oauth_url(f'{self.url}/coupons', 'DELETE'),
-            data = json.dumps(json_coupon),
-            headers=self._get_default_headers()
-        )
-        return resp.json()
+        return resp
 
-    '''
-    def update_coupon(self, id):
-        json_coupon = Coupon.from_json()
-        resp = requests.put(
-            self.__get_oauth_url(f'{self.url}/coupons/{id}', 'PUT'),
-            data = json.dumps(json_coupon),
-            headers=self._get_default_headers()
-        )
-        return resp.json()
-    '''
-
-    def get_coupon(self, id):
+    def _get(self, url, id=''):
         resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/coupons/{id}', 'GET')
+            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'GET')
         )
-        return resp.json()
+        return resp
 
-    def get_products(self):
-        resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/products', 'GET'),
-        )
-        return resp.json()
+    def create_coupon(self, **kwargs):
+        return self._create('coupons', kwargs).text
 
-    def get_coupons(self):
-        resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/coupons', 'GET'),
-        )
-        resp_json = resp.json()
-        for index, element in enumerate(resp_json):
-            print(resp_json[index])
-        #return resp.json()
+    def get_coupons(self, id=''):
+        return self._get('coupons', id=id).text
+
+    def create_customer(self, **kwargs):
+        return self._create('customer', kwargs).text
+
+    def get_customers(self, id=''):
+        return self._get('customer', id=id).text
+

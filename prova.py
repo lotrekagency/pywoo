@@ -2,4 +2,5 @@ from api import Api
 from models.coupon import Coupon
 
 api = Api()
-Coupon.get_coupons(api)
+c = Coupon.get_coupon(api, 36)
+print(c.id)
