@@ -6,7 +6,11 @@ from api import mapping
 def find_mapping(data, api):
     if '_links' in data:
         del data['_links']
-    return mapping[data.keys()](*data.values(), api)
+    len_param = len(mapping.signature(mapping[data.keys()].__init__).parameters) - 1
+    if len(data.keys()) == len_param:
+        return mapping[data.keys()](*data.values())
+    else:
+        return mapping[data.keys()](*data.values(), api)
 
 
 def get_dict_data(data):

@@ -58,7 +58,7 @@ class Api:
         headers["content-type"] = "application/json;charset=utf-8"
         return headers
 
-    def _create(self, url, **kwargs):
+    def _create(self, url, kwargs):
         resp = requests.post(
             self.__get_oauth_url(f'{self.url}/{url}', 'POST'),
             data=kwargs,

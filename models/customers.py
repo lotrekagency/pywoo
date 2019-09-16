@@ -9,10 +9,10 @@ class Customer(ApiObject):
                  last_name, role, username, billing, shipping, is_paying_customer, avatar_url, meta_data, api):
         super().__init__(api)
         self._id = id
-        self._date_created = datetime.strptime(date_created, '%Y-%m-%dT%H:%M:%S.%fZ')
-        self._date_created_gmt = datetime.strptime(date_created_gmt, '%Y-%m-%dT%H:%M:%S.%fZ')
-        self._date_modified = datetime.strptime(date_modified, '%Y-%m-%dT%H:%M:%S.%fZ')
-        self._date_modified_gmt = datetime.strptime(date_modified_gmt, '%Y-%m-%dT%H:%M:%S.%fZ')
+        self._date_created = datetime.strptime(date_created, '%Y-%m-%dT%H:%M:%S')
+        self._date_created_gmt = datetime.strptime(date_created_gmt, '%Y-%m-%dT%H:%M:%S')
+        self._date_modified = datetime.strptime(date_modified, '%Y-%m-%dT%H:%M:%S')
+        self._date_modified_gmt = datetime.strptime(date_modified_gmt, '%Y-%m-%dT%H:%M:%S')
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
