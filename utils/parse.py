@@ -1,8 +1,10 @@
 import inspect
 import sys
 import json
+from datetime import datetime
 
 mapping = {}
+
 
 def map_models():
     modules = [key for key, value in sys.modules.items() if key.startswith("models.")]
@@ -12,15 +14,19 @@ def map_models():
             for member in inspect.getmembers(_class[1]):
                 if '__init__' in member:
                     _vars = frozenset([arg for arg in inspect.signature(member[1]).parameters.keys() if
-                             arg != 'self' and arg != 'api'])
+                                       arg != 'self' and arg != 'api'])
                     mapping[_vars] = _class[1]
+
 
 def find_mapping(data, api):
     if '_links' in data:
         del data['_links']
-    if 'href' in data or 'self' in data or 'collection' in data:
-        return {}
-    return mapping[frozenset(data.keys())](*data.values(), api)
+    try:
+        return mapping[frozenset(data.keys())](*data.values(), api)
+    except KeyError:
+        print(data.keys(), "frozenset NOT FOUND")
+        return dict(zip(data.keys(), data.values()))
+
 
 def get_dict_data(data):
     data = data.__dict__
@@ -31,8 +37,14 @@ def get_dict_data(data):
         data[key[1:]] = value
     return data
 
+
 def from_json(data, api):
     return json.loads(data, object_hook=lambda d: find_mapping(d, api))
 
+
 def to_json(data):
     return json.dumps(get_dict_data(data), default=get_dict_data)
+
+
+def parse_date_time(date_time):
+    return datetime.strptime(date_time, '%Y-%m-%dT%H:%M:%S') if date_time else None

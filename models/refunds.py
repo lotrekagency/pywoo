@@ -1,4 +1,6 @@
+from datetime import datetime
 from utils.models import ApiObject
+from utils.parse import parse_date_time
 
 
 class Refund(ApiObject):
@@ -6,8 +8,8 @@ class Refund(ApiObject):
                  line_items, api):
         super().__init__(api)
         self._id = id
-        self._date_created = date_created
-        self._date_created_gmt = date_created_gmt
+        self._date_created = parse_date_time(date_created)
+        self._date_created_gmt = parse_date_time(date_created_gmt)
         self.amount = amount
         self.reason = reason
         self.refunded_by = refunded_by
@@ -34,8 +36,9 @@ class Refund(ApiObject):
 
 
 class RefundLine:
-    def __init__(self, id, name, product_id, variation_id, quantity, tax_class, subtotal, subtotal_tax, total,
-                 total_tax, taxes, meta_data, sku, price):
+    def __init__(self, id=None, name=None, product_id=None, variation_id=None, quantity=None, tax_class=None,
+                 subtotal=None, subtotal_tax=None, total=None, total_tax=None, taxes=[], meta_data=[], sku=None,
+                 price=None):
         self._id = id
         self.name = name
         self.product_id = product_id
@@ -73,7 +76,7 @@ class RefundLine:
 
 
 class RefundItemLine:
-    def __init__(self, id, total, subtotal):
+    def __init__(self, id=None, total=None, subtotal=None):
         self._id = id
         self._total = total
         self._subtotal = subtotal

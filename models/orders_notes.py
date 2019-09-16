@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from utils.models import ApiObject
+from utils.parse import parse_date_time
 
 
 class OrderNote(ApiObject):
@@ -8,8 +7,8 @@ class OrderNote(ApiObject):
         super().__init__(api)
         self._id = id
         self._author = author
-        self._date_created = datetime.strptime(date_created, '%Y-%m-%dT%H:%M:%S')
-        self._date_created_gmt = datetime.strptime(date_created_gmt, '%Y-%m-%dT%H:%M:%S')
+        self._date_created = parse_date_time(date_created)
+        self._date_created_gmt = parse_date_time(date_created_gmt)
         self.note = note
         self.customer_note = customer_note
         self.added_by_user = added_by_user

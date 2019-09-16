@@ -1,6 +1,3 @@
-import api
-
-
 class ApiObject:
     def __init__(self, api):
         self._api = api

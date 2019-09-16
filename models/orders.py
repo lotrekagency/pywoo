@@ -1,7 +1,8 @@
 from utils.models import ApiObject
+from utils.parse import parse_date_time
 
 
-class Orders(ApiObject):
+class Order(ApiObject):
     def __init__(self, id, parent_id, number, order_key, created_via, version, status, currency, date_created,
                  date_created_gmt, date_modified, date_modified_gmt, discount_total, discount_tax, shipping_total,
                  shipping_tax, cart_tax, total, total_tax, prices_include_tax, customer_id, customer_ip_address,
@@ -17,10 +18,10 @@ class Orders(ApiObject):
         self._version = version
         self.status = status
         self.currency = currency
-        self._date_created = date_created
-        self._date_created_gmt = date_created_gmt
-        self._date_modified = date_modified
-        self._date_modified_gmt = date_modified_gmt
+        self._date_created = parse_date_time(date_created)
+        self._date_created_gmt = parse_date_time(date_created_gmt)
+        self._date_modified = parse_date_time(date_modified)
+        self._date_modified_gmt = parse_date_time(date_modified_gmt)
         self._discount_total = discount_total
         self._discount_tax = discount_tax
         self._shipping_total = shipping_total
@@ -38,10 +39,10 @@ class Orders(ApiObject):
         self.payment_method = payment_method
         self.payment_method_title = payment_method_title
         self.transaction_id = transaction_id
-        self._date_paid = date_paid
-        self._date_paid_gmt = date_paid_gmt
-        self._date_completed = date_completed
-        self._date_completed_gmt = date_completed_gmt
+        self._date_paid = parse_date_time(date_paid)
+        self._date_paid_gmt = parse_date_time(date_paid_gmt)
+        self._date_completed = parse_date_time(date_completed)
+        self._date_completed_gmt = parse_date_time(date_completed_gmt)
         self._cart_hash = cart_hash
         self.meta_data = meta_data
         self.line_items = line_items

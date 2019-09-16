@@ -1,7 +1,5 @@
-from datetime import datetime
-import json
-
-from utils.models import ApiObject, MetaData
+from utils.models import ApiObject
+from utils.parse import parse_date_time
 
 
 class Customer(ApiObject):
@@ -9,10 +7,10 @@ class Customer(ApiObject):
                  last_name, role, username, billing, shipping, is_paying_customer, avatar_url, meta_data, api):
         super().__init__(api)
         self._id = id
-        self._date_created = datetime.strptime(date_created, '%Y-%m-%dT%H:%M:%S')
-        self._date_created_gmt = datetime.strptime(date_created_gmt, '%Y-%m-%dT%H:%M:%S')
-        self._date_modified = datetime.strptime(date_modified, '%Y-%m-%dT%H:%M:%S')
-        self._date_modified_gmt = datetime.strptime(date_modified_gmt, '%Y-%m-%dT%H:%M:%S')
+        self._date_created = parse_date_time(date_created)
+        self._date_created_gmt = parse_date_time(date_created_gmt)
+        self._date_modified = parse_date_time(date_modified)
+        self._date_modified_gmt = parse_date_time(date_modified_gmt)
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
