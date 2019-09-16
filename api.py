@@ -1,31 +1,16 @@
-import inspect
-import sys
 from pprint import pprint
 
 import requests
 import os
+import json
 from time import time
 from models import *
-
+from models.coupon import Coupon
 from utils.oauth import OAuth
-
-mapping = {}
-
-
-def map_models():
-    modules = [key for key, value in sys.modules.items() if key.startswith("models.")]
-    for module in modules:
-        classes = inspect.getmembers(sys.modules[module], inspect.isclass)
-        for _class in classes:
-            for member in inspect.getmembers(_class[1]):
-                if '__init__' in member:
-                    _vars = [arg for arg in inspect.signature(member[1]).parameters.keys() if
-                             arg != 'self' and arg != 'api']
-                    mapping[_vars] = _class[1]
+from utils.parse import map_models
 
 
 map_models()
-
 
 class Api:
 
