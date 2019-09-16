@@ -1,8 +1,6 @@
-import json
+from utils.models import ApiObject
+from utils.parse import from_json, parse_date_time
 
-from datetime import datetime
-from utils.models import ApiObject, MetaData
-from utils.parse import from_json, to_json
 
 class Coupon(ApiObject):
     def __init__(self, id, code, amount, date_created, date_created_gmt, date_modified, date_modified_gmt,
@@ -14,14 +12,14 @@ class Coupon(ApiObject):
         self._id = id
         self.code = code
         self.amount = amount
-        self._date_created = datetime.strptime(date_created, '%Y-%m-%dT%H:%M:%S').isoformat()
-        self._date_created_gmt = datetime.strptime(date_created_gmt, '%Y-%m-%dT%H:%M:%S').isoformat()
-        self._date_modified = datetime.strptime(date_modified, '%Y-%m-%dT%H:%M:%S').isoformat()
-        self._date_modified_gmt = datetime.strptime(date_modified_gmt, '%Y-%m-%dT%H:%M:%S').isoformat()
+        self._date_created = parse_date_time(date_created)
+        self._date_created_gmt = parse_date_time(date_created_gmt)
+        self._date_modified = parse_date_time(date_modified)
+        self._date_modified_gmt = parse_date_time(date_modified_gmt)
         self.discount_type = discount_type
         self.description = description
-        self.date_expires = datetime.strptime(date_expires, '%Y-%m-%dT%H:%M:%S').isoformat() if date_expires != None else None
-        self.date_expires_gmt = datetime.strptime(date_expires_gmt, '%Y-%m-%dT%H:%M:%S').isoformat() if date_expires_gmt != None else None
+        self.date_expires = parse_date_time(date_expires)
+        self.date_expires_gmt = parse_date_time(date_expires_gmt)
         self._usage_count = usage_count
         self.individual_use = individual_use
         self.product_ids = product_ids # TODO put a list of product objects
@@ -55,8 +53,10 @@ class Coupon(ApiObject):
     def delete_coupon(cls, api, id):
         return api.delete_coupon(id)
 
+    '''
     def reload_coupon(self, api):
         return api.update_coupon(self.id, to_json(self))
+    '''
 
     @property
     def id(self):

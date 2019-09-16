@@ -1,8 +1,7 @@
-import api
-
 class ApiObject:
     def __init__(self, api):
         self._api = api
+
 
 class MetaData:
     def __init__(self, id=None, key=None, value=None):
