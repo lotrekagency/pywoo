@@ -174,7 +174,7 @@ class ProductDimension:
         self.height = height
 
 
-class ProductCategory:
+class ProductCategoryTag:
     def __init__(self, id=None, name=None, slug=None):
         self.id = id
         self._name = name
@@ -189,7 +189,7 @@ class ProductCategory:
         return self._slug
 
 
-class ProductTag:
+class ProductImage:
     def __init__(self, id=None, date_created=None, date_created_gmt=None, date_modified=None, date_modified_gmt=None,
                  src=None, name=None, alt=None):
         self.id = id

@@ -15,6 +15,8 @@ def map_models():
                 if '__init__' in member:
                     _vars = frozenset([arg for arg in inspect.signature(member[1]).parameters.keys() if
                                        arg != 'self' and arg != 'api'])
+                    if _vars in mapping:
+                        print("Same frozenset mapped more than one time!")
                     mapping[_vars] = _class[1]
 
 

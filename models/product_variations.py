@@ -9,6 +9,7 @@ class ProductVariation(ApiObject):
                  download_expiry, tax_status, tax_class, manage_stock, stock_quantity, stock_status, backorders,
                  backorders_allowed, backordered, weight, dimensions, shipping_class, shipping_class_id, image,
                  attributes, menu_order, meta_data, api):
+        super().__init__(api)
         self._id = id
         self._date_created = parse_date_time(date_created)
         self._date_created_gmt = parse_date_time(date_created_gmt)
