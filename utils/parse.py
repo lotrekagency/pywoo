@@ -1,4 +1,5 @@
 import inspect
+import re
 import sys
 import json
 from datetime import datetime
@@ -13,10 +14,10 @@ def map_models():
         for _class in classes:
             for member in inspect.getmembers(_class[1]):
                 if '__init__' in member:
-                    _vars = frozenset([arg for arg in inspect.signature(member[1]).parameters.keys() if
-                                       arg != 'self' and arg != 'api'])
+                    _vars = frozenset([re.sub(r"_$", "", arg) for arg in inspect.signature(member[1]).parameters.keys()
+                                       if arg != 'self' and arg != 'api'])
                     if _vars in mapping:
-                        print("Same frozenset mapped more than one time!")
+                        print("Same frozenset mapped more than one time!", _vars)
                     mapping[_vars] = _class[1]
 
 
