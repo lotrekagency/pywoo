@@ -1,7 +1,6 @@
 import inspect
 import sys
 import json
-
 mapping = {}
 
 def map_models():

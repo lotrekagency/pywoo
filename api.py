@@ -9,7 +9,7 @@ from models.coupon import Coupon
 from utils.oauth import OAuth
 from utils.parse import map_models
 
-
+from utils.parse import from_json
 map_models()
 
 class Api:
@@ -40,7 +40,6 @@ class Api:
 
     def _get_default_headers(self):
         headers = {}
-        headers["content-type"] = "application/json;charset=utf-8"
         return headers
 
     def _create(self, url, kwargs):
@@ -49,23 +48,67 @@ class Api:
             data=kwargs,
             headers=self._get_default_headers()
         )
-        return resp
+        if(resp.status_code != 200):
+            print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
+            return
+        print("\033[1;32;40mSTATUS 200 Created successfully\033[0;37;40m")
+        return from_json(resp.text, self)
 
     def _get(self, url, id=''):
         resp = requests.get(
             self.__get_oauth_url(f'{self.url}/{url}/{id}', 'GET')
         )
-        return resp
+        if(resp.status_code != 200):
+            print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
+            return
+        print("\033[1;32;40mSTATUS 200 Read successfully\033[0;37;40m")
+        return from_json(resp.text, self)
+
+    def _put(self, url, id, kwargs):
+        print(kwargs)
+        resp = requests.put(
+            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'PUT'),
+            data=kwargs,
+            headers=self._get_default_headers()
+        )
+        if(resp.status_code != 200):
+            print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
+            return
+        print("\033[1;32;40mSTATUS 200 Updated successfully\033[0;37;40m")
+        return from_json(resp.text, self)
+    
+    def _delete(self, url, id):
+        resp = requests.delete(
+            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'DELETE'),
+            headers=self._get_default_headers()
+        )
+        if(resp.status_code != 200):
+            print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
+            return
+        print("\033[1;32;40mSTATUS 200 Deleted successfully\033[0;37;40m")
+        return from_json(resp.text, self) 
 
     def create_coupon(self, **kwargs):
-        return self._create('coupons', kwargs).text
+        return self._create('coupons', kwargs)
 
     def get_coupons(self, id=''):
-        return self._get('coupons', id=id).text
+        return self._get('coupons', id=id)
+
+    def update_coupon(self, id, **kwargs):
+        print(kwargs)
+        return self._put('coupons', id, kwargs)
+
+    '''
+    def edit_coupon(self, id, data):
+        return self._put('coupons', id, json.loads(data))
+    '''
+
+    def delete_coupon(self, id):
+        return self._delete('coupons', id)
 
     def create_customer(self, **kwargs):
-        return self._create('customer', kwargs).text
+        return self._create('customer', kwargs)
 
     def get_customers(self, id=''):
-        return self._get('customer', id=id).text
+        return self._get('customer', id=id)
 
