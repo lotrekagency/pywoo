@@ -8,8 +8,8 @@ class ProductVariation(ApiObject):
                  date_on_sale_to_gmt, on_sale, status, purchasable, virtual, downloadable, downloads, download_limit,
                  download_expiry, tax_status, tax_class, manage_stock, stock_quantity, stock_status, backorders,
                  backorders_allowed, backordered, weight, dimensions, shipping_class, shipping_class_id, image,
-                 attributes, menu_order, meta_data, api):
-        super().__init__(api)
+                 attributes, menu_order, meta_data, api, url):
+        super().__init__(api, url)
         self._id = id
         self._date_created = parse_date_time(date_created)
         self._date_created_gmt = parse_date_time(date_created_gmt)
@@ -67,7 +67,8 @@ class ProductVariation(ApiObject):
         return api.delete_product_variation(product_id=product_id, id=id)
 
     def update(self):
-        return self._api.update_product_variation(self.id, **to_json(self))
+        print(self._product_id)
+        #return self._api.update_product_variation(self.id, **to_json(self))
 
     def delete(self):
         return self._api.update_product_variation(self.id)
@@ -119,3 +120,7 @@ class ProductVariation(ApiObject):
     @property
     def shipping_class_id(self):
         return self._shipping_class_id
+
+    @property
+    def product_id(self):
+        return self._url.split('/')[1]

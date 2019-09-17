@@ -1,6 +1,7 @@
 class ApiObject:
-    def __init__(self, api):
+    def __init__(self, api, url):
         self._api = api
+        self._url = url
 
 
 class MetaData:

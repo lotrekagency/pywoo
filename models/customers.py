@@ -3,8 +3,8 @@ from utils.parse import parse_date_time, to_json
 
 class Customer(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, date_modified, date_modified_gmt, email, first_name,
-                 last_name, role, username, billing, shipping, is_paying_customer, avatar_url, meta_data, api):
-        super().__init__(api)
+                 last_name, role, username, billing, shipping, is_paying_customer, avatar_url, meta_data, api, url):
+        super().__init__(api, url)
         self._id = id
         self._date_created = parse_date_time(date_created)
         self._date_created_gmt = parse_date_time(date_created_gmt)

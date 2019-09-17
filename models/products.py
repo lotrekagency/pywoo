@@ -10,8 +10,8 @@ class Product(ApiObject):
                  backorders, backorders_allowed, backordered, sold_individually, weight, dimensions, shipping_required,
                  shipping_taxable, shipping_class, shipping_class_id, reviews_allowed, average_rating, rating_count,
                  related_ids, upsell_ids, cross_sell_ids, parent_id, purchase_note, categories, tags, images,
-                 attributes, default_attributes, variations, grouped_products, menu_order, meta_data, api):
-        super().__init__(api)
+                 attributes, default_attributes, variations, grouped_products, menu_order, meta_data, api, url):
+        super().__init__(api, url)
         self._id = id
         self.name = name
         self.slug = slug
