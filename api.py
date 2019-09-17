@@ -158,6 +158,7 @@ class Api:
         return self._get(f'products/{product_id}/variations', id, params)
 
     def update_product_variation(self, product_id, id, **data):
+        print(data)
         return self._put(f'products/{product_id}/variations', id, data)
 
     def delete_product_variation(self, product_id, id):

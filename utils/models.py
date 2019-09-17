@@ -3,7 +3,6 @@ class ApiObject:
         self._api = api
         self._url = url
 
-
 class MetaData:
     def __init__(self, id=None, key=None, value=None):
         self._id = id
