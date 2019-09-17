@@ -1,6 +1,13 @@
+import re
 
-class ShippingZoneMethods:
-    def __init__(self, instance_id, title, order, enabled, method_id, method_title, method_description, settings):
+from utils.models import ApiObject
+from utils.parse import to_json
+
+
+class ShippingZoneMethods(ApiObject):
+    def __init__(self, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api,
+                 url):
+        super().__init__(api, url)
         self._instance_id = instance_id
         self._title = title
         self.order = order
@@ -9,16 +16,42 @@ class ShippingZoneMethods:
         self._method_title = method_title
         self._method_description = method_description
         self.settings = settings
+        self._shipping_zone_id = re.search(r'shipping/zones/\d+/methods').group()
 
+    @classmethod
+    def get_shipping_zone_method(cls, api, shipping_zone_id, id=''):
+        return api.get_shipping_zone_methods(shipping_zone_id, id)
 
-class ShippingMethodSetting:
-    def __init__(self, id=None, label=None, description=None, type=None, value=None, default=None, tip=None,
-                 placeholder=None):
-        self._id = id
-        self._label = label
-        self._description = description
-        self._type = type
-        self.value = value
-        self._default = default
-        self._tip = tip
-        self._placeholder = placeholder
+    @classmethod
+    def create_shipping_zone_method(cls, api, shipping_zone_id, **kwargs):
+        return api.create_shipping_zone_method(shipping_zone_id, **kwargs)
+
+    @classmethod
+    def edit_shipping_zone_method(cls, api, shipping_zone_id, id, **kwargs):
+        return api.update_shipping_zone_method(shipping_zone_id, id, **kwargs)
+
+    @classmethod
+    def delete_shipping_zone_method(cls, api, shipping_zone_id, id):
+        return api.delete_shipping_zone_method(shipping_zone_id, id)
+
+    def update(self):
+        return self._api.update_shipping_zone_method(self._shipping_zone_id, self.id, **to_json(self))
+
+    def delete(self):
+        return self._api.delete_shipping_zone_method(self._shipping_zone_id, self.id)
+
+    @property
+    def instance_id(self):
+        return self._instance_id
+
+    @property
+    def title(self):
+        return self._title
+
+    @property
+    def method_title(self):
+        return self._method_title
+
+    @property
+    def method_description(self):
+        return self._method_description

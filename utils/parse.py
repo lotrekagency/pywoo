@@ -16,7 +16,7 @@ def map_models():
                 if '__init__' in member:
                     _vars = frozenset([re.sub(r"_$", "", arg) for arg in inspect.signature(member[1]).parameters.keys()
                                        if arg != 'self' and arg != 'api' and arg != 'url'])
-                    if _vars in mapping:
+                    if _vars in mapping and len(_vars) != 0:
                         print("Same frozenset mapped more than one time!", _vars)
                     mapping[_vars] = _class[1]
 
@@ -25,21 +25,18 @@ def find_mapping(data, api, url):
     if '_links' in data:
         del data['_links']
     try:
-        return mapping[frozenset(data.keys())](*data.values(), api, url)
+        if len(inspect.signature(mapping[frozenset(data.keys())].__init__).parameters) == len(data.values()) + 1:
+            return mapping[frozenset(data.keys())](*data.values())
+        else:
+            return mapping[frozenset(data.keys())](*data.values(), api, url)
     except KeyError:
-        #print(data.keys(), "frozenset NOT FOUND")
+        print(data.keys(), "frozenset NOT FOUND")
         return dict(zip(data.keys(), data.values()))
 
 
 def get_dict_data(data):
     data = data.__dict__
-    keys_to_rename = [key for key in data.keys() if key.startswith("_")]
-    for key in keys_to_rename:
-        value = data[key]
-        del data[key]
-        data[key[1:]] = value
-    data.pop('id', None)
-    return data
+    return {key: value for key, value in data.items() if not key.startswith("_")}
 
 
 def from_json(data, api, url):

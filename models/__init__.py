@@ -1,19 +1,4 @@
-from models.coupon import *
-from models.customers import *
-from models.orders_notes import *
-from models.orders import *
-from models.payment_gateways import *
-from models.products_attribute_terms import *
-from models.product_reviews import *
-from models.product_categories import *
-from models.product_shipping_tag import *
-from models.product_variations import *
-from models.product_attributes import *
-from models.products import *
-from models.refunds import *
-from models.shipping_methods import *
-from models.shipping_zone_locations import *
-from models.shipping_zone_methods import *
-from models.shipping_zones import *
-from models.tax_classes import *
-from models.tax_rates import *
+from os.path import dirname, basename, isfile, join
+import glob
+modules = glob.glob(join(dirname(__file__), "*.py"))
+__all__ = [ basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('__init__.py')]

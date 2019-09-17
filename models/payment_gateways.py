@@ -32,7 +32,7 @@ class PaymentGateway(ApiObject):
         return self._method_supports
 
 
-class PaymentGatewaySetting:
+class Setting:
     def __init__(self, id=None, label=None, description=None, type=None, value=None, default=None, tip=None,
                  placeholder=None):
         self._id = id
