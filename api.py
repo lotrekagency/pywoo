@@ -7,9 +7,7 @@ from time import time
 from models import *
 from models.coupon import Coupon
 from utils.oauth import OAuth
-from utils.parse import map_models, to_json
-
-from utils.parse import from_json
+from utils.parse import map_models, to_json, from_json, add_url_field
 
 map_models()
 
@@ -54,7 +52,7 @@ class Api:
             print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
             return
         print("\033[1;32;40mSTATUS 200 Created successfully\033[0;37;40m")
-        return from_json(resp.text, self)
+        return from_json(add_url_field(resp.text, url), self)
 
     def _get(self, url, id='', params={}):
         resp = requests.get(
@@ -65,7 +63,8 @@ class Api:
             print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
             return
         print("\033[1;32;40mSTATUS 200 Read successfully\033[0;37;40m")
-        return from_json(resp.text, self)
+        print(add_url_field(resp.text, url))
+        return from_json(add_url_field(resp.text, url), self)
 
     def _put(self, url, id, kwargs):
         resp = requests.put(
@@ -77,7 +76,7 @@ class Api:
             print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
             return
         print("\033[1;32;40mSTATUS 200 Updated successfully\033[0;37;40m")
-        return from_json(resp.text, self)
+        return from_json(add_url_field(resp.text, url), self)
 
     def _delete(self, url, id, params={}):
         resp = requests.delete(
@@ -89,7 +88,7 @@ class Api:
             print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
             return
         print("\033[1;32;40mSTATUS 200 Deleted successfully\033[0;37;40m")
-        return from_json(resp.text, self)
+        return from_json(add_url_field(resp.text, url), self)
 
     def create_coupon(self, **data):
         return self._create('coupons', data)
@@ -102,12 +101,20 @@ class Api:
 
     def delete_coupon(self, id):
         return self._delete('coupons', id)
+        
 
     def create_customer(self, **data):
-        return self._create('customer', data)
+        return self._create('customers', data)
 
     def get_customers(self, id=''):
-        return self._get('customer', id)
+        return self._get('customers', id)
+
+    def update_customer(self, id, **kwargs):
+        return self._put('coupons', id, kwargs)
+
+    def delete_customer(self, id):
+        return self._delete('coupons', id)
+
 
     def create_product(self, **data):
         return self._create('products', **data)
@@ -115,11 +122,12 @@ class Api:
     def get_products(self, id='', **params):
         return self._get('products', id, params)
 
-    def update_products(self, id, **data):
+    def update_product(self, id, **data):
         return self._put('products', id, data)
 
-    def delete_products(self, id, force=False):
+    def delete_product(self, id, force=False):
         return self._delete('products', id, force)
+
 
     def create_product_variation(self, product_id, **data):
         return self._create('products/%d/variations', data)
@@ -132,6 +140,7 @@ class Api:
 
     def delete_product_variation(self, product_id, id):
         return self._delete('products/%d/variations' % product_id, id, {'force': True})
+    
 
     def create_product_attribute(self, **data):
         return self._create('products/attributes', data)

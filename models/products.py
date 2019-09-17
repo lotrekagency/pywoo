@@ -1,6 +1,5 @@
 from utils.models import ApiObject
-from utils.parse import parse_date_time
-
+from utils.parse import parse_date_time, to_json
 
 class Product(ApiObject):
     def __init__(self, id, name, slug, permalink, date_created, date_created_gmt, date_modified, date_modified_gmt,
@@ -78,6 +77,28 @@ class Product(ApiObject):
         self.grouped_products = grouped_products
         self.menu_order = menu_order
         self.meta_data = meta_data
+
+    @classmethod
+    def get_products(cls, api, id=''):
+        return api.get_products(id=id)
+
+    @classmethod
+    def create_product(cls, api, **kwargs):
+        return api.create_product(**kwargs)
+    
+    @classmethod
+    def edit_product(cls, api, id, **kwargs):
+        return api.update_product(id, **kwargs)
+
+    @classmethod
+    def delete_product(cls, api, id):
+        return api.delete_product(id)
+
+    def update(self):
+        return self._api.update_product(self.id, **to_json(self))
+
+    def delete(self):
+        return self._api.delete_product(self.id)
 
     @property
     def id(self):

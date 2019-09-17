@@ -12,8 +12,5 @@ c = api.update_coupon(c.id, **to_json(c))
 #c = Coupon.edit_coupon(api, id='36', code="fagiolo")
 '''
 
-c = Coupon.edit_coupon(api, id='50', code="sdsdsdwewewe2323eww")
-d = Coupon.get_coupons(api, id='50')
-d = d.delete()
-print(d.code)
+c = Coupon.get_coupons(api, id='50')
 

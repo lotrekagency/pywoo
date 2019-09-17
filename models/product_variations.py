@@ -1,5 +1,5 @@
 from utils.models import ApiObject
-from utils.parse import parse_date_time
+from utils.parse import parse_date_time, to_json
 
 
 class ProductVariation(ApiObject):
@@ -49,6 +49,28 @@ class ProductVariation(ApiObject):
         self.attributes = attributes
         self.menu_order = menu_order
         self.meta_data = meta_data
+
+    @classmethod
+    def get_product_variations(cls, api, product_id, id='', **params):
+        return api.get_product_variations(product_id=product_id, **params)
+
+    @classmethod
+    def create_product_variation(cls, api, product_id, **kwargs):
+        return api.create_product_variation(product_id=product_id, **kwargs)
+    
+    @classmethod
+    def edit_product_variation(cls, api, product_id, id, **kwargs):
+        return api.update_product_variation(product_id=product_id, id=id, **kwargs)
+
+    @classmethod
+    def delete_product_variation(cls, api, product_id, id):
+        return api.delete_product_variation(product_id=product_id, id=id)
+
+    def update(self):
+        return self._api.update_product_variation(self.id, **to_json(self))
+
+    def delete(self):
+        return self._api.update_product_variation(self.id)
 
     @property
     def id(self):

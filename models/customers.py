@@ -23,7 +23,7 @@ class Customer(ApiObject):
         self.meta_data = meta_data
 
     @classmethod
-    def get_customer(cls, api, id=''):
+    def get_customers(cls, api, id=''):
         return api.get_customers(id=id)
 
     @classmethod
@@ -39,7 +39,7 @@ class Customer(ApiObject):
         return api.delete_customer(id)
 
     def update(self):
-        return self._api.update_customer(self.id, to_json(self))
+        return self._api.update_customer(self.id, **to_json(self))
 
     def delete(self):
         return self._api.delete_customer(self.id)
