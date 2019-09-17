@@ -22,19 +22,19 @@ class Coupon(ApiObject):
         self.date_expires_gmt = parse_date_time(date_expires_gmt)
         self._usage_count = usage_count
         self.individual_use = individual_use
-        self.product_ids = product_ids # TODO put a list of product objects
-        self.excluded_product_ids = excluded_product_ids # TODO same as above
+        self.product_ids = product_ids
+        self.excluded_product_ids = excluded_product_ids
         self.usage_limit = usage_limit
         self.usage_limit_per_user = usage_limit_per_user
         self.limit_usage_to_x_items = limit_usage_to_x_items
         self.free_shipping = free_shipping
-        self.product_categories = product_categories # TODO put a list of objects
-        self.excluded_product_categories = excluded_product_categories # TODO same as above
+        self.product_categories = product_categories
+        self.excluded_product_categories = excluded_product_categories
         self.exclude_sale_items = exclude_sale_items
         self.minimum_amount = minimum_amount
         self.maximum_amount = maximum_amount
         self.email_restrictions = email_restrictions
-        self._used_by = used_by # TODO same as others
+        self._used_by = used_by
         self.meta_data = meta_data
 
     @classmethod

@@ -32,12 +32,14 @@ def find_mapping(data, api):
 
 
 def get_dict_data(data):
-    data = data.__dict__
-    keys_to_rename = [key for key in data.keys() if key.startswith("_")]
-    for key in keys_to_rename:
-        value = data[key]
-        del data[key]
-        data[key[1:]] = value
+    if not type(data) is dict:
+        data = data.__dict__
+        keys_to_rename = [key for key in data.keys() if key.startswith("_")]
+        for key in keys_to_rename:
+            value = data[key]
+            del data[key]
+            data[key[1:]] = value
+        return data
     return data
 
 

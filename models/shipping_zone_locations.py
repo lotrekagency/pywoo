@@ -1,8 +1,5 @@
-from utils.models import ApiObject
 
-
-class ShippingZoneLocation(ApiObject):
-    def __init__(self, code, type, api):
-        super().__init__(api)
+class ShippingZoneLocation:
+    def __init__(self, code, type):
         self.code = code
         self.type = type
