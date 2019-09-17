@@ -1,4 +1,4 @@
-from utils.models import ApiObject
+from utils.models import ApiObject, ApiProperty
 from utils.parse import parse_date_time, to_json
 
 class Order(ApiObject):
@@ -179,7 +179,7 @@ class Order(ApiObject):
         return self._refunds
 
 
-class OrderLineItems:
+class OrderLineItems(ApiProperty):
     def __init__(self, id=None, name=None, product_id=None, variation_id=None, quantity=None, tax_class=None,
                  subtotal=None, subtotal_tax=None, total=None, total_tax=None, taxes=[], meta_data=[], sku=None,
                  price=None):
@@ -223,7 +223,7 @@ class OrderLineItems:
         return self._price
 
 
-class OrderShippingLine:
+class OrderShippingLine(ApiProperty):
     def __init__(self, id=None, method_title=None, method_id=None, total=None, total_tax=None, taxes=None,
                  meta_data=[]):
         self._id = id
@@ -247,7 +247,7 @@ class OrderShippingLine:
         return self._taxes
 
 
-class OrderFeeLine:
+class OrderFeeLine(ApiProperty):
     def __init__(self, id=None, name=None, tax_class=None, tax_status=None, total=None, total_tax=None, taxes=[],
                  meta_data=[]):
         self._id = id
@@ -272,7 +272,7 @@ class OrderFeeLine:
         return self._taxes
 
 
-class OrderCouponLine:
+class OrderCouponLine(ApiProperty):
     def __init__(self, id=None, code=None, discount=None, discount_tax=None, meta_data=[]):
         self._id = id
         self.code = code
@@ -293,7 +293,7 @@ class OrderCouponLine:
         return self._discount_tax
 
 
-class OrderRefund:
+class OrderRefund(ApiProperty):
     def __init__(self, id=None, reason=None, total=None):
         self._id = id
         self._reason = reason
@@ -312,7 +312,7 @@ class OrderRefund:
         return self._total
 
 
-class OrderTax:
+class OrderTax(ApiProperty):
     def __init__(self, id=None, rate_code=None, rate_id=None, label=None, compound=None, tax_total=None,
                  shipping_tax_total=None, meta_data=[]):
         self._id = id

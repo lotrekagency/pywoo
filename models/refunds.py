@@ -1,5 +1,5 @@
 from datetime import datetime
-from utils.models import ApiObject
+from utils.models import ApiObject, ApiProperty
 from utils.parse import parse_date_time
 
 
@@ -35,7 +35,7 @@ class Refund(ApiObject):
         return self._refunded_payment
 
 
-class RefundItemLine:
+class RefundItemLine(ApiProperty):
     def __init__(self, id=None, total=None, subtotal=None):
         self._id = id
         self._total = total

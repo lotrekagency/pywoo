@@ -1,4 +1,4 @@
-from utils.models import ApiObject
+from utils.models import ApiObject, ApiProperty
 from utils.parse import parse_date_time, to_json
 
 class Customer(ApiObject):
@@ -77,7 +77,7 @@ class Customer(ApiObject):
         return self._avatar_url
 
 
-class CustomerBilling:
+class CustomerBilling(ApiProperty):
     def __init__(self, first_name=None, last_name=None, company=None, address_1=None, address_2=None, city=None,
                  state=None, postcode=None, country=None, email=None, phone=None):
         self.first_name = first_name
@@ -93,7 +93,7 @@ class CustomerBilling:
         self.phone = phone
 
 
-class CustomerShipping:
+class CustomerShipping(ApiProperty):
     def __init__(self, first_name=None, last_name=None, company=None, address_1=None, address_2=None, city=None,
                  state=None, postcode=None, country=None):
         self.first_name = first_name

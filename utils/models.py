@@ -1,7 +1,15 @@
-class ApiObject:
+class ApiSuperClass:
+    pass
+
+
+class ApiObject(ApiSuperClass):
     def __init__(self, api, url):
         self._api = api
         self._url = url
+
+
+class ApiProperty(ApiSuperClass):
+    pass
 
 
 class MetaData:

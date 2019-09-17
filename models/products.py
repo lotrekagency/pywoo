@@ -1,5 +1,6 @@
-from utils.models import ApiObject
+from utils.models import ApiObject, ApiProperty
 from utils.parse import parse_date_time, to_json
+
 
 class Product(ApiObject):
     def __init__(self, id, name, slug, permalink, date_created, date_created_gmt, date_modified, date_modified_gmt,
@@ -85,7 +86,7 @@ class Product(ApiObject):
     @classmethod
     def create_product(cls, api, **kwargs):
         return api.create_product(**kwargs)
-    
+
     @classmethod
     def edit_product(cls, api, id, **kwargs):
         return api.update_product(id, **kwargs)
@@ -181,21 +182,21 @@ class Product(ApiObject):
         return self._variations
 
 
-class ProductDownload:
+class ProductDownload(ApiProperty):
     def __init__(self, id=None, name=None, file=None):
         self.id = id
         self.name = name
         self.file = file
 
 
-class ProductDimension:
+class ProductDimension(ApiProperty):
     def __init__(self, length=None, width=None, height=None):
         self.length = length
         self.width = width
         self.height = height
 
 
-class ProductCategoryTag:
+class ProductCategoryTag(ApiProperty):
     def __init__(self, id=None, name=None, slug=None):
         self.id = id
         self._name = name
@@ -210,7 +211,7 @@ class ProductCategoryTag:
         return self._slug
 
 
-class ProductImage:
+class ProductImage(ApiProperty):
     def __init__(self, id=None, date_created=None, date_created_gmt=None, date_modified=None, date_modified_gmt=None,
                  src=None, name=None, alt=None):
         self.id = id
@@ -239,7 +240,7 @@ class ProductImage:
         return self._date_modified_gmt
 
 
-class ProductAttribute:
+class ProductAttribute(ApiProperty):
     def __init__(self, id=None, name=None, position=None, visible=None, variation=None, options=[]):
         self.id = id
         self.name = name
@@ -249,7 +250,7 @@ class ProductAttribute:
         self.options = options
 
 
-class ProductDefaultAttribute:
+class ProductDefaultAttribute(ApiProperty):
     def __init__(self, id=None, name=None, option=None):
         self.id = id
         self.name = name
