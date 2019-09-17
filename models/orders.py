@@ -223,47 +223,6 @@ class OrderLineItems:
         return self._price
 
 
-class OrderTaxLine:
-    def __init__(self, id=None, rate_code=None, rate_id=None, label=None, compound=None, tax_total=None,
-                 shipping_tax_total=None, meta_data=[]):
-        self._id = id
-        self._rate_code = rate_code
-        self._rate_id = rate_id
-        self._label = label
-        self._compound = compound
-        self._tax_total = tax_total
-        self._shipping_tax_total = shipping_tax_total
-        self.meta_data = meta_data
-
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def rate_code(self):
-        return self._rate_code
-
-    @property
-    def rate_id(self):
-        return self._rate_id
-
-    @property
-    def label(self):
-        return self._label
-
-    @property
-    def compound(self):
-        return self._compound
-
-    @property
-    def tax_total(self):
-        return self._tax_total
-
-    @property
-    def shipping_tax_total(self):
-        return self._shipping_tax_total
-
-
 class OrderShippingLine:
     def __init__(self, id=None, method_title=None, method_id=None, total=None, total_tax=None, taxes=None,
                  meta_data=[]):

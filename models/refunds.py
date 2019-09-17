@@ -35,46 +35,6 @@ class Refund(ApiObject):
         return self._refunded_payment
 
 
-class RefundLine:
-    def __init__(self, id=None, name=None, product_id=None, variation_id=None, quantity=None, tax_class=None,
-                 subtotal=None, subtotal_tax=None, total=None, total_tax=None, taxes=[], meta_data=[], sku=None,
-                 price=None):
-        self._id = id
-        self.name = name
-        self.product_id = product_id
-        self.variation_id = variation_id
-        self.quantity = quantity
-        self.tax_class = tax_class
-        self.subtotal = subtotal
-        self._subtotal_tax = subtotal_tax
-        self.total = total
-        self._total_tax = total_tax
-        self.taxes = taxes
-        self.meta_data = meta_data
-        self._sku = sku
-        self._price = price
-
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def subtotal_tax(self):
-        return self._subtotal_tax
-
-    @property
-    def total_tax(self):
-        return self._total_tax
-
-    @property
-    def sku(self):
-        return self._sku
-
-    @property
-    def price(self):
-        return self._price
-
-
 class RefundItemLine:
     def __init__(self, id=None, total=None, subtotal=None):
         self._id = id

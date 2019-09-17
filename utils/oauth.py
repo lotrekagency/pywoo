@@ -58,6 +58,14 @@ class OAuth(object):
         query_string = urlencode(params)
         return "%s?%s" % (url, query_string)
 
+    def get_oauth_params(self):
+        params = {'oauth_consumer_key': self.consumer_key,
+                  'oauth_timestamp': self.timestamp,
+                  'oauth_nonce': self.generate_nonce(),
+                  'oauth_signature_method': "HMAC-SHA256"}
+        params['oauth_signature'] = self.generate_oauth_signature(params, self.url)
+        return params
+
     def generate_oauth_signature(self, params, url):
         """ Generate OAuth Signature """
         if "oauth_signature" in params.keys():

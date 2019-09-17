@@ -4,8 +4,10 @@ import requests
 import os
 import json
 from time import time
+
+from requests_oauthlib import OAuth1
+
 from models import *
-from models.coupon import Coupon
 from utils.oauth import OAuth
 from utils.parse import map_models, to_json
 
@@ -26,19 +28,6 @@ class Api:
         self.url = self._get_env_var('SITE_URL')
         self.consumer_key = self._get_env_var('WOO_CONSUMER_KEY')
         self.consumer_secret = self._get_env_var('WOO_CONSUMER_SECRET')
-        self.version = "wc/v3"
-
-    def __get_oauth_url(self, url, method, **kwargs):
-        """ Generate oAuth1.0a URL """
-        oauth = OAuth(
-            url=url,
-            consumer_key=self.consumer_key,
-            consumer_secret=self.consumer_secret,
-            method=method,
-            oauth_timestamp=kwargs.get("oauth_timestamp", int(time())),
-            version='wc/v3'
-        )
-        return oauth.get_oauth_url()
 
     def _get_default_headers(self):
         headers = {}
@@ -46,9 +35,10 @@ class Api:
 
     def _create(self, url, data):
         resp = requests.post(
-            self.__get_oauth_url(f'{self.url}/{url}', 'POST'),
+            f'{self.url}/{url}',
             json=data,
-            headers=self._get_default_headers()
+            headers=self._get_default_headers(),
+            auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if resp.status_code != 201:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
@@ -57,8 +47,9 @@ class Api:
 
     def _get(self, url, id='', params={}):
         resp = requests.get(
-            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'GET'),
-            params=params
+            f'{self.url}/{url}/{id}',
+            params=params,
+            auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if resp.status_code != 200:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
@@ -67,20 +58,21 @@ class Api:
 
     def _put(self, url, id, data):
         resp = requests.put(
-            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'PUT'),
-            data=data,
-            headers=self._get_default_headers()
+            f'{self.url}/{url}/{id}',
+            json=data,
+            auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if resp.status_code != 200:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         print("\033[1;32;40mSTATUS 200 Updated successfully\033[0m")
-        return from_json(resp.text, self)
+        return from_json(resp.text, self, url)
 
     def _delete(self, url, id, params={}):
         resp = requests.delete(
-            self.__get_oauth_url(f'{self.url}/{url}/{id}', 'DELETE'),
+            f'{self.url}/{url}/{id}',
             headers=self._get_default_headers(),
-            params=params
+            params=params,
+            auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if resp.status_code != 200:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
@@ -106,7 +98,7 @@ class Api:
         return self._get('customer', id, params)
 
     def update_customer(self, id, *data):
-        return self._update('customer', id, data)
+        return self._put('customer', id, data)
 
     def delete_customer(self, id, **params):
         params['force'] = True
@@ -244,6 +236,18 @@ class Api:
     def delete_product_review(self, id):
         return self._delete('product/reviews', id, {'force': True})
 
+    def create_tax_rate(self, **data):
+        return self._create('taxes', data)
+
+    def get_tax_rates(self, id='', **params):
+        return self._get('taxes', id, params)
+
+    def update_tax_rate(self, id, **data):
+        return self._put('taxes', id, data)
+
+    def delete_tax_rate(self, id):
+        return self._delete('taxes', id, {'force': True})
+
     def create_tax_class(self, **data):
         return self._create('taxes/classes', data)
 
@@ -262,7 +266,7 @@ class Api:
     def create_shipping_zone(self, **data):
         return self._create('shipping/zones', data)
 
-    def get_shipping_zone(self, id=''):
+    def get_shipping_zones(self, id=''):
         return self._get('shipping/zones', id)
 
     def update_shipping_zone(self, id, **data):

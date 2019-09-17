@@ -7,8 +7,8 @@ class Coupon(ApiObject):
                  discount_type, description, date_expires, date_expires_gmt, usage_count, individual_use, product_ids,
                  excluded_product_ids, usage_limit, usage_limit_per_user, limit_usage_to_x_items, free_shipping,
                  product_categories, excluded_product_categories, exclude_sale_items, minimum_amount, maximum_amount,
-                 email_restrictions, used_by, meta_data, api):
-        super().__init__(api)
+                 email_restrictions, used_by, meta_data, api, url):
+        super().__init__(api, url)
         self._id = id
         self.code = code
         self.amount = amount
