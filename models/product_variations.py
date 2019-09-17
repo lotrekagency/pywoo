@@ -70,7 +70,7 @@ class ProductVariation(ApiObject):
         return self._api.update_product_variation(self.product_id, self.id, **to_json(self))
 
     def delete(self):
-        return self._api.update_product_variation(self.product_id, self.id)
+        return self._api.delete_product_variation(self.product_id, self.id)
 
     @property
     def id(self):

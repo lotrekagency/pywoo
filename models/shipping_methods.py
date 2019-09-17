@@ -1,5 +1,4 @@
 from utils.models import ApiObject
-from utils.parse import to_json
 
 
 class ShippingMethod(ApiObject):
