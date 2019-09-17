@@ -38,6 +38,7 @@ def get_dict_data(data):
         value = data[key]
         del data[key]
         data[key[1:]] = value
+    data.pop('id', None)
     return data
 
 
@@ -46,7 +47,7 @@ def from_json(data, api):
 
 
 def to_json(data):
-    return json.dumps(get_dict_data(data), default=get_dict_data)
+    return get_dict_data(data)
 
 
 def parse_date_time(date_time):

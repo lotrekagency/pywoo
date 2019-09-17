@@ -1,6 +1,5 @@
 from utils.models import ApiObject
-from utils.parse import parse_date_time
-
+from utils.parse import parse_date_time, to_json
 
 class Customer(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, date_modified, date_modified_gmt, email, first_name,
@@ -22,6 +21,32 @@ class Customer(ApiObject):
         self._is_paying_customer = is_paying_customer
         self._avatar_url = avatar_url
         self.meta_data = meta_data
+
+    @classmethod
+    def get_customer(cls, api, id=''):
+        return api.get_customers(id=id)
+
+    @classmethod
+    def create_customer(cls, api, **kwargs):
+        return api.create_customer(**kwargs)
+    
+    @classmethod
+    def edit_customer(cls, api, id, **kwargs):
+        return api.update_customer(id, **kwargs)
+
+    @classmethod
+    def delete_customer(cls, api, id):
+        return api.delete_customer(id)
+
+    def update(self):
+        return self._api.update_customer(self.id, to_json(self))
+
+    def delete(self):
+        return self._api.delete_customer(self.id)
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def date_created(self):

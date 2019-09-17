@@ -1,5 +1,5 @@
 from utils.models import ApiObject
-from utils.parse import from_json, parse_date_time
+from utils.parse import from_json, to_json, parse_date_time
 
 
 class Coupon(ApiObject):
@@ -42,21 +42,22 @@ class Coupon(ApiObject):
         return api.get_coupons(id=id)
 
     @classmethod
-    def create_coupon(cls, api, code):
-        return api.create_coupon(code)
+    def create_coupon(cls, api, **kwargs):
+        return api.create_coupon(**kwargs)
     
     @classmethod
-    def update_coupon(cls, api, id, **kwargs):
-        return api.edit_coupon(id, **kwargs) 
+    def edit_coupon(cls, api, id, **kwargs):
+        return api.update_coupon(id, **kwargs)
 
     @classmethod
     def delete_coupon(cls, api, id):
         return api.delete_coupon(id)
 
-    '''
-    def reload_coupon(self, api):
-        return api.update_coupon(self.id, to_json(self))
-    '''
+    def update(self):
+        return self._api.update_coupon(self.id, to_json(self))
+
+    def delete(self):
+        return self._api.delete_coupon(self.id)
 
     @property
     def id(self):

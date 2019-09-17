@@ -1,6 +1,5 @@
 from utils.models import ApiObject
-from utils.parse import parse_date_time
-
+from utils.parse import parse_date_time, to_json
 
 class Order(ApiObject):
     def __init__(self, id, parent_id, number, order_key, created_via, version, status, currency, date_created,
@@ -52,6 +51,28 @@ class Order(ApiObject):
         self.coupon_lines = coupon_lines
         self._refunds = refunds
         # self.__set_paid = set_paid # TODO write-only field
+
+    @classmethod
+    def get_orders(cls, api, id=''):
+        return api.get_orders(id=id)
+
+    @classmethod
+    def create_order(cls, api, **kwargs):
+        return api.create_order(**kwargs)
+    
+    @classmethod
+    def edit_order(cls, api, id, **kwargs):
+        return api.update_order(id, **kwargs)
+
+    @classmethod
+    def delete_order(cls, api, id):
+        return api.delete_order(id)
+
+    def update(self):
+        return self._api.update_order(self.id, to_json(self))
+
+    def delete(self):
+        return self._api.delete_order(self.id)
 
     @property
     def id(self):

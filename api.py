@@ -40,15 +40,17 @@ class Api:
 
     def _get_default_headers(self):
         headers = {}
+        headers["content-type"] = "application/json;charset=utf-8"
         return headers
 
     def _create(self, url, kwargs):
         resp = requests.post(
             self.__get_oauth_url(f'{self.url}/{url}', 'POST'),
-            data=kwargs,
+            data=json.dumps(kwargs),
             headers=self._get_default_headers()
         )
-        if(resp.status_code != 200):
+        print(resp.url)
+        if(resp.status_code != 201):
             print("\033[1;31;40mERROR " + str(resp.status_code) + " " + str(resp.json()["message"]) + "\033[0;37;40m")
             return
         print("\033[1;32;40mSTATUS 200 Created successfully\033[0;37;40m")
@@ -65,10 +67,9 @@ class Api:
         return from_json(resp.text, self)
 
     def _put(self, url, id, kwargs):
-        print(kwargs)
         resp = requests.put(
             self.__get_oauth_url(f'{self.url}/{url}/{id}', 'PUT'),
-            data=kwargs,
+            data=json.dumps(kwargs),
             headers=self._get_default_headers()
         )
         if(resp.status_code != 200):
@@ -95,20 +96,17 @@ class Api:
         return self._get('coupons', id=id)
 
     def update_coupon(self, id, **kwargs):
-        print(kwargs)
         return self._put('coupons', id, kwargs)
-
-    '''
-    def edit_coupon(self, id, data):
-        return self._put('coupons', id, json.loads(data))
-    '''
 
     def delete_coupon(self, id):
         return self._delete('coupons', id)
 
+
     def create_customer(self, **kwargs):
-        return self._create('customer', kwargs)
+        return self._create('customers', kwargs)
 
     def get_customers(self, id=''):
-        return self._get('customer', id=id)
+        return self._get('customers', id=id)
+    
+
 
