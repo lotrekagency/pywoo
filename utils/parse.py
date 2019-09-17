@@ -21,11 +21,11 @@ def map_models():
                     mapping[_vars] = _class[1]
 
 
-def find_mapping(data, api):
+def find_mapping(data, api, url):
     if '_links' in data:
         del data['_links']
     try:
-        return mapping[frozenset(data.keys())](*data.values(), api)
+        return mapping[frozenset(data.keys())](*data.values(), api, url)
     except KeyError:
         print(data.keys(), "frozenset NOT FOUND")
         return dict(zip(data.keys(), data.values()))
@@ -42,8 +42,8 @@ def get_dict_data(data):
     return data
 
 
-def from_json(data, api):
-    return json.loads(data, object_hook=lambda d: find_mapping(d, api))
+def from_json(data, api, url):
+    return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))
 
 
 def to_json(data):
