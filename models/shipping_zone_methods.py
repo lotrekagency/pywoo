@@ -1,9 +1,6 @@
-from utils.models import ApiObject
 
-
-class ShippingZoneMethods(ApiObject):
-    def __init__(self, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api):
-        super().__init__(api)
+class ShippingZoneMethods:
+    def __init__(self, instance_id, title, order, enabled, method_id, method_title, method_description, settings):
         self._instance_id = instance_id
         self._title = title
         self.order = order
