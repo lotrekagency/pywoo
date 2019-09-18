@@ -19,9 +19,7 @@ c = api.update_coupon(c.id, **to_json(c))
 #c = Coupon.edit_coupon(api, id='36', code="fagiolo")
 '''
 p = Product.create_product(api)
-print(p.description)
-p.description = "solo guai"
-print(p.description)
-
+pv = ProductVariation.create_product_variation(api, p.id)
+print(pv)
 
 

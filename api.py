@@ -144,9 +144,8 @@ class Api:
     def update_product(self, id, **data):
         return self._put('products', id, data)
 
-    def delete_products(self, id, **params):
+    def delete_product(self, id, **params):
         return self._delete('products', id, params)
-
 
     def create_product_variation(self, product_id, **data):
         return self._create(f'products/{product_id}/variations', data)
@@ -287,7 +286,8 @@ class Api:
         return self._put(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id, data)
 
     def delete_shipping_zone_method(self, shipping_zone_id, shipping_zone_method_instance_id):
-        return self._delete(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id, {'force': True})
+        return self._delete(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id,
+                            {'force': True})
 
     def get_shipping_method(self, id=''):
         return self._get('shipping_methods', id)

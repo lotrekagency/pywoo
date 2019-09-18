@@ -39,7 +39,7 @@ class Coupon(ApiObject):
 
     @classmethod
     def get_coupons(cls, api, id='', **params):
-        return api.get_coupons(id=id, **params)
+        return api.get_coupons(id, **params)
 
     @classmethod
     def create_coupon(cls, api, **kwargs):

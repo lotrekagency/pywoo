@@ -1,3 +1,5 @@
+from re import search
+
 from utils.models import ApiObject
 from utils.parse import parse_date_time, to_json
 
@@ -51,19 +53,19 @@ class ProductVariation(ApiObject):
 
     @classmethod
     def get_product_variations(cls, api, product_id, id='', **params):
-        return api.get_product_variations(product_id=product_id, **params)
+        return api.get_product_variations(product_id, id, **params)
 
     @classmethod
     def create_product_variation(cls, api, product_id, **kwargs):
-        return api.create_product_variation(product_id=product_id, **kwargs)
+        return api.create_product_variation(product_id, **kwargs)
     
     @classmethod
     def edit_product_variation(cls, api, product_id, id, **kwargs):
-        return api.update_product_variation(product_id=product_id, id=id, **kwargs)
+        return api.update_product_variation(product_id, id, **kwargs)
 
     @classmethod
     def delete_product_variation(cls, api, product_id, id):
-        return api.delete_product_variation(product_id=product_id, id=id)
+        return api.delete_product_variation(product_id, id)
 
     def update(self):
         return self._api.update_product_variation(self.product_id, self.id, **to_json(self))
@@ -121,4 +123,4 @@ class ProductVariation(ApiObject):
 
     @property
     def product_id(self):
-        return self._url.split('/')[1]
+        return search(r"products\/(\d+)\/.*", self._url).group(1)

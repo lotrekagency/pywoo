@@ -9,8 +9,9 @@ class ShippingMethod(ApiObject):
         self._description = description
 
     @classmethod
-    def get_shipping_methods(cls, api, id=''):
-        return api.get_shipping_method(id)
+    def get_shipping_methods(cls, api, id='', **params):
+        return api.get_orders(id, **params)
+    
 
     @property
     def id(self):

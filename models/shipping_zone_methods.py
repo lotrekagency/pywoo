@@ -1,5 +1,3 @@
-import re
-
 from utils.models import ApiObject
 from utils.parse import to_json
 
@@ -16,7 +14,6 @@ class ShippingZoneMethods(ApiObject):
         self._method_title = method_title
         self._method_description = method_description
         self.settings = settings
-        self._shipping_zone_id = re.search(r'shipping/zones/\d+/methods').group()
 
     @classmethod
     def get_shipping_zone_method(cls, api, shipping_zone_id, id=''):
@@ -35,10 +32,10 @@ class ShippingZoneMethods(ApiObject):
         return api.delete_shipping_zone_method(shipping_zone_id, id)
 
     def update(self):
-        return self._api.update_shipping_zone_method(self._shipping_zone_id, self.id, **to_json(self))
+        return self._api.update_shipping_zone_method(self.shipping_zone_id, self.instance_id, **to_json(self))
 
     def delete(self):
-        return self._api.delete_shipping_zone_method(self._shipping_zone_id, self.id)
+        return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)
 
     @property
     def instance_id(self):
@@ -55,3 +52,7 @@ class ShippingZoneMethods(ApiObject):
     @property
     def method_description(self):
         return self._method_description
+
+    @property
+    def shipping_zone_id(self):
+        return self._url.split('/')[2]

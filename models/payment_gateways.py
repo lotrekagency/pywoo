@@ -1,5 +1,5 @@
 from utils.models import ApiObject, ApiProperty
-
+from utils.parse import to_json
 
 class PaymentGateway(ApiObject):
     def __init__(self, id, title, description, order, enabled, method_title, method_description, method_supports,
@@ -14,6 +14,24 @@ class PaymentGateway(ApiObject):
         self._method_description = method_description
         self._method_supports = method_supports
         self.settings = settings
+
+    @classmethod
+    def get_payment_gateways(cls, api, id='', **params):
+        return api.get_payment_gateways(id, **params)
+
+    @classmethod
+    def edit_payment_gateway(cls, api, id, **kwargs):
+        return api.edit_payment_gateway(id, **kwargs)
+
+    @classmethod
+    def delete_payment_gateway(cls, api, id):
+        return api.delete_payment_gateway(id)
+
+    def update(self):
+        return self._api.update_payment_gateway(self.id, **to_json(self))
+
+    def delete(self):
+        return self._api.delete_payment_gateway(self.id)
 
     @property
     def id(self):

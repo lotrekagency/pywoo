@@ -1,4 +1,4 @@
-from datetime import datetime
+from re import search
 from utils.models import ApiObject, ApiProperty
 from utils.parse import parse_date_time, to_json
 
@@ -6,7 +6,7 @@ from utils.parse import parse_date_time, to_json
 class Refund(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, amount, reason, refunded_by, refunded_payment, meta_data,
                  line_items, api, url):
-        super().__init__(api)
+        super().__init__(api, url)
         self._id = id
         self._date_created = parse_date_time(date_created)
         self._date_created_gmt = parse_date_time(date_created_gmt)
@@ -19,13 +19,13 @@ class Refund(ApiObject):
         # self.api_refund = api_refund # TODO write-only
 
     @classmethod
-    def get_refunds(cls, api, order_id, id=''):
-        return api.get_refunds(order_id, id)
+    def get_refunds(cls, api, order_id, id='', **params):
+        return api.get_refunds(order_id, id, **params)
 
     @classmethod
     def create_refund(cls, api, order_id, **kwargs):
         return api.create_refund(order_id, **kwargs)
-    
+        
     @classmethod
     def edit_refund(cls, api, order_id, id, **kwargs):
         return api.update_refund(order_id, id, **kwargs)
@@ -59,6 +59,7 @@ class Refund(ApiObject):
     @property
     def order_id(self):
         return self._url.split('/')[1]
+
 
 
 class RefundItemLine(ApiProperty):
