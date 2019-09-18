@@ -1,7 +1,8 @@
 from utils.models import ApiObject
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
 
+@ClassParser()
 class ProductReview(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, product_id, status, reviewer, reviewer_email, review, rating,
                  verified, api, url):
@@ -16,7 +17,7 @@ class ProductReview(ApiObject):
         self.review = review
         self.rating = rating
         self.verified = verified
-    
+
     @classmethod
     def get_product_reviews(cls, api, id='', **params):
         return api.get_product_reviews(id, **params)

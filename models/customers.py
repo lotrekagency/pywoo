@@ -1,7 +1,8 @@
 from utils.models import ApiObject, ApiProperty
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
 
+@ClassParser()
 class Customer(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, date_modified, date_modified_gmt, email, first_name,
                  last_name, role, username, billing, shipping, is_paying_customer, avatar_url, meta_data, api, url):
@@ -78,6 +79,7 @@ class Customer(ApiObject):
         return self._avatar_url
 
 
+@ClassParser()
 class CustomerBilling(ApiProperty):
     def __init__(self, first_name=None, last_name=None, company=None, address_1=None, address_2=None, city=None,
                  state=None, postcode=None, country=None, email=None, phone=None):
@@ -94,6 +96,7 @@ class CustomerBilling(ApiProperty):
         self.phone = phone
 
 
+@ClassParser()
 class CustomerShipping(ApiProperty):
     def __init__(self, first_name=None, last_name=None, company=None, address_1=None, address_2=None, city=None,
                  state=None, postcode=None, country=None):

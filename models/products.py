@@ -1,7 +1,8 @@
 from utils.models import ApiObject, ApiProperty
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
 
+@ClassParser()
 class Product(ApiObject):
     def __init__(self, id, name, slug, permalink, date_created, date_created_gmt, date_modified, date_modified_gmt,
                  type, status, featured, catalog_visibility, description, short_description, sku, price, regular_price,
@@ -182,6 +183,7 @@ class Product(ApiObject):
         return self._variations
 
 
+@ClassParser()
 class ProductDownload(ApiProperty):
     def __init__(self, id=None, name=None, file=None):
         self.id = id
@@ -189,6 +191,7 @@ class ProductDownload(ApiProperty):
         self.file = file
 
 
+@ClassParser()
 class ProductDimension(ApiProperty):
     def __init__(self, length=None, width=None, height=None):
         self.length = length
@@ -196,6 +199,7 @@ class ProductDimension(ApiProperty):
         self.height = height
 
 
+@ClassParser()
 class ProductCategoryTag(ApiProperty):
     def __init__(self, id=None, name=None, slug=None):
         self.id = id
@@ -211,6 +215,7 @@ class ProductCategoryTag(ApiProperty):
         return self._slug
 
 
+@ClassParser()
 class ProductImage(ApiProperty):
     def __init__(self, id=None, date_created=None, date_created_gmt=None, date_modified=None, date_modified_gmt=None,
                  src=None, name=None, alt=None):
@@ -240,6 +245,7 @@ class ProductImage(ApiProperty):
         return self._date_modified_gmt
 
 
+@ClassParser()
 class ProductAttribute(ApiProperty):
     def __init__(self, id=None, name=None, position=None, visible=None, variation=None, options=[]):
         self.id = id
@@ -250,6 +256,7 @@ class ProductAttribute(ApiProperty):
         self.options = options
 
 
+@ClassParser()
 class ProductDefaultAttribute(ApiProperty):
     def __init__(self, id=None, name=None, option=None):
         self.id = id

@@ -9,9 +9,7 @@ from requests_oauthlib import OAuth1
 
 from models import *
 from utils.oauth import OAuth
-from utils.parse import map_models, to_json, from_json
-
-map_models()
+from utils.parse import to_json, from_json
 
 
 class Api:
@@ -119,6 +117,9 @@ class Api:
 
     def get_order_notes(self, order_id, id='', **params):
         return self._get(f'orders/{order_id}/notes', id, params)
+
+    def update_order_note(self, order_id, id, **data):
+        return self._put(f'orders/{order_id}/notes', id, data)
 
     def delete_order_note(self, order_id, id):
         return self._delete(f'orders/{order_id}/notes', id, {'force': True})

@@ -1,9 +1,11 @@
 from utils.models import ApiObject
+from utils.parse import ClassParser
 
 
-class ProductShippingTag(ApiObject):
-    def __init__(self, id, name, slug, description, count, api):
-        super().__init__(api)
+@ClassParser(url=r"products\/shipping_classes.*")
+class ProductShipping(ApiObject):
+    def __init__(self, id, name, slug, description, count, api, url):
+        super().__init__(api, url)
         self._id = id
         self.name = name
         self.slug = slug

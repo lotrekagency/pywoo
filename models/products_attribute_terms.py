@@ -1,9 +1,10 @@
 from re import search
 
 from utils.models import ApiObject
-from utils.parse import to_json
+from utils.parse import to_json, ClassParser
 
 
+@ClassParser()
 class ProductAttributeTerm(ApiObject):
     def __init__(self, id, name, slug, description, menu_order, count, api, url):
         super().__init__(api, url)

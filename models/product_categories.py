@@ -1,7 +1,8 @@
 from utils.models import ApiObject
-from utils.parse import to_json
+from utils.parse import to_json, ClassParser
 
 
+@ClassParser()
 class ProductCategory(ApiObject):
     def __init__(self, id, name, slug, parent, description, display, image, menu_order, count, api, url):
         super().__init__(api, url)

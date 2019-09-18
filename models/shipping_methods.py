@@ -1,6 +1,8 @@
 from utils.models import ApiObject
+from utils.parse import ClassParser
 
 
+@ClassParser()
 class ShippingMethod(ApiObject):
     def __init__(self, id, title, description, api, url):
         super().__init__(api, url)

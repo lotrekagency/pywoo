@@ -1,8 +1,10 @@
 from re import search
 
 from utils.models import ApiObject
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
+
+@ClassParser()
 class ProductVariation(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, date_modified, date_modified_gmt, description, permalink,
                  sku, price, regular_price, sale_price, date_on_sale_from, date_on_sale_from_gmt, date_on_sale_to,
