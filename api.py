@@ -199,7 +199,7 @@ class Api:
     def create_product_shipping_class(self, **data):
         return self._create('products/shipping_classes', data)
 
-    def get_products_shipping_class(self, id='', **params):
+    def get_products_shipping_classes(self, id='', **params):
         return self._get('products/shipping_classes', id, params)
 
     def update_product_shipping_class(self, id, **data):
