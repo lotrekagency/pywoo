@@ -10,7 +10,6 @@ mapping = {}
 
 def map_models():
     modules = [key for key, value in sys.modules.items() if key.startswith("models.")]
-    print(modules)
     for module in modules:
         classes = inspect.getmembers(sys.modules[module], inspect.isclass)
         for _class in classes:
@@ -32,7 +31,7 @@ def find_mapping(data, api, url):
         else:
             return mapping[frozenset(data.keys())](*data.values(), api, url)
     except KeyError:
-        print(data.keys(), "frozenset NOT FOUND")
+        #print(data.keys(), "frozenset NOT FOUND")
         return dict(zip(data.keys(), data.values()))
 
 
@@ -51,8 +50,3 @@ def to_json(data):
 
 def parse_date_time(date_time):
     return datetime.strptime(date_time, '%Y-%m-%dT%H:%M:%S').isoformat() if date_time else None
-
-def add_url_field(resp_text, url):
-    resp_json = json.loads(resp_text)
-    resp_json.update({"url" : url})
-    return json.dumps(resp_json)

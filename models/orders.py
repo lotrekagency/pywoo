@@ -7,8 +7,8 @@ class Order(ApiObject):
                  shipping_tax, cart_tax, total, total_tax, prices_include_tax, customer_id, customer_ip_address,
                  customer_user_agent, customer_note, billing, shipping, payment_method, payment_method_title,
                  transaction_id, date_paid, date_paid_gmt, date_completed, date_completed_gmt, cart_hash,
-                 meta_data, line_items, tax_lines, shipping_lines, fee_lines, coupon_lines, refunds, api):
-        super().__init__(api)
+                 meta_data, line_items, tax_lines, shipping_lines, fee_lines, coupon_lines, refunds, currency_symbol, api, url):
+        super().__init__(api, url)
         self._id = id
         self.parent_id = parent_id
         self._number = number
@@ -50,6 +50,7 @@ class Order(ApiObject):
         self.fee_lines = fee_lines
         self.coupon_lines = coupon_lines
         self._refunds = refunds
+        self.currency_symbol = currency_symbol
         # self.__set_paid = set_paid # TODO write-only field
 
     @classmethod
@@ -69,7 +70,7 @@ class Order(ApiObject):
         return api.delete_order(id)
 
     def update(self):
-        return self._api.update_order(self.id, to_json(self))
+        return self._api.update_order(self.id, **to_json(self))
 
     def delete(self):
         return self._api.delete_order(self.id)

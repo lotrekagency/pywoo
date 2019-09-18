@@ -54,7 +54,6 @@ class Coupon(ApiObject):
         return api.delete_coupon(id)
 
     def update(self):
-        print("sihs")
         return self._api.update_coupon(self.id, **to_json(self))
 
     def delete(self):
