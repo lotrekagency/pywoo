@@ -118,9 +118,6 @@ class Api:
     def get_order_notes(self, order_id, id='', **params):
         return self._get(f'orders/{order_id}/notes', id, params)
 
-    def update_order_note(self, order_id, id, **data):
-        return self._put(f'orders/{order_id}/notes', id, data)
-
     def delete_order_note(self, order_id, id):
         return self._delete(f'orders/{order_id}/notes', id, {'force': True})
 

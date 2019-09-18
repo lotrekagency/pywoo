@@ -14,11 +14,11 @@ class OrderNote(ApiObject):
         self._date_created_gmt = parse_date_time(date_created_gmt)
         self.note = note
         self.customer_note = customer_note
-        #self.added_by_user = added_by_user
+        # self.added_by_user = added_by_user # TODO write-only field
 
     @classmethod
     def get_order_notes(cls, api, order_id, id=''):
-        return api.get_order_notes(order_id, id=id)
+        return api.get_order_notes(order_id, id)
 
     @classmethod
     def create_order_note(cls, api, order_id, **kwargs):
@@ -49,4 +49,4 @@ class OrderNote(ApiObject):
     
     @property
     def order_id(self):
-        return self._url.split('/')[1]
+        return search(r"orders\/(\d+)\/.*", self._url).group(1)

@@ -39,7 +39,7 @@ class Refund(ApiObject):
         return self._api.update_refund(self.order_id, self.id, **to_json(self))
 
     def delete(self):
-        return self._api.update_refund(self.order_id, self.id)
+        return self._api.delete_refund(self.order_id, self.id)
     
     @property
     def id(self):
@@ -59,7 +59,7 @@ class Refund(ApiObject):
     
     @property
     def order_id(self):
-        return self._url.split('/')[1]
+        return search(r"orders\/(\d+)\/.*", self._url).group(1)
 
 
 @ClassParser()

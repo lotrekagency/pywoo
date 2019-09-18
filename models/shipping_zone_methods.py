@@ -1,3 +1,5 @@
+from re import search
+
 from utils.models import ApiObject
 from utils.parse import to_json, ClassParser
 
@@ -56,4 +58,4 @@ class ShippingZoneMethods(ApiObject):
 
     @property
     def shipping_zone_id(self):
-        return self._url.split('/')[2]
+        return search(r"shipping\/zones\/(\d+)\/.*", self._url).group(1)

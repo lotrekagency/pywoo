@@ -6,8 +6,8 @@ from utils.parse import to_json
 @ClassParser()
 class PaymentGateway(ApiObject):
     def __init__(self, id, title, description, order, enabled, method_title, method_description, method_supports,
-                 settings, api):
-        super().__init__(api)
+                 settings, api, url):
+        super().__init__(api, url)
         self._id = id
         self.title = title
         self.description = description

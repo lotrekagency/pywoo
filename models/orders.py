@@ -67,8 +67,8 @@ class Order(ApiObject):
         return api.update_order(id, **kwargs)
 
     @classmethod
-    def delete_order(cls, api, id):
-        return api.delete_order(id)
+    def delete_order(cls, api, id, **params):
+        return api.delete_order(id, **params)
 
     def update(self):
         return self._api.update_order(self.id, **to_json(self))
