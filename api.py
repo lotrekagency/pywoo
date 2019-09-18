@@ -120,10 +120,10 @@ class Api:
     def get_order_notes(self, order_id, id='', **params):
         return self._get(f'orders/{order_id}/notes', id, params)
 
-    def update_order_notes(self, order_id, id, **data):
+    def update_order_note(self, order_id, id, **data):
         return self._put(f'orders/{order_id}/notes', id, data)
 
-    def delete_order_notes(self, order_id, id):
+    def delete_order_note(self, order_id, id):
         return self._delete(f'orders/{order_id}/notes', id, {'force': True})
 
     def create_refund(self, order_id, **data):
@@ -147,9 +147,8 @@ class Api:
     def update_product(self, id, **data):
         return self._put('products', id, data)
 
-    def delete_products(self, id, **params):
+    def delete_product(self, id, **params):
         return self._delete('products', id, params)
-
 
     def create_product_variation(self, product_id, **data):
         return self._create(f'products/{product_id}/variations', data)
@@ -158,7 +157,6 @@ class Api:
         return self._get(f'products/{product_id}/variations', id, params)
 
     def update_product_variation(self, product_id, id, **data):
-        print(data)
         return self._put(f'products/{product_id}/variations', id, data)
 
     def delete_product_variation(self, product_id, id):
@@ -291,7 +289,8 @@ class Api:
         return self._put(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id, data)
 
     def delete_shipping_zone_method(self, shipping_zone_id, shipping_zone_method_instance_id):
-        return self._delete(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id, {'force': True})
+        return self._delete(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id,
+                            {'force': True})
 
     def get_shipping_method(self, id=''):
         return self._get('shipping_methods', id)

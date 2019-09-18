@@ -1,14 +1,15 @@
 from utils.models import ApiObject, ApiProperty
 from utils.parse import parse_date_time, to_json
 
+
 class Order(ApiObject):
     def __init__(self, id, parent_id, number, order_key, created_via, version, status, currency, date_created,
                  date_created_gmt, date_modified, date_modified_gmt, discount_total, discount_tax, shipping_total,
                  shipping_tax, cart_tax, total, total_tax, prices_include_tax, customer_id, customer_ip_address,
                  customer_user_agent, customer_note, billing, shipping, payment_method, payment_method_title,
                  transaction_id, date_paid, date_paid_gmt, date_completed, date_completed_gmt, cart_hash,
-                 meta_data, line_items, tax_lines, shipping_lines, fee_lines, coupon_lines, refunds, api):
-        super().__init__(api)
+                 meta_data, line_items, tax_lines, shipping_lines, fee_lines, coupon_lines, refunds, api, url):
+        super().__init__(api, url)
         self._id = id
         self.parent_id = parent_id
         self._number = number
@@ -53,13 +54,13 @@ class Order(ApiObject):
         # self.__set_paid = set_paid # TODO write-only field
 
     @classmethod
-    def get_orders(cls, api, id=''):
-        return api.get_orders(id=id)
+    def get_orders(cls, api, id='', **params):
+        return api.get_orders(id, **params)
 
     @classmethod
     def create_order(cls, api, **kwargs):
         return api.create_order(**kwargs)
-    
+
     @classmethod
     def edit_order(cls, api, id, **kwargs):
         return api.update_order(id, **kwargs)
@@ -69,7 +70,7 @@ class Order(ApiObject):
         return api.delete_order(id)
 
     def update(self):
-        return self._api.update_order(self.id, to_json(self))
+        return self._api.update_order(self.id, **to_json(self))
 
     def delete(self):
         return self._api.delete_order(self.id)

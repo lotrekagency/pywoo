@@ -80,8 +80,8 @@ class Product(ApiObject):
         self.meta_data = meta_data
 
     @classmethod
-    def get_products(cls, api, id=''):
-        return api.get_products(id=id)
+    def get_products(cls, api, id='', **params):
+        return api.get_products(id, **params)
 
     @classmethod
     def create_product(cls, api, **kwargs):
@@ -92,8 +92,8 @@ class Product(ApiObject):
         return api.update_product(id, **kwargs)
 
     @classmethod
-    def delete_product(cls, api, id):
-        return api.delete_product(id)
+    def delete_product(cls, api, id, **params):
+        return api.delete_product(id, **params)
 
     def update(self):
         return self._api.update_product(self.id, **to_json(self))
