@@ -26,15 +26,8 @@ class PaymentGateway(ApiObject):
     def edit_payment_gateway(cls, api, id, **kwargs):
         return api.edit_payment_gateway(id, **kwargs)
 
-    @classmethod
-    def delete_payment_gateway(cls, api, id):
-        return api.delete_payment_gateway(id)
-
     def update(self):
         return self._api.update_payment_gateway(self.id, **to_json(self))
-
-    def delete(self):
-        return self._api.delete_payment_gateway(self.id)
 
     @property
     def id(self):
