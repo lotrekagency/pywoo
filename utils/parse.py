@@ -54,8 +54,7 @@ def find_mapping(data, api, url):
 
 def get_dict_data(data):
     data = data.__dict__
-    return {key: (get_dict_data(value) if issubclass(type(value), ApiProperty) else value) for key, value in
-            data.items() if not key.startswith("_") and not value is None}
+    return {key: (get_dict_data(value) if issubclass(type(value), ApiSuperClass) else value) for key, value in data.items() if not key.startswith("_") and not value is None}
 
 
 def from_json(data, api, url):

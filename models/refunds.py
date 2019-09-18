@@ -26,21 +26,21 @@ class Refund(ApiObject):
     @classmethod
     def create_refund(cls, api, order_id, **kwargs):
         return api.create_refund(order_id, **kwargs)
-
+        
     @classmethod
     def edit_refund(cls, api, order_id, id, **kwargs):
         return api.update_refund(order_id, id, **kwargs)
 
     @classmethod
-    def delete_order(cls, api, order_id, id):
+    def delete_refund(cls, api, order_id, id):
         return api.delete_refund(order_id, id)
 
     def update(self):
         return self._api.update_refund(self.order_id, self.id, **to_json(self))
 
     def delete(self):
-        return self._api.delete_refund(self.order_id, self.id)
-
+        return self._api.update_refund(self.order_id, self.id)
+    
     @property
     def id(self):
         return self._id
@@ -56,10 +56,11 @@ class Refund(ApiObject):
     @property
     def refunded_payment(self):
         return self._refunded_payment
-
+    
     @property
     def order_id(self):
-        return search(r"orders\/(\d+)\/.*", self._url).group(1)
+        return self._url.split('/')[1]
+
 
 @ClassParser()
 class RefundItemLine(ApiProperty):

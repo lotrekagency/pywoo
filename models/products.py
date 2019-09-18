@@ -87,7 +87,7 @@ class Product(ApiObject):
     @classmethod
     def create_product(cls, api, **kwargs):
         return api.create_product(**kwargs)
-
+    
     @classmethod
     def edit_product(cls, api, id, **kwargs):
         return api.update_product(id, **kwargs)

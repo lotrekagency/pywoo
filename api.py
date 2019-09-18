@@ -91,14 +91,14 @@ class Api:
         return self._create('customers', data)
 
     def get_customers(self, id='', **params):
-        return self._get('customer', id, params)
+        return self._get('customers', id, params)
 
     def update_customer(self, id, *data):
-        return self._put('customer', id, data)
+        return self._put('customers', id, data)
 
     def delete_customer(self, id, **params):
         params['force'] = True
-        return self._delete('customer', id, params)
+        return self._delete('customers', id, params)
 
     def create_order(self, **data):
         return self._create('orders', data)
