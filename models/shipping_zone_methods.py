@@ -1,9 +1,10 @@
 import re
 
 from utils.models import ApiObject
-from utils.parse import to_json
+from utils.parse import to_json, ClassParser
 
 
+@ClassParser()
 class ShippingZoneMethods(ApiObject):
     def __init__(self, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api,
                  url):

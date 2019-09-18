@@ -1,6 +1,8 @@
 from utils.models import ApiObject
+from utils.parse import ClassParser
 
 
+@ClassParser()
 class TaxClass(ApiObject):
     def __init__(self, slug, name, api, url):
         super().__init__(api, url)

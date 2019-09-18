@@ -1,7 +1,8 @@
 from utils.models import ApiObject
-from utils.parse import to_json
+from utils.parse import to_json, ClassParser
 
 
+@ClassParser()
 class TaxRate(ApiObject):
     def __init__(self, id, country, state, postcode, city, rate, name, priority, compound, shipping, order, class_,
                  api, url):

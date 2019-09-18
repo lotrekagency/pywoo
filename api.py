@@ -9,9 +9,7 @@ from requests_oauthlib import OAuth1
 
 from models import *
 from utils.oauth import OAuth
-from utils.parse import map_models, to_json, from_json, add_url_field
-
-map_models()
+from utils.parse import to_json, from_json
 
 
 class Api:

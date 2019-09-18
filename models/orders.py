@@ -1,7 +1,8 @@
 from utils.models import ApiObject, ApiProperty
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
 
+@ClassParser()
 class Order(ApiObject):
     def __init__(self, id, parent_id, number, order_key, created_via, version, status, currency, date_created,
                  date_created_gmt, date_modified, date_modified_gmt, discount_total, discount_tax, shipping_total,
@@ -180,6 +181,7 @@ class Order(ApiObject):
         return self._refunds
 
 
+@ClassParser()
 class OrderLineItems(ApiProperty):
     def __init__(self, id=None, name=None, product_id=None, variation_id=None, quantity=None, tax_class=None,
                  subtotal=None, subtotal_tax=None, total=None, total_tax=None, taxes=[], meta_data=[], sku=None,
@@ -224,6 +226,7 @@ class OrderLineItems(ApiProperty):
         return self._price
 
 
+@ClassParser()
 class OrderShippingLine(ApiProperty):
     def __init__(self, id=None, method_title=None, method_id=None, total=None, total_tax=None, taxes=None,
                  meta_data=[]):
@@ -248,6 +251,7 @@ class OrderShippingLine(ApiProperty):
         return self._taxes
 
 
+@ClassParser()
 class OrderFeeLine(ApiProperty):
     def __init__(self, id=None, name=None, tax_class=None, tax_status=None, total=None, total_tax=None, taxes=[],
                  meta_data=[]):
@@ -273,6 +277,7 @@ class OrderFeeLine(ApiProperty):
         return self._taxes
 
 
+@ClassParser()
 class OrderCouponLine(ApiProperty):
     def __init__(self, id=None, code=None, discount=None, discount_tax=None, meta_data=[]):
         self._id = id
@@ -294,6 +299,7 @@ class OrderCouponLine(ApiProperty):
         return self._discount_tax
 
 
+@ClassParser()
 class OrderRefund(ApiProperty):
     def __init__(self, id=None, reason=None, total=None):
         self._id = id
@@ -313,6 +319,7 @@ class OrderRefund(ApiProperty):
         return self._total
 
 
+@ClassParser()
 class OrderTax(ApiProperty):
     def __init__(self, id=None, rate_code=None, rate_id=None, label=None, compound=None, tax_total=None,
                  shipping_tax_total=None, meta_data=[]):

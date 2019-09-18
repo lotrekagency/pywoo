@@ -1,6 +1,8 @@
 from utils.models import ApiObject, ApiProperty
+from utils.parse import ClassParser
 
 
+@ClassParser()
 class PaymentGateway(ApiObject):
     def __init__(self, id, title, description, order, enabled, method_title, method_description, method_supports,
                  settings, api):
@@ -32,6 +34,7 @@ class PaymentGateway(ApiObject):
         return self._method_supports
 
 
+@ClassParser()
 class Setting(ApiProperty):
     def __init__(self, id=None, label=None, description=None, type=None, value=None, default=None, tip=None,
                  placeholder=None):

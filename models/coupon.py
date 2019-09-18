@@ -1,7 +1,8 @@
 from utils.models import ApiObject
-from utils.parse import from_json, to_json, parse_date_time
+from utils.parse import from_json, to_json, parse_date_time, ClassParser
 
 
+@ClassParser()
 class Coupon(ApiObject):
     def __init__(self, id, code, amount, date_created, date_created_gmt, date_modified, date_modified_gmt,
                  discount_type, description, date_expires, date_expires_gmt, usage_count, individual_use, product_ids,

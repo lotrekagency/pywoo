@@ -4,33 +4,49 @@ import re
 import sys
 import json
 from datetime import datetime
-from utils.models import ApiSuperClass
+from utils.models import ApiSuperClass, ApiObject, ApiProperty
+
 mapping = {}
 
 
-def map_models():
-    modules = [key for key, value in sys.modules.items() if key.startswith("models.")]
-    print(modules)
-    for module in modules:
-        classes = inspect.getmembers(sys.modules[module], inspect.isclass)
-        for _class in classes:
-            for member in inspect.getmembers(_class[1]):
-                if '__init__' in member:
-                    _vars = frozenset([re.sub(r"_$", "", arg) for arg in inspect.signature(member[1]).parameters.keys()
-                                       if arg != 'self' and arg != 'api' and arg != 'url'])
-                    if _vars in mapping and len(_vars) != 0:
-                        print("Same frozenset mapped more than one time!", _vars)
-                    mapping[_vars] = _class[1]
+class ClassParser(object):
+    def __init__(self, url=None):
+        self.url = url
+
+    def __call__(self, cls, *args, **kwargs):
+        setattr(cls.__init__, "_url", self.url)
+
+        vars = [re.sub(r"_$", "", arg) for arg in inspect.signature(cls.__init__).parameters.keys()
+                if arg != 'self' and arg != 'api' and arg != 'url']
+        vars = frozenset(vars)
+        if vars in mapping:
+            mapping[vars].append(cls)
+        else:
+            mapping[vars] = [cls]
+
+        return cls
 
 
 def find_mapping(data, api, url):
     if '_links' in data:
         del data['_links']
     try:
-        if len(inspect.signature(mapping[frozenset(data.keys())].__init__).parameters) == len(data.values()) + 1:
-            return mapping[frozenset(data.keys())](*data.values())
+        list_cls = mapping[frozenset(data.keys())]
+        cls = type
+
+        if len(list_cls) == 1:
+            cls = list_cls[0]
         else:
-            return mapping[frozenset(data.keys())](*data.values(), api, url)
+            for mapped_cls in list_cls:
+                regex_url = getattr(mapped_cls.__init__, "_url", "")
+                if re.match(regex_url, url):
+                    cls = mapped_cls
+                    break
+
+        if issubclass(cls, ApiObject):
+            return cls(*data.values(), api, url)
+        else:
+            return cls(*data.values())
     except KeyError:
         print(data.keys(), "frozenset NOT FOUND")
         return dict(zip(data.keys(), data.values()))
@@ -38,7 +54,8 @@ def find_mapping(data, api, url):
 
 def get_dict_data(data):
     data = data.__dict__
-    return {key: (get_dict_data(value) if issubclass(type(value), ApiSuperClass) else value) for key, value in data.items() if not key.startswith("_") and not value is None}
+    return {key: (get_dict_data(value) if issubclass(type(value), ApiProperty) else value) for key, value in
+            data.items() if not key.startswith("_") and not value is None}
 
 
 def from_json(data, api, url):
@@ -51,8 +68,3 @@ def to_json(data):
 
 def parse_date_time(date_time):
     return datetime.strptime(date_time, '%Y-%m-%dT%H:%M:%S').isoformat() if date_time else None
-
-def add_url_field(resp_text, url):
-    resp_json = json.loads(resp_text)
-    resp_json.update({"url" : url})
-    return json.dumps(resp_json)

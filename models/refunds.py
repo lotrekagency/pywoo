@@ -1,8 +1,9 @@
 from re import search
 from utils.models import ApiObject, ApiProperty
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
 
+@ClassParser()
 class Refund(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, amount, reason, refunded_by, refunded_payment, meta_data,
                  line_items, api, url):
@@ -60,7 +61,7 @@ class Refund(ApiObject):
     def order_id(self):
         return search(r"orders\/(\d+)\/.*", self._url).group(1)
 
-
+@ClassParser()
 class RefundItemLine(ApiProperty):
     def __init__(self, id=None, total=None, subtotal=None):
         self._id = id

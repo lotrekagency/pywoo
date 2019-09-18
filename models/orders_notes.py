@@ -1,9 +1,10 @@
 from re import search
 
 from utils.models import ApiObject
-from utils.parse import parse_date_time, to_json
+from utils.parse import parse_date_time, to_json, ClassParser
 
 
+@ClassParser()
 class OrderNote(ApiObject):
     def __init__(self, id, author, date_created, date_created_gmt, note, customer_note, added_by_user, api, url):
         super().__init__(api, url)

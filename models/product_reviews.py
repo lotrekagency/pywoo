@@ -1,7 +1,8 @@
 from utils.models import ApiObject
-from utils.parse import parse_date_time
+from utils.parse import parse_date_time, ClassParser
 
 
+@ClassParser()
 class ProductReview(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, product_id, status, reviewer, reviewer_email, review, rating,
                  verified, api):
