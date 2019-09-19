@@ -1,6 +1,5 @@
 from pywoo.pywoo import Api
-from pywoo.models import Product
-from pywoo.models import ProductVariation
+from pywoo.models.customers import Customer
 
 api = Api()
 '''

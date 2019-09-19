@@ -1,0 +1,104 @@
+[
+    {
+        "id": 3,
+        "date_created": "2019-09-17T11:40:22",
+        "date_created_gmt": "2019-09-17T09:40:22",
+        "date_modified": "2019-09-17T11:40:22",
+        "date_modified_gmt": "2019-09-17T09:40:22",
+        "email": "ere@dgesd.com",
+        "first_name": "",
+        "last_name": "",
+        "role": "customer",
+        "username": "ere",
+        "billing": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "postcode": "",
+            "country": "",
+            "state": "",
+            "email": "",
+            "phone": ""
+        },
+        "shipping": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "postcode": "",
+            "country": "",
+            "state": ""
+        },
+        "is_paying_customer": false,
+        "avatar_url": "http://0.gravatar.com/avatar/f41fc70a3c3b4552e3a231aa0b15b199?s=96&d=mm&r=g",
+        "meta_data": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wordpress/wp-json/wc/v3/customers/3"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wordpress/wp-json/wc/v3/customers"
+                }
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "date_created": "2019-09-17T11:38:33",
+        "date_created_gmt": "2019-09-17T09:38:33",
+        "date_modified": "2019-09-17T11:38:33",
+        "date_modified_gmt": "2019-09-17T09:38:33",
+        "email": "fagiano@gs.com",
+        "first_name": "",
+        "last_name": "",
+        "role": "customer",
+        "username": "fagiano",
+        "billing": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "postcode": "",
+            "country": "",
+            "state": "",
+            "email": "",
+            "phone": ""
+        },
+        "shipping": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "postcode": "",
+            "country": "",
+            "state": ""
+        },
+        "is_paying_customer": false,
+        "avatar_url": "http://0.gravatar.com/avatar/0c4ac215cb97204f790e2d453dd70129?s=96&d=mm&r=g",
+        "meta_data": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wordpress/wp-json/wc/v3/customers/2"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wordpress/wp-json/wc/v3/customers"
+                }
+            ]
+        }
+    }
+]

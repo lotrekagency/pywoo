@@ -79,7 +79,7 @@ class Api:
     def get_customers(self, id='', **params):
         return self._get('customers', id, params)
 
-    def update_customer(self, id, *data):
+    def update_customer(self, id, **data):
         return self._put('customers', id, data)
 
     def delete_customer(self, id, **params):
@@ -236,7 +236,7 @@ class Api:
     def delete_tax_class(self, id):
         return self._delete('taxes/classes', id, {'force': True})
 
-    def get_payment_gateway(self, id=''):
+    def get_payment_gateways(self, id=''):
         return self._get('payment_gateways', id)
 
     def update_payment_gateway(self, id, **data):

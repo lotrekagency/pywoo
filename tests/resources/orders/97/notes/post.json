@@ -1,0 +1,25 @@
+{
+    "id": 134,
+    "author": "WooCommerce",
+    "date_created": "2019-09-19T16:42:56",
+    "date_created_gmt": "2019-09-19T14:42:56",
+    "note": "test",
+    "customer_note": false,
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/orders/97/notes/134"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/orders/97/notes"
+            }
+        ],
+        "up": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/orders/97"
+            }
+        ]
+    }
+}
