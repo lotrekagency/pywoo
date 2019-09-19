@@ -1,0 +1,26 @@
+{
+    "id": 2,
+    "country": "IT",
+    "state": "TOSCANA",
+    "postcode": "",
+    "city": "FIRENZE",
+    "rate": "",
+    "name": "eae",
+    "priority": 1,
+    "compound": false,
+    "shipping": true,
+    "order": 0,
+    "class": "standard",
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/taxes/2"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/taxes"
+            }
+        ]
+    }
+}

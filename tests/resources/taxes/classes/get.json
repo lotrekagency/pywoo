@@ -1,0 +1,13 @@
+[
+    {
+        "slug": "standard",
+        "name": "Tariffa standard",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/taxes/classes"
+                }
+            ]
+        }
+    }
+]
