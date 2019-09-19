@@ -1,14 +1,7 @@
-from api import Api
-from models.coupon import Coupon
-from models.products import Product
-from models.orders import Order
-from models.customers import Customer
-from models.product_variations import ProductVariation
-from models.orders_notes import OrderNote
-from models.refunds import Refund
-from utils.parse import to_json
-import json
-import types
+from pywoo.pywoo import Api
+from pywoo.models import Product
+from pywoo.models import ProductVariation
+
 api = Api()
 '''
 c = Coupon.get_coupons(api, '36')

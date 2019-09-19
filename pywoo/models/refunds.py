@@ -1,6 +1,6 @@
 from re import search
-from utils.models import ApiObject, ApiProperty
-from utils.parse import parse_date_time, to_json, ClassParser
+from pywoo.utils.models import ApiObject, ApiProperty
+from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
 @ClassParser()

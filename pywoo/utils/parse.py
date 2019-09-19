@@ -1,10 +1,8 @@
 import inspect
-import models
 import re
-import sys
 import json
 from datetime import datetime
-from utils.models import ApiSuperClass, ApiObject, ApiProperty
+from pywoo.utils.models import ApiSuperClass, ApiObject
 
 mapping = {}
 
@@ -48,7 +46,6 @@ def find_mapping(data, api, url):
         else:
             return cls(*data.values())
     except KeyError:
-        print(data.keys(), "frozenset NOT FOUND")
         return dict(zip(data.keys(), data.values()))
 
 

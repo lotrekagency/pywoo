@@ -1,5 +1,5 @@
-from utils.models import ApiObject
-from utils.parse import ClassParser, to_json
+from pywoo.utils.models import ApiObject
+from pywoo.utils.parse import ClassParser, to_json
 
 
 @ClassParser(url=r"products\/shipping_classes.*")

@@ -1,5 +1,5 @@
-from utils.models import ApiObject
-from utils.parse import to_json, ClassParser
+from pywoo.utils.models import ApiObject
+from pywoo.utils.parse import to_json, ClassParser
 
 
 @ClassParser()

@@ -1,5 +1,5 @@
-from utils.models import ApiProperty
-from utils.parse import ClassParser
+from pywoo.utils.models import ApiProperty
+from pywoo.utils.parse import ClassParser
 
 
 @ClassParser()

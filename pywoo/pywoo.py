@@ -1,29 +1,15 @@
-from pprint import pprint
-
 import requests
-import os
-import json
-from time import time
 
 from requests_oauthlib import OAuth1
 
-from models import *
-from utils.oauth import OAuth
-from utils.parse import to_json, from_json
+from pywoo.utils.parse import from_json
 
 
 class Api:
-
-    def _get_env_var(self, var):
-        try:
-            return os.environ[var]
-        except:
-            raise Exception(f"{var} environment variable not defined")
-
-    def __init__(self):
-        self.url = self._get_env_var('SITE_URL')
-        self.consumer_key = self._get_env_var('WOO_CONSUMER_KEY')
-        self.consumer_secret = self._get_env_var('WOO_CONSUMER_SECRET')
+    def __init__(self, url, consumer_key, consumer_secret):
+        self.url = url
+        self.consumer_key = consumer_key
+        self.consumer_secret = consumer_secret
 
     def _get_default_headers(self):
         headers = {}

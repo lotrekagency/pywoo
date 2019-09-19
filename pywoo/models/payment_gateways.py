@@ -1,7 +1,7 @@
-from utils.models import ApiObject, ApiProperty
-from utils.parse import ClassParser
+from pywoo.utils.models import ApiObject, ApiProperty
+from pywoo.utils.parse import ClassParser
 
-from utils.parse import to_json
+from pywoo.utils.parse import to_json
 
 @ClassParser()
 class PaymentGateway(ApiObject):

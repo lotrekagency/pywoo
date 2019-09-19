@@ -1,5 +1,5 @@
-from utils.models import ApiObject
-from utils.parse import ClassParser
+from pywoo.utils.models import ApiObject
+from pywoo.utils.parse import ClassParser
 
 
 @ClassParser()
@@ -15,14 +15,14 @@ class TaxClass(ApiObject):
 
     @classmethod
     def create_tax_class(cls, api, **kwargs):
-        return api.create_tax_rate(**kwargs)
+        return api.create_tax_class(**kwargs)
 
     @classmethod
     def delete_tax_rate(cls, api, slug):
-        return api.delete_tax_rate(slug)
+        return api.delete_tax_class(slug)
 
     def delete(self):
-        return self._api.delete_tax_rate(self._slug)
+        return self._api.delete_tax_class(self._slug)
 
     @property
     def slug(self):
