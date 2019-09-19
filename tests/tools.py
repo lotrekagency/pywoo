@@ -1,11 +1,20 @@
+import json
 import os
 from unittest.mock import Mock
 from requests import Response
 
 
-def mock_request(method, url):
-    file = open(os.path.join(*(['resources'] + url.split("/") + [method.lower() + ".json"])), 'rb')
-    response = Mock(spec=Response)
-    response.status_code = 200
-    response.raw = file.read()
+class MockResponse:
+    def __init__(self, text, ok=True, status_code=200):
+        self.text = text
+        self.ok = ok
+        self.status_code = status_code
+
+    def json(self):
+        return json.loads(self.text)
+
+
+def mock_request(method, url, *args, **kwargs):
+    file = open(os.path.join(*(['.', 'tests'] + ['resources'] + url.split("/") + [method.lower() + ".json"])), 'r')
+    response = MockResponse(file.read())
     return response

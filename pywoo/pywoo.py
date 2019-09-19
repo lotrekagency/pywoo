@@ -22,7 +22,7 @@ class Api:
             headers=self._get_default_headers(),
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
-        if resp.status_code != 201:
+        if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         print("\033[1;32;40mSTATUS 200 Created successfully\033[0m")
         return from_json(resp.text, self, url)
@@ -33,7 +33,7 @@ class Api:
             params=params,
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
-        if resp.status_code != 200:
+        if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         print("\033[1;32;40mSTATUS 200 Read successfully\033[0m")
         return from_json(resp.text, self, url)
@@ -44,7 +44,7 @@ class Api:
             json=data,
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
-        if resp.status_code != 200:
+        if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         print("\033[1;32;40mSTATUS 200 Updated successfully\033[0m")
         return from_json(resp.text, self, url)
@@ -56,7 +56,7 @@ class Api:
             params=params,
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
-        if resp.status_code != 200:
+        if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         print("\033[1;32;40mSTATUS 200 Deleted successfully\033[0m")
         return from_json(resp.text, self, url)

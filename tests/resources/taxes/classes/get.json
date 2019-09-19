@@ -9,5 +9,27 @@
                 }
             ]
         }
+    },
+    {
+        "slug": "tar",
+        "name": "tar",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/taxes/classes"
+                }
+            ]
+        }
+    },
+    {
+        "slug": "tariffa",
+        "name": "tariffa",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/taxes/classes"
+                }
+            ]
+        }
     }
 ]

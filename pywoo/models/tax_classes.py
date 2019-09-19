@@ -18,7 +18,7 @@ class TaxClass(ApiObject):
         return api.create_tax_class(**kwargs)
 
     @classmethod
-    def delete_tax_rate(cls, api, slug):
+    def delete_tax_class(cls, api, slug):
         return api.delete_tax_class(slug)
 
     def delete(self):
