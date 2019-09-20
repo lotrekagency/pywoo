@@ -3,12 +3,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-def refund_post_init(id, date_created, date_created_gmt, amount, reason, refunded_by, meta_data, line_items, api, url):
-    return Refund(id, date_created, date_created_gmt, amount, reason, refunded_by, None, meta_data, line_items,
-                  api, url)
-
-
-@ClassParser(other_func=[refund_post_init])
+@ClassParser()
 class Refund(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, amount, reason, refunded_by, refunded_payment, meta_data,
                  line_items, api, url):
@@ -31,7 +26,7 @@ class Refund(ApiObject):
     @classmethod
     def create_refund(cls, api, order_id, **kwargs):
         return api.create_refund(order_id, **kwargs)
-
+        
     @classmethod
     def edit_refund(cls, api, order_id, id, **kwargs):
         return api.update_refund(order_id, id, **kwargs)
@@ -45,7 +40,7 @@ class Refund(ApiObject):
 
     def delete(self):
         return self._api.delete_refund(self.order_id, self.id)
-
+    
     @property
     def id(self):
         return self._id
@@ -61,7 +56,7 @@ class Refund(ApiObject):
     @property
     def refunded_payment(self):
         return self._refunded_payment
-
+    
     @property
     def order_id(self):
         return search(r"orders\/(\d+)\/.*", self._url).group(1)
