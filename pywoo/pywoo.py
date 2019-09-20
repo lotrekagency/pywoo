@@ -182,7 +182,7 @@ class Api:
     def create_product_shipping_class(self, **data):
         return self._create('products/shipping_classes', data)
 
-    def get_products_shipping_classes(self, id='', **params):
+    def get_product_shipping_classes(self, id='', **params):
         return self._get('products/shipping_classes', id, params)
 
     def update_product_shipping_class(self, id, **data):
@@ -213,7 +213,7 @@ class Api:
         return self._put('products/reviews', id, data)
 
     def delete_product_review(self, id):
-        return self._delete('product/reviews', id, {'force': True})
+        return self._delete('products/reviews', id, {'force': True})
 
     def create_tax_rate(self, **data):
         return self._create('taxes', data)
@@ -257,7 +257,7 @@ class Api:
     def get_shipping_zone_locations(self, shipping_zone_id):
         return self._get(f'shipping/zones/{shipping_zone_id}/locations')
 
-    def update_shipping_zone_locations(self, shipping_zone_id, shipping_locations):
+    def update_shipping_zone_locations(self, shipping_zone_id, shipping_locations=[]):
         return self._put(f'shipping/zones/{shipping_zone_id}/locations', '', shipping_locations)
 
     def create_shipping_zone_method(self, shipping_zone_id, **data):
@@ -273,5 +273,5 @@ class Api:
         return self._delete(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id,
                             {'force': True})
 
-    def get_shipping_method(self, id=''):
+    def get_shipping_methods(self, id=''):
         return self._get('shipping_methods', id)

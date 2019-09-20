@@ -1,0 +1,19 @@
+{
+    "id": 23,
+    "name": "sdasasddawasasaassssssdsdsdssas",
+    "slug": "sdasasddawasasaassssssdsdsdssas",
+    "description": "ciao",
+    "count": 0,
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/tags/23"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/tags"
+            }
+        ]
+    }
+}

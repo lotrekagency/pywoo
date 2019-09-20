@@ -1,0 +1,135 @@
+[
+    {
+        "id": 17,
+        "name": "sd",
+        "slug": "sd",
+        "description": "",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/17"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    },
+    {
+        "id": 18,
+        "name": "sdasasas",
+        "slug": "sdasasas",
+        "description": "",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/18"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    },
+    {
+        "id": 21,
+        "name": "sdasasddaasasaassssssdsdsdssas",
+        "slug": "sdasasddaasasaassssssdsdsdssas",
+        "description": "ciao",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/21"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    },
+    {
+        "id": 20,
+        "name": "sdasasddaasasassssssdsdsdssas",
+        "slug": "sdasasddaasasassssssdsdsdssas",
+        "description": "ciao",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/20"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    },
+    {
+        "id": 22,
+        "name": "sdasasddawasasaassssssdsdsdssas",
+        "slug": "sdasasddawasasaassssssdsdsdssas",
+        "description": "ciao",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/22"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    },
+    {
+        "id": 19,
+        "name": "sdasasddsdsdsdssas",
+        "slug": "sdasasddsdsdsdssas",
+        "description": "",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/19"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    },
+    {
+        "id": 24,
+        "name": "spedizione",
+        "slug": "spedizione",
+        "description": "",
+        "count": 0,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/24"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+                }
+            ]
+        }
+    }
+]

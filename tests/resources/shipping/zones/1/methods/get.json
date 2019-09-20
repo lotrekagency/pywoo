@@ -1,0 +1,159 @@
+[
+    {
+        "id": 1,
+        "instance_id": 1,
+        "title": "Tariffa unica",
+        "order": 1,
+        "enabled": true,
+        "method_id": "flat_rate",
+        "method_title": "Tariffa unica",
+        "method_description": "<p>Consente di caricare un'aliquota per la spedizione.</p>\n",
+        "settings": {
+            "title": {
+                "id": "title",
+                "label": "Titolo del metodo",
+                "description": "Quest'opzione controlla il titolo che gli utenti vedono durante il pagamento.",
+                "type": "text",
+                "value": "Tariffa unica",
+                "default": "Tariffa unica",
+                "tip": "Quest'opzione controlla il titolo che gli utenti vedono durante il pagamento.",
+                "placeholder": ""
+            },
+            "tax_status": {
+                "id": "tax_status",
+                "label": "Stato delle imposte",
+                "description": "",
+                "type": "select",
+                "value": "taxable",
+                "default": "taxable",
+                "tip": "",
+                "placeholder": "",
+                "options": {
+                    "taxable": "Imponibile",
+                    "none": "Esente"
+                }
+            },
+            "cost": {
+                "id": "cost",
+                "label": "Costo",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": "932",
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": ""
+            },
+            "class_costs": {
+                "id": "class_costs",
+                "label": "Costi per la classe di spedizione",
+                "description": "Questi costi possono essere aggiunti opzionalmente in base alle <a href=\"http://localhost/wp-admin/admin.php?page=wc-settings&tab=shipping&section=classes\">classi di spedizione del prodotto</a>.",
+                "type": "title",
+                "value": null,
+                "default": "",
+                "tip": "Questi costi possono essere aggiunti opzionalmente in base alle <a href=\"http://localhost/wp-admin/admin.php?page=wc-settings&tab=shipping&section=classes\">classi di spedizione del prodotto</a>.",
+                "placeholder": ""
+            },
+            "class_cost_17": {
+                "id": "class_cost_17",
+                "label": "Costo della classe di spedizione \"sd\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "class_cost_18": {
+                "id": "class_cost_18",
+                "label": "Costo della classe di spedizione \"sdasasas\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "class_cost_21": {
+                "id": "class_cost_21",
+                "label": "Costo della classe di spedizione \"sdasasddaasasaassssssdsdsdssas\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "class_cost_20": {
+                "id": "class_cost_20",
+                "label": "Costo della classe di spedizione \"sdasasddaasasassssssdsdsdssas\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "class_cost_22": {
+                "id": "class_cost_22",
+                "label": "Costo della classe di spedizione \"sdasasddawasasaassssssdsdsdssas\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "class_cost_19": {
+                "id": "class_cost_19",
+                "label": "Costo della classe di spedizione \"sdasasddsdsdsdssas\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "no_class_cost": {
+                "id": "no_class_cost",
+                "label": "Costo per \"Nessuna classe di spedizione\"",
+                "description": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "type": "text",
+                "value": null,
+                "default": "",
+                "tip": "Inserisci un costo (imposte escl.) o somma, es. <code>10.00 * [qty]</code>.<br/><br/>Usa <code>[qty]</code> per il numero di articoli, <br/><code>[cost]</code> per il costo totale degli articoli, e <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> per le tasse su base percentuale.",
+                "placeholder": "N/A"
+            },
+            "type": {
+                "id": "type",
+                "label": "Tipo di calcolo",
+                "description": "",
+                "type": "select",
+                "value": null,
+                "default": "class",
+                "tip": "",
+                "placeholder": "",
+                "options": {
+                    "class": "Per classe: Applica la spedizione individualmente ad ogni classe di spedizione",
+                    "order": "Per ordine: Applica la spedizione per la classe di spedizione più costosa"
+                }
+            }
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2/methods/1"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2/methods"
+                }
+            ],
+            "describes": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2"
+                }
+            ]
+        }
+    }
+]

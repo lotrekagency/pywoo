@@ -1,0 +1,34 @@
+{
+    "id": 42,
+    "date_created": "2019-09-19T17:21:28",
+    "date_created_gmt": "2019-09-19T15:21:28",
+    "product_id": 56,
+    "status": "approved",
+    "reviewer": "anonimo",
+    "reviewer_email": "anonimo@anonimo.com",
+    "review": "ok!",
+    "rating": 0,
+    "verified": false,
+    "reviewer_avatar_urls": {
+        "24": "http://1.gravatar.com/avatar/ac750591ef742772e8b46abb77d369ad?s=24&d=mm&r=g",
+        "48": "http://1.gravatar.com/avatar/ac750591ef742772e8b46abb77d369ad?s=48&d=mm&r=g",
+        "96": "http://1.gravatar.com/avatar/ac750591ef742772e8b46abb77d369ad?s=96&d=mm&r=g"
+    },
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/reviews/42"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/reviews"
+            }
+        ],
+        "up": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/56"
+            }
+        ]
+    }
+}

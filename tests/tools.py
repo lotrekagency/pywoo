@@ -1,8 +1,5 @@
 import json
 import os
-from unittest.mock import Mock
-from requests import Response
-
 
 class MockResponse:
     def __init__(self, text, ok=True, status_code=200):
@@ -17,4 +14,5 @@ class MockResponse:
 def mock_request(method, url, *args, **kwargs):
     file = open(os.path.join(*(['.', 'tests'] + ['resources'] + url.split("/") + [method.lower() + ".json"])), 'r')
     response = MockResponse(file.read())
+    file.close()
     return response

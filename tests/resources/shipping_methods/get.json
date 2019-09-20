@@ -1,0 +1,53 @@
+[
+    {
+        "id": "flat_rate",
+        "title": "Tariffa unica",
+        "description": "Consente di caricare un'aliquota per la spedizione.",
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping_methods/flat_rate"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping_methods"
+                }
+            ]
+        }
+    },
+    {
+        "id": "free_shipping",
+        "title": "Spedizione gratuita",
+        "description": "La spedizione gratuita è un metodo speciale che può essere attivato con codici promozionali e con una spesa minima.",
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping_methods/free_shipping"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping_methods"
+                }
+            ]
+        }
+    },
+    {
+        "id": "local_pickup",
+        "title": "Ritiro in sede",
+        "description": "Permetti ai clienti di ritirare gli ordini autonomamente. Di default, quando usi il ritiro in sede le imposte si applicano indipendentemente dall'indirizzo del cliente.",
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping_methods/local_pickup"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping_methods"
+                }
+            ]
+        }
+    }
+]

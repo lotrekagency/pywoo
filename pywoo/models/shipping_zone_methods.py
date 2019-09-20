@@ -5,10 +5,11 @@ from pywoo.utils.parse import to_json, ClassParser
 
 
 @ClassParser()
-class ShippingZoneMethods(ApiObject):
-    def __init__(self, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api,
+class ShippingZoneMethod(ApiObject):
+    def __init__(self, id, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api,
                  url):
         super().__init__(api, url)
+        self._id = id
         self._instance_id = instance_id
         self._title = title
         self.order = order
@@ -19,7 +20,7 @@ class ShippingZoneMethods(ApiObject):
         self.settings = settings
 
     @classmethod
-    def get_shipping_zone_method(cls, api, shipping_zone_id, id=''):
+    def get_shipping_zone_methods(cls, api, shipping_zone_id, id=''):
         return api.get_shipping_zone_methods(shipping_zone_id, id)
 
     @classmethod
@@ -39,6 +40,10 @@ class ShippingZoneMethods(ApiObject):
 
     def delete(self):
         return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def instance_id(self):

@@ -12,7 +12,7 @@ class ShippingMethod(ApiObject):
 
     @classmethod
     def get_shipping_methods(cls, api, id='', **params):
-        return api.get_orders(id, **params)
+        return api.get_shipping_methods(id, **params)
 
     @property
     def id(self):

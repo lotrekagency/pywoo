@@ -1,0 +1,17 @@
+{
+    "id": "flat_rate",
+    "title": "Tariffa unica",
+    "description": "Consente di caricare un'aliquota per la spedizione.",
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/shipping_methods/flat_rate"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/shipping_methods"
+            }
+        ]
+    }
+}

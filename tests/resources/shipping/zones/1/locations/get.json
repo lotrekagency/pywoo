@@ -1,0 +1,34 @@
+[
+    {
+        "code": "BR:SP",
+        "type": "state",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2/locations"
+                }
+            ],
+            "describes": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2"
+                }
+            ]
+        }
+    },
+    {
+        "code": "BR:RJ",
+        "type": "state",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2/locations"
+                }
+            ],
+            "describes": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/shipping/zones/2"
+                }
+            ]
+        }
+    }
+]

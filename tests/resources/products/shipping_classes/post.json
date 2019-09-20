@@ -1,0 +1,19 @@
+{
+    "id": 24,
+    "name": "spedizione",
+    "slug": "spedizione",
+    "description": "",
+    "count": 0,
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/shipping_classes/24"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/shipping_classes"
+            }
+        ]
+    }
+}

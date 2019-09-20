@@ -5,7 +5,7 @@ from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 @ClassParser()
 class ProductReview(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, product_id, status, reviewer, reviewer_email, review, rating,
-                 verified, api, url):
+                 verified, reviewer_avatar_urls, api, url):
         super().__init__(api, url)
         self._id = id
         self._date_created = parse_date_time(date_created)
@@ -17,6 +17,7 @@ class ProductReview(ApiObject):
         self.review = review
         self.rating = rating
         self.verified = verified
+        self.reviewer_avatar_urls = reviewer_avatar_urls
 
     @classmethod
     def get_product_reviews(cls, api, id='', **params):

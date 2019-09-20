@@ -1,0 +1,22 @@
+{
+    "id": 1,
+    "name": "tariffa",
+    "order": 0,
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/shipping/zones/1"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/shipping/zones"
+            }
+        ],
+        "describedby": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/shipping/zones/1/locations"
+            }
+        ]
+    }
+}
