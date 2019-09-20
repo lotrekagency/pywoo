@@ -1,0 +1,46 @@
+{
+    "id": "bacs",
+    "title": "Direct bank transfer",
+    "description": "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+    "order": "",
+    "enabled": false,
+    "method_title": "Direct bank transfer",
+    "method_description": "Take payments in person via BACS. More commonly known as direct bank/wire transfer",
+    "method_supports": [
+        "products"
+    ],
+    "settings": {
+        "title": {
+            "id": "title",
+            "label": "Title",
+            "description": "This controls the title which the user sees during checkout.",
+            "type": "text",
+            "value": "Direct bank transfer",
+            "default": "Direct bank transfer",
+            "tip": "This controls the title which the user sees during checkout.",
+            "placeholder": ""
+        },
+        "instructions": {
+            "id": "instructions",
+            "label": "Instructions",
+            "description": "Instructions that will be added to the thank you page and emails.",
+            "type": "textarea",
+            "value": "",
+            "default": "",
+            "tip": "Instructions that will be added to the thank you page and emails.",
+            "placeholder": ""
+        }
+    },
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/payment_gateways/bacs"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/payment_gateways"
+            }
+        ]
+    }
+}

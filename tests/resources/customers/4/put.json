@@ -1,0 +1,51 @@
+{
+    "id": 4,
+    "date_created": "2019-09-19T16:08:17",
+    "date_created_gmt": "2019-09-19T14:08:17",
+    "date_modified": "2019-09-19T16:10:31",
+    "date_modified_gmt": "2019-09-19T14:10:31",
+    "email": "test2@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "role": "customer",
+    "username": "test",
+    "billing": {
+        "first_name": "",
+        "last_name": "",
+        "company": "",
+        "address_1": "",
+        "address_2": "",
+        "city": "",
+        "postcode": "",
+        "country": "",
+        "state": "",
+        "email": "",
+        "phone": ""
+    },
+    "shipping": {
+        "first_name": "",
+        "last_name": "",
+        "company": "",
+        "address_1": "",
+        "address_2": "",
+        "city": "",
+        "postcode": "",
+        "country": "",
+        "state": ""
+    },
+    "is_paying_customer": false,
+    "avatar_url": "http://0.gravatar.com/avatar/3c4f419e8cd958690d0d14b3b89380d3?s=96&d=mm&r=g",
+    "meta_data": [],
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/customers/4"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/customers"
+            }
+        ]
+    }
+}

@@ -24,7 +24,7 @@ class PaymentGateway(ApiObject):
 
     @classmethod
     def edit_payment_gateway(cls, api, id, **kwargs):
-        return api.edit_payment_gateway(id, **kwargs)
+        return api.update_payment_gateway(id, **kwargs)
 
     def update(self):
         return self._api.update_payment_gateway(self.id, **to_json(self))
