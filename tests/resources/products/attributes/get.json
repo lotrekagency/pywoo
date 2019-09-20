@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "attributo",
+        "slug": "pa_attributo",
+        "type": "select",
+        "order_by": "menu_order",
+        "has_archives": false,
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/attributes/1"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost/wp-json/wc/v3/products/attributes"
+                }
+            ]
+        }
+    }
+]

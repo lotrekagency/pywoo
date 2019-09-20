@@ -8,19 +8,23 @@ mapping = {}
 
 
 class ClassParser(object):
-    def __init__(self, url=None):
+    def __init__(self, url=None, other_func=[]):
         self.url = url
+        self._other_func = other_func
 
     def __call__(self, cls, *args, **kwargs):
         setattr(cls.__init__, "_url", self.url)
 
-        vars = [re.sub(r"_$", "", arg) for arg in inspect.signature(cls.__init__).parameters.keys()
-                if arg != 'self' and arg != 'api' and arg != 'url']
-        vars = frozenset(vars)
-        if vars in mapping:
-            mapping[vars].append(cls)
-        else:
-            mapping[vars] = [cls]
+        funcs = self._other_func + [cls.__init__]
+
+        for func in funcs:
+            vars = [re.sub(r"_$", "", arg) for arg in inspect.signature(func).parameters.keys()
+                    if arg != 'self' and arg != 'api' and arg != 'url']
+            vars = frozenset(vars)
+            if vars in mapping:
+                mapping[vars].append(cls)
+            else:
+                mapping[vars] = [cls]
 
         return cls
 

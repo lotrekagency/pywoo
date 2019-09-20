@@ -1,0 +1,20 @@
+{
+    "id": 26,
+    "name": "attributo",
+    "slug": "attributo",
+    "description": "",
+    "menu_order": 0,
+    "count": 0,
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/attributes/1/terms/26"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wp-json/wc/v3/products/attributes/1/terms"
+            }
+        ]
+    }
+}
