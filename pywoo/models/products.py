@@ -10,7 +10,7 @@ class ProductTag(ApiProperty):
     rw_attributes = ['id', 'name', 'slug']
 
 
-@ClassParser(url="products")
+@ClassParser(url_class="products")
 class Product(ApiObject):
     ro_attributes = {'id', 'permalink', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt',
                      'price', 'price_html', 'on_sale', 'purchasable', 'total_sales', 'backorders_allowed',
@@ -59,27 +59,27 @@ class Product(ApiObject):
         return self._api.delete_product(self.id)
 
 
-@ClassParser(url="products")
+@ClassParser(url_class="products")
 class ProductDownload(ApiProperty):
     rw_attributes = {'id', 'name', 'file'}
 
 
-@ClassParser(url="products")
+@ClassParser(url_class="products")
 class ProductDimension(ApiProperty):
     rw_attributes = {'lenght', 'width', 'height'}
 
 
-@ClassParser(url="products")
+@ClassParser(url_class="products")
 class ProductImage(ApiProperty):
     ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
     rw_attributes = {'id', 'src', 'name', 'alt'}
 
 
-@ClassParser(url="products")
+@ClassParser(url_class="products")
 class ProductAttribute(ApiProperty):
     rw_attributes = {'id', 'name', 'position', 'visible', 'variation', 'options'}
 
 
-@ClassParser(url="products")
+@ClassParser(url_class="products")
 class ProductDefaultAttribute(ApiProperty):
     rw_attributes = {'id', 'name', 'option'}

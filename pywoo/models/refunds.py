@@ -3,7 +3,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser(url="refunds")
+@ClassParser(url_class="refunds")
 class Refund(ApiObject):
     ro_attributes = {'id', 'date_created', 'date_created_gmt'}
     wo_attributes = {'api_refund'}
@@ -36,12 +36,12 @@ class Refund(ApiObject):
         return search(r"orders\/(\d+)\/.*", self._url).group(1)
 
 
-@ClassParser(url="refunds")
+@ClassParser(url_class="refunds")
 class RefundLineItems(ApiProperty):
     ro_attributes = {'id', 'subtotal_tax', 'total', 'total_tax', 'taxes', 'meta_data', 'sku', 'price'}
     rw_attributes = {'name', 'product_id', 'variation_id', 'quantity', 'tax_class', 'subtotal'}
 
 
-@ClassParser(url="refunds")
+@ClassParser(url_class="refunds")
 class RefundLineItemTax(ApiProperty):
     wo_attributes = {'id', 'total', 'subtotal'}

@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser(url="reviews")
+@ClassParser(url_class="reviews")
 class ProductReview(ApiObject):
     ro_attributes = {'id', 'date_created', 'date_created_gmt'}
     rw_attributes = {'product_id', 'status', 'reviewer', 'reviewer_email', 'review', 'rating', 'verified'}

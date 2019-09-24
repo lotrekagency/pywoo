@@ -1,8 +1,8 @@
-from pywoo.utils.models import ApiObject, ApiProperty
+from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser
 
 
-@ClassParser(url="shipping_methods")
+@ClassParser(url_class="shipping_methods")
 class ShippingMethod(ApiObject):
     ro_attributes = {'id', 'title', 'description'}
 

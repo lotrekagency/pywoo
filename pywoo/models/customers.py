@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser(url="customers")
+@ClassParser(url_class="customers")
 class Customer(ApiObject):
     ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'role',
                      'is_paying_customer', 'avatar_url'}
@@ -32,13 +32,13 @@ class Customer(ApiObject):
         return self._api.delete_customer(self.id, **params)
 
 
-@ClassParser(url="customers")
+@ClassParser(url_class="customers")
 class CustomerBilling(ApiProperty):
     rw_attributes = {'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
                      'country', 'email', 'phone'}
 
 
-@ClassParser(url="customers")
+@ClassParser(url_class="customers")
 class CustomerShipping(ApiProperty):
     rw_attributes = {'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
                      'country'}

@@ -4,7 +4,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser(url="variations")
+@ClassParser(url_class="variations")
 class ProductVariation(ApiObject):
     ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'permalink',
                      'price', 'on_sale', 'purchasable', 'backorders_allowed', 'backordered', 'shipping_class_id'}
@@ -41,22 +41,22 @@ class ProductVariation(ApiObject):
         return search(r"products\/(\d+)\/.*", self._url).group(1)
 
 
-@ClassParser(url="variations")
+@ClassParser(url_class="variations")
 class ProductVariationDownload(ApiProperty):
     rw_attributes = {'id', 'name', 'file'}
 
 
-@ClassParser(url="variations")
+@ClassParser(url_class="variations")
 class ProductVariationDimension(ApiProperty):
     rw_attributes = {'lenght', 'width', 'height'}
 
 
-@ClassParser(url="variations")
+@ClassParser(url_class="variations")
 class ProductImage(ApiProperty):
     ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
     rw_attributes = {'id', 'src', 'name', 'alt'}
 
 
-@ClassParser(url="variations")
+@ClassParser(url_class="variations")
 class ProductVariationAttribute(ApiProperty):
     rw_attributes = {'id', 'name', 'option'}

@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser
 
 
-@ClassParser(url="taxes")
+@ClassParser(url_class="taxes")
 class TaxClass(ApiObject):
     ro_attributes = {'slug'}
     rw_attributes = {'name'}

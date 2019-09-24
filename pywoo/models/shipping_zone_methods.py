@@ -4,7 +4,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser(url="methods")
+@ClassParser(url_class="methods")
 class ShippingZoneMethod(ApiObject):
     ro_attributes = {'instance_id', 'title', 'method_id', 'method_title', 'method_description'}
     rw_attributes = {'order', 'enabled', 'settings'}
@@ -35,7 +35,7 @@ class ShippingZoneMethod(ApiObject):
     def shipping_zone_id(self):
         return search(r"shipping\/zones\/(\d+)\/.*", self._url).group(1)
 
-@ClassParser(url="methods")
+@ClassParser(url_class="methods")
 class PaymentGatewaySetting(ApiProperty):
     ro_attributes = ['id', 'label', 'description', 'type', 'default', 'tip', 'placeholder']
     rw_attributes = ['value']
