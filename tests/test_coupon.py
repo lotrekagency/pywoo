@@ -3,8 +3,9 @@ import unittest
 from unittest.mock import Mock, patch
 
 from pywoo import Api
-from pywoo.models.coupon import Coupon 
+from pywoo.models.coupon import Coupon
 from .tools import mock_request
+
 
 class TestCoupon(unittest.TestCase):
 
@@ -38,7 +39,7 @@ class TestCoupon(unittest.TestCase):
 
         obj = api.delete_coupon(id='112')
         assert type(obj) == Coupon and obj.id == 112
-    
+
     @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
     def test_classmethod_post(self, func):
         api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
@@ -89,6 +90,3 @@ class TestCoupon(unittest.TestCase):
 
         obj = obj.delete()
         assert type(obj) == Coupon and obj.id == 112
-
-
-

@@ -3,6 +3,7 @@ from pywoo.utils.parse import ClassParser
 
 from pywoo.utils.parse import to_json
 
+
 @ClassParser(url_class="payment_gateways")
 class PaymentGateway(ApiObject):
     ro_attributes = {'id', 'method_title', 'method_description', 'method_supports'}

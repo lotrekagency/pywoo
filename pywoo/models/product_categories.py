@@ -32,5 +32,5 @@ class ProductCategory(ApiObject):
 
 @ClassParser(url_class="categories")
 class ProductCategoryImage(ApiProperty):
-    ro_attributes = ['date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt']
-    rw_attributes = ['id', 'src', 'name', 'alt']
+    ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
+    rw_attributes = {'id', 'src', 'name', 'alt'}

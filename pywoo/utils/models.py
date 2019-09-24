@@ -4,30 +4,19 @@ from collections.abc import Mapping
 from pywoo.utils.exceptions import WriteOnlyException, ReadOnlyException
 
 
-class ApiSuperClass(Mapping, ABC):
-    ro_attributes = {}
-    wo_attributes = {}
-    rw_attributes = {}
+class ApiSuperClass:
+    ro_attributes = set()
+    wo_attributes = set()
+    rw_attributes = set()
 
     def __init__(self, **kwargs):
-        self._storage = kwargs
-
-    def __getitem__(self, key):
-        if not key in self.wo_attributes:
-            return self._storage[key]
-        raise WriteOnlyException(key)
+        self.__dict__ = kwargs
 
     def __getattr__(self, item):
-        return self.__getitem__(item)
-
-    def __setitem__(self, key, value):
-        if not key in self.ro_attributes:
-            self._storage[key] = value
-        else:
-            raise ReadOnlyException(key)
+        return self.__dict__['__dict__'][item]
 
     def __setattr__(self, key, value):
-        self.__setitem__(key, value)
+        self.__dict__['__dict__'][key] = value
 
     def __iter__(self):
         return iter(self._storage)
@@ -39,14 +28,14 @@ class ApiSuperClass(Mapping, ABC):
         return self._storage
 
 
-class ApiObject(ApiSuperClass, ABC):
+class ApiObject(ApiSuperClass):
     def __init__(self, api, url, **kwargs):
         super().__init__(**kwargs)
-        self._api = api
-        self._url = url
+        self.__dict__['_api'] = api
+        self.__dict__['_url'] = url
 
 
-class ApiProperty(ApiSuperClass, ABC):
+class ApiProperty(ApiSuperClass):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 

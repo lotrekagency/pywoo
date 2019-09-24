@@ -3,11 +3,11 @@ from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
 class ProductCategory(ApiProperty):
-    rw_attributes = ['id', 'name', 'slug']
+    rw_attributes = {'id', 'name', 'slug'}
 
 
 class ProductTag(ApiProperty):
-    rw_attributes = ['id', 'name', 'slug']
+    rw_attributes = {'id', 'name', 'slug'}
 
 
 @ClassParser(url_class="products")

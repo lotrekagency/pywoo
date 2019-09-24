@@ -37,5 +37,5 @@ class ShippingZoneMethod(ApiObject):
 
 @ClassParser(url_class="methods")
 class PaymentGatewaySetting(ApiProperty):
-    ro_attributes = ['id', 'label', 'description', 'type', 'default', 'tip', 'placeholder']
-    rw_attributes = ['value']
+    ro_attributes = {'id', 'label', 'description', 'type', 'default', 'tip', 'placeholder'}
+    rw_attributes = {'value'}
