@@ -4,7 +4,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="methods")
 class ShippingZoneMethod(ApiObject):
     def __init__(self, id, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api,
                  url):

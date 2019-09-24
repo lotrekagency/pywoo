@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="taxes")
 class TaxRate(ApiObject):
     def __init__(self, id, country, state, postcode, city, rate, name, priority, compound, shipping, order, class_,
                  api, url):

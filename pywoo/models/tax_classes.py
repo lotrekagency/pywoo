@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="taxes")
 class TaxClass(ApiObject):
     def __init__(self, slug, name, api, url):
         super().__init__(api, url)

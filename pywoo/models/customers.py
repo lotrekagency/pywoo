@@ -2,9 +2,12 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="customers")
 class Customer(ApiObject):
-    def __init__(self, id, date_created, date_created_gmt, date_modified, date_modified_gmt, email, first_name,
+    def __init__(self, data, api, url):
+        super().__init__(api, url)
+        self.data = data
+    '''def __init__(self, id, date_created, date_created_gmt, date_modified, date_modified_gmt, email, first_name,
                  last_name, role, username, billing, shipping, is_paying_customer, avatar_url, meta_data, api, url):
         super().__init__(api, url)
         self._id = id
@@ -23,6 +26,7 @@ class Customer(ApiObject):
         self._is_paying_customer = is_paying_customer
         self._avatar_url = avatar_url
         self.meta_data = meta_data
+        '''
 
     @classmethod
     def get_customers(cls, api, id='', **params):

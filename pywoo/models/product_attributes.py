@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="attributes")
 class ProductAttribute(ApiObject):
     def __init__(self, id, name, slug, type, order_by, has_archives, api, url):
         super().__init__(api, url)

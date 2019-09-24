@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="products")
 class Product(ApiObject):
     def __init__(self, id, name, slug, permalink, date_created, date_created_gmt, date_modified, date_modified_gmt,
                  type, status, featured, catalog_visibility, description, short_description, sku, price, regular_price,

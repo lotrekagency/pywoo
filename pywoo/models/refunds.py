@@ -3,7 +3,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="refunds")
 class Refund(ApiObject):
     def __init__(self, id, date_created, date_created_gmt, amount, reason, refunded_by, refunded_payment, meta_data,
                  line_items, api, url):

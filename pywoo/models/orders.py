@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="orders")
 class Order(ApiObject):
     def __init__(self, id, parent_id, number, order_key, created_via, version, status, currency, date_created,
                  date_created_gmt, date_modified, date_modified_gmt, discount_total, discount_tax, shipping_total,

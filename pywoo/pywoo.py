@@ -1,7 +1,7 @@
 import requests
 
 from requests_oauthlib import OAuth1
-
+from pywoo.models import *
 from pywoo.utils.parse import from_json
 
 

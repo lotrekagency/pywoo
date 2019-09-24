@@ -2,14 +2,19 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, parse_date_time, ClassParser
 
 
-@ClassParser()
+@ClassParser(url_class="coupons")
 class Coupon(ApiObject):
+    def __init__(self, data, api, url):
+        super().__init__(api, url)
+        self.data = data
+    '''
     def __init__(self, id, code, amount, date_created, date_created_gmt, date_modified, date_modified_gmt,
                  discount_type, description, date_expires, date_expires_gmt, usage_count, individual_use, product_ids,
                  excluded_product_ids, usage_limit, usage_limit_per_user, limit_usage_to_x_items, free_shipping,
                  product_categories, excluded_product_categories, exclude_sale_items, minimum_amount, maximum_amount,
                  email_restrictions, used_by, meta_data, api, url):
         super().__init__(api, url)
+        
         self._id = id
         self.code = code
         self.amount = amount
@@ -37,6 +42,7 @@ class Coupon(ApiObject):
         self.email_restrictions = email_restrictions
         self._used_by = used_by
         self.meta_data = meta_data
+        '''
 
     @classmethod
     def get_coupons(cls, api, id='', **params):
