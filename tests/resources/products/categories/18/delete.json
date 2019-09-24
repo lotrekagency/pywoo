@@ -1,0 +1,23 @@
+{
+    "id": 18,
+    "name": "test",
+    "slug": "test",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 0,
+    "_links": {
+        "self": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/products/categories/18"
+            }
+        ],
+        "collection": [
+            {
+                "href": "http://localhost/wordpress/wp-json/wc/v3/products/categories"
+            }
+        ]
+    }
+}

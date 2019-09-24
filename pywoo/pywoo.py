@@ -171,7 +171,7 @@ class Api:
         return self._create('products/categories', data)
 
     def get_product_categories(self, id='', **params):
-        return self._get('products/categories', params)
+        return self._get('products/categories', id, params)
 
     def update_product_category(self, id, **data):
         return self._put('products/categories', id, data)

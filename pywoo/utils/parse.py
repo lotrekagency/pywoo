@@ -59,7 +59,9 @@ def get_dict_data(data):
 
 
 def from_json(data, api, url):
-    return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))
+    print(url)
+    print(re.split('/', url)[-1])
+    #return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))
 
 
 def to_json(data):
