@@ -2,13 +2,10 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url="zones")
 class ShippingZone(ApiObject):
-    def __init__(self, id, name, order, api, url):
-        super().__init__(api, url)
-        self._id = id
-        self.name = name
-        self.order = order
+    ro_attributes = {'id'}
+    rw_attributes = {'name', 'order'}
 
     @classmethod
     def get_shipping_zone(cls, api, id=''):
@@ -31,7 +28,3 @@ class ShippingZone(ApiObject):
 
     def delete(self):
         return self._api.delete_shipping_zone(self.id)
-
-    @property
-    def id(self):
-        return self._id

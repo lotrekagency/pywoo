@@ -3,21 +3,11 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url="refunds")
 class Refund(ApiObject):
-    def __init__(self, id, date_created, date_created_gmt, amount, reason, refunded_by, refunded_payment, meta_data,
-                 line_items, api, url):
-        super().__init__(api, url)
-        self._id = id
-        self._date_created = parse_date_time(date_created)
-        self._date_created_gmt = parse_date_time(date_created_gmt)
-        self.amount = amount
-        self.reason = reason
-        self.refunded_by = refunded_by
-        self._refunded_payment = refunded_payment
-        self.meta_data = meta_data
-        self.line_items = line_items
-        # self.api_refund = api_refund # TODO write-only
+    ro_attributes = {'id', 'date_created', 'date_created_gmt'}
+    wo_attributes = {'api_refund'}
+    rw_attributes = {'amount', 'reason', 'refunded_by', 'meta_data', 'line_items'}
 
     @classmethod
     def get_refunds(cls, api, order_id, id='', **params):
@@ -26,7 +16,7 @@ class Refund(ApiObject):
     @classmethod
     def create_refund(cls, api, order_id, **kwargs):
         return api.create_refund(order_id, **kwargs)
-        
+
     @classmethod
     def edit_refund(cls, api, order_id, id, **kwargs):
         return api.update_refund(order_id, id, **kwargs)
@@ -40,43 +30,18 @@ class Refund(ApiObject):
 
     def delete(self):
         return self._api.delete_refund(self.order_id, self.id)
-    
-    @property
-    def id(self):
-        return self._id
 
-    @property
-    def date_created(self):
-        return self._date_created
-
-    @property
-    def date_created_gmt(self):
-        return self._date_created_gmt
-
-    @property
-    def refunded_payment(self):
-        return self._refunded_payment
-    
     @property
     def order_id(self):
         return search(r"orders\/(\d+)\/.*", self._url).group(1)
 
 
-@ClassParser()
-class RefundItemLine(ApiProperty):
-    def __init__(self, id=None, total=None, subtotal=None):
-        self._id = id
-        self._total = total
-        self._subtotal = subtotal
+@ClassParser(url="refunds")
+class RefundLineItems(ApiProperty):
+    ro_attributes = {'id', 'subtotal_tax', 'total', 'total_tax', 'taxes', 'meta_data', 'sku', 'price'}
+    rw_attributes = {'name', 'product_id', 'variation_id', 'quantity', 'tax_class', 'subtotal'}
 
-    @property
-    def id(self):
-        return self._id
 
-    @property
-    def total(self):
-        return self._total
-
-    @property
-    def subtotal(self):
-        return self._subtotal
+@ClassParser(url="refunds")
+class RefundLineItemTax(ApiProperty):
+    wo_attributes = {'id', 'total', 'subtotal'}

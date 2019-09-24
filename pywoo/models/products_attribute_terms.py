@@ -4,16 +4,10 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url="terms")
 class ProductAttributeTerm(ApiObject):
-    def __init__(self, id, name, slug, description, menu_order, count, api, url):
-        super().__init__(api, url)
-        self._id = id
-        self.name = name
-        self.slug = slug
-        self.description = description
-        self.menu_order = menu_order
-        self._count = count
+    ro_attributes = {'id', 'count'}
+    rw_attributes = {'name', 'slug', 'description', 'menu_order'}
 
     @classmethod
     def get_product_attribute_terms(cls, api, product_attribute_id, id='', **params):
@@ -36,14 +30,6 @@ class ProductAttributeTerm(ApiObject):
 
     def delete(self):
         return self._api.delete_product_attribute_term(self.product_attribute_id, self.id)
-
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def count(self):
-        return self._count
 
     @property
     def product_attribute_id(self):

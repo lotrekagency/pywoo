@@ -1,20 +1,11 @@
-from pywoo.utils.models import ApiObject
+from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url="categories")
 class ProductCategory(ApiObject):
-    def __init__(self, id, name, slug, parent, description, display, image, menu_order, count, api, url):
-        super().__init__(api, url)
-        self._id = id
-        self.name = name
-        self.slug = slug
-        self.parent = parent
-        self.description = description
-        self.display = display
-        self.image = image
-        self.menu_order = menu_order
-        self._count = count
+    ro_attributes = {'id', 'count'}
+    rw_attributes = {'name', 'slug', 'parent', 'description', 'display', 'image', 'menu_order'}
 
     @classmethod
     def get_product_categories(cls, api, id='', **params):
@@ -38,10 +29,8 @@ class ProductCategory(ApiObject):
     def delete(self):
         return self._api.delete_product_category(self.id)
 
-    @property
-    def id(self):
-        return self._id
 
-    @property
-    def count(self):
-        return self._count
+@ClassParser(url="categories")
+class ProductCategoryImage(ApiProperty):
+    ro_attributes = ['date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt']
+    rw_attributes = ['id', 'src', 'name', 'alt']

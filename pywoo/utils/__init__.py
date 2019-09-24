@@ -1,1 +1,1 @@
-__all__ = ['models', 'oauth', 'parse']
+__all__ = ['models', 'oauth', 'parse', 'exceptions']

@@ -2,15 +2,10 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser, to_json
 
 
-@ClassParser(url=r"products\/shipping_classes.*")
+@ClassParser(url="shipping_classes")
 class ProductShipping(ApiObject):
-    def __init__(self, id, name, slug, description, count, api, url):
-        super().__init__(api, url)
-        self._id = id
-        self.name = name
-        self.slug = slug
-        self.description = description
-        self._count = count
+    ro_attributes = {'id', 'count'}
+    rw_attributes = {'name', 'slug', 'description'}
 
     @classmethod
     def get_product_shipping_classes(cls, api, id='', **params):
@@ -33,11 +28,3 @@ class ProductShipping(ApiObject):
 
     def delete(self):
         return self._api.delete_product_shipping_class(self.id)
-    
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def count(self):
-        return self._count

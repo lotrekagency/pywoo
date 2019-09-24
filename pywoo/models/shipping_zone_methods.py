@@ -1,23 +1,13 @@
 from re import search
 
-from pywoo.utils.models import ApiObject
+from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import to_json, ClassParser
 
 
-@ClassParser()
+@ClassParser(url="methods")
 class ShippingZoneMethod(ApiObject):
-    def __init__(self, id, instance_id, title, order, enabled, method_id, method_title, method_description, settings, api,
-                 url):
-        super().__init__(api, url)
-        self._id = id
-        self._instance_id = instance_id
-        self._title = title
-        self.order = order
-        self.enabled = enabled
-        self._method_id = method_id
-        self._method_title = method_title
-        self._method_description = method_description
-        self.settings = settings
+    ro_attributes = {'instance_id', 'title', 'method_id', 'method_title', 'method_description'}
+    rw_attributes = {'order', 'enabled', 'settings'}
 
     @classmethod
     def get_shipping_zone_methods(cls, api, shipping_zone_id, id=''):
@@ -42,25 +32,10 @@ class ShippingZoneMethod(ApiObject):
         return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)
 
     @property
-    def id(self):
-        return self._id
-
-    @property
-    def instance_id(self):
-        return self._instance_id
-
-    @property
-    def title(self):
-        return self._title
-
-    @property
-    def method_title(self):
-        return self._method_title
-
-    @property
-    def method_description(self):
-        return self._method_description
-
-    @property
     def shipping_zone_id(self):
         return search(r"shipping\/zones\/(\d+)\/.*", self._url).group(1)
+
+@ClassParser(url="methods")
+class PaymentGatewaySetting(ApiProperty):
+    ro_attributes = ['id', 'label', 'description', 'type', 'default', 'tip', 'placeholder']
+    rw_attributes = ['value']

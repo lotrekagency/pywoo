@@ -2,15 +2,10 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser, to_json
 
 
-@ClassParser(url=r"products\/tags.*")
+@ClassParser(url="tags")
 class ProductTag(ApiObject):
-    def __init__(self, id, name, slug, description, count, api, url):
-        super().__init__(api, url)
-        self._id = id
-        self.name = name
-        self.slug = slug
-        self.description = description
-        self._count = count
+    ro_attributes = {'id', 'count'}
+    rw_attributes = {'name', 'slug', 'description'}
 
     @classmethod
     def get_product_tags(cls, api, id='', **params):
@@ -34,10 +29,3 @@ class ProductTag(ApiObject):
     def delete(self):
         return self._api.delete_product_tag(self.id)
 
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def count(self):
-        return self._count

@@ -2,12 +2,10 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser
 
 
-@ClassParser()
+@ClassParser(url="taxes")
 class TaxClass(ApiObject):
-    def __init__(self, slug, name, api, url):
-        super().__init__(api, url)
-        self._slug = slug
-        self.name = name
+    ro_attributes = {'slug'}
+    rw_attributes = {'name'}
 
     @classmethod
     def get_tax_classes(cls, api):
@@ -24,6 +22,3 @@ class TaxClass(ApiObject):
     def delete(self):
         return self._api.delete_tax_class(self._slug)
 
-    @property
-    def slug(self):
-        return self._slug
