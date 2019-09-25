@@ -1,7 +1,4 @@
-import inspect
-import re
 import json
-import pywoo.models
 
 from datetime import datetime
 from pywoo.utils.models import ApiSuperClass, ApiObject, ApiProperty, ApiActiveProperty
@@ -34,6 +31,11 @@ def find_mapping(data, api, url):
             cls = class_
             break
 
+    for key in data.keys():
+        if key.startswith("date"):
+            print(data[key])
+            data[key] = parse_date_time(data[key])
+
     if cls:
         if issubclass(cls, ApiObject):
             return cls(api, url, **data)
@@ -52,12 +54,11 @@ def get_dict_data(data):
 
 
 def to_json(data):
-    print(get_dict_data(data))
     return get_dict_data(data)
 
 
 def parse_date_time(date_time):
-    return datetime.strptime(date_time, '%Y-%m-%dT%H:%M:%S').isoformat() if date_time else None
+    return datetime.strptime(date_time, '%Y-%m-%dT%H:%M:%S') if date_time else None
 
 
 def from_json(data, api, url):

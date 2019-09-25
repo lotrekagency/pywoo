@@ -1,6 +1,3 @@
-from abc import ABC
-from collections.abc import Mapping
-
 from pywoo.utils.exceptions import WriteOnlyException, ReadOnlyException
 
 
@@ -13,10 +10,16 @@ class ApiSuperClass(object):
         self.__dict__ = kwargs
 
     def __setattr__(self, key, value):
-        return super().__setattr__(key, value)
+        if not key in self.ro_attributes:
+            return super().__setattr__(key, value)
+        else:
+            raise ReadOnlyException(key)
 
     def __getattr__(self, item):
-        return super().__getattr__(item)
+        if not item in self.wo_attributes:
+            return super().__getattr__(item)
+        else:
+            raise WriteOnlyException(item)
 
 
 class ApiObject(ApiSuperClass):
