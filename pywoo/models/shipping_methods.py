@@ -9,3 +9,6 @@ class ShippingMethod(ApiObject):
     @classmethod
     def get_shipping_methods(cls, api, id='', **params):
         return api.get_shipping_methods(id, **params)
+
+    def refresh(self):
+        self.__dict__ = self._api.get_shipping_methods(id=self.id).__dict__

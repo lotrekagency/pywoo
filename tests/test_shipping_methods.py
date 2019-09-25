@@ -28,3 +28,13 @@ class TestShippingMethod(unittest.TestCase):
 
         obj = ShippingMethod.get_shipping_methods(api, id='flat_rate')
         assert type(obj) == ShippingMethod and obj.id == 'flat_rate'
+    
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_shipping_methods(id='flat_rate')
+        assert type(obj) == ShippingMethod and obj.id == 'flat_rate'
+
+        obj.refresh()
+        assert type(obj) == ShippingMethod and obj.id == 'flat_rate'

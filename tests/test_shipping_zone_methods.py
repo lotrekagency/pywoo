@@ -90,3 +90,13 @@ class TestShippingZoneMethod(unittest.TestCase):
 
         obj = obj.delete()
         assert type(obj) == ShippingZoneMethod and obj.id == 1
+
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_shipping_zone_methods(1, 1)
+        assert type(obj) == ShippingZoneMethod and obj.id == 1
+
+        obj.refresh()
+        assert type(obj) == ShippingZoneMethod and obj.id == 1

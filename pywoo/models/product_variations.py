@@ -35,6 +35,9 @@ class ProductVariation(ApiObject):
 
     def delete(self):
         return self._api.delete_product_variation(self.product_id, self.id)
+    
+    def refresh(self):
+        self.__dict__ = self._api.get_product_variations(product_id=self.product_id, id=self.id).__dict__
 
     @property
     def product_id(self):

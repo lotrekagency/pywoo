@@ -26,6 +26,7 @@ class TestCoupon(unittest.TestCase):
         obj = api.get_coupons(id='112')
         assert type(obj) == Coupon and obj.id == 112
 
+
     @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
     def test_api_put(self, func):
         api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
@@ -56,6 +57,7 @@ class TestCoupon(unittest.TestCase):
 
         obj = Coupon.get_coupons(api, id='112')
         assert type(obj) == Coupon and obj.id == 112
+
 
     @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
     def test_classmethod_put(self, func):
@@ -89,4 +91,14 @@ class TestCoupon(unittest.TestCase):
         assert type(obj) == Coupon and obj.id == 112
 
         obj = obj.delete()
+        assert type(obj) == Coupon and obj.id == 112
+
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_coupons(id='112')
+        assert type(obj) == Coupon and obj.id == 112
+
+        obj.refresh()
         assert type(obj) == Coupon and obj.id == 112

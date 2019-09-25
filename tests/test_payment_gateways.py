@@ -52,5 +52,14 @@ class TestPaymentGateways(unittest.TestCase):
         obj = obj.update()
         assert type(obj) == PaymentGateway and obj.id == 'bacs'
 
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_payment_gateways(id='bacs')
+        assert type(obj) == PaymentGateway and obj.id == 'bacs'
+
+        obj.refresh()
+        assert type(obj) == PaymentGateway and obj.id == 'bacs'
 
 

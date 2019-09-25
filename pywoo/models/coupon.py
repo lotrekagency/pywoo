@@ -32,3 +32,6 @@ class Coupon(ApiObject):
 
     def delete(self):
         return self._api.delete_coupon(self.id)
+
+    def refresh(self):
+        self.__dict__ = self._api.get_coupons(id=self.id).__dict__

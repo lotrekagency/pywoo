@@ -28,3 +28,6 @@ class ProductShipping(ApiObject):
 
     def delete(self):
         return self._api.delete_product_shipping_class(self.id)
+
+    def refresh(self):
+        self.__dict__ = self._api.get_product_shipping_classes(id=self.id).__dict__

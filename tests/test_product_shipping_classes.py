@@ -90,3 +90,13 @@ class TestProductShipping(unittest.TestCase):
 
         obj = obj.delete()
         assert type(obj) == ProductShipping and obj.id == 24
+
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_product_shipping_classes(24)
+        assert type(obj) == ProductShipping and obj.id == 24
+
+        obj.refresh()
+        assert type(obj) == ProductShipping and obj.id == 24

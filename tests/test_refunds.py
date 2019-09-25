@@ -66,5 +66,15 @@ class TestRefund(unittest.TestCase):
         obj = obj.delete()
         assert type(obj) == Refund and obj.id == 141
 
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_refunds(order_id='97', id='141')
+        assert type(obj) == Refund and obj.id == 141
+
+        obj.refresh()
+        assert type(obj) == Refund and obj.id == 141
+
 
 
