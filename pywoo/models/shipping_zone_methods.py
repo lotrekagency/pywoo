@@ -26,7 +26,7 @@ class ShippingZoneMethod(ApiObject):
         return api.delete_shipping_zone_method(shipping_zone_id, id)
 
     def update(self):
-        return self._api.update_shipping_zone_method(self.shipping_zone_id, self.instance_id, **to_json(self))
+        return self._api.update_shipping_zone_method(self.shipping_zone_id, **to_json(self))
 
     def delete(self):
         return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)
@@ -34,6 +34,7 @@ class ShippingZoneMethod(ApiObject):
     @property
     def shipping_zone_id(self):
         return search(r"shipping\/zones\/(\d+)\/.*", self._url).group(1)
+
 
 @ClassParser(url_class="methods")
 class PaymentGatewaySetting(ApiProperty):

@@ -53,7 +53,7 @@ class Product(ApiObject):
         return api.delete_product(id, **params)
 
     def update(self):
-        return self._api.update_product(self.id, **to_json(self))
+        return self._api.update_product(**to_json(self))
 
     def delete(self):
         return self._api.delete_product(self.id)

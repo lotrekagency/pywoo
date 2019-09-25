@@ -18,7 +18,7 @@ class PaymentGateway(ApiObject):
         return api.update_payment_gateway(id, **kwargs)
 
     def update(self):
-        return self._api.update_payment_gateway(self.id, **to_json(self))
+        return self._api.update_payment_gateway(**to_json(self))
 
 
 @ClassParser(url_class="payment_gateways")

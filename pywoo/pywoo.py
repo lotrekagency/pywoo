@@ -266,12 +266,11 @@ class Api:
     def get_shipping_zone_methods(self, shipping_zone_id, id=''):
         return self._get(f'shipping/zones/{shipping_zone_id}/methods', id)
 
-    def update_shipping_zone_method(self, shipping_zone_id, shipping_zone_method_instance_id, **data):
-        return self._put(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id, data)
+    def update_shipping_zone_method(self, shipping_zone_id, instance_id, **data):
+        return self._put(f'shipping/zones/{shipping_zone_id}/methods', instance_id, data)
 
-    def delete_shipping_zone_method(self, shipping_zone_id, shipping_zone_method_instance_id):
-        return self._delete(f'shipping/zones/{shipping_zone_id}/methods', shipping_zone_method_instance_id,
-                            {'force': True})
+    def delete_shipping_zone_method(self, shipping_zone_id, instance_id):
+        return self._delete(f'shipping/zones/{shipping_zone_id}/methods', instance_id, {'force': True})
 
     def get_shipping_methods(self, id=''):
         return self._get('shipping_methods', id)

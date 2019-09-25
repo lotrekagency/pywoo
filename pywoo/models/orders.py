@@ -31,7 +31,7 @@ class Order(ApiObject):
         return api.delete_order(id, **params)
 
     def update(self):
-        return self._api.update_order(self.id, **to_json(self))
+        return self._api.update_order(**to_json(self))
 
     def delete(self):
         return self._api.delete_order(self.id)

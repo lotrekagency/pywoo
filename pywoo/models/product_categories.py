@@ -24,7 +24,7 @@ class ProductCategory(ApiObject):
         return api.delete_product_category(id)
 
     def update(self):
-        return self._api.update_product_category(self.id, **to_json(self))
+        return self._api.update_product_category(**to_json(self))
 
     def delete(self):
         return self._api.delete_product_category(self.id)

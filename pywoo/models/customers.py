@@ -26,7 +26,7 @@ class Customer(ApiObject):
         return api.delete_customer(id, **params)
 
     def update(self):
-        return self._api.update_customer(self.id, **to_json(self))
+        return self._api.update_customer(**to_json(self))
 
     def delete(self, **params):
         return self._api.delete_customer(self.id, **params)

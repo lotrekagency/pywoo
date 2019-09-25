@@ -24,7 +24,7 @@ class ProductShipping(ApiObject):
         return api.delete_product_shipping_class(id)
 
     def update(self):
-        return self._api.update_product_shipping_class(self.id, **to_json(self))
+        return self._api.update_product_shipping_class(**to_json(self))
 
     def delete(self):
         return self._api.delete_product_shipping_class(self.id)

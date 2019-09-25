@@ -4,20 +4,21 @@ import json
 import pywoo.models
 
 from datetime import datetime
-from pywoo.utils.models import ApiSuperClass, ApiObject
-
+from pywoo.utils.models import ApiSuperClass, ApiObject, ApiProperty
 
 urls_classes = {}
 
 
 class ClassParser:
-    def __init__(self, url_class=None):
+    def __init__(self, url_class):
         self.url_class = url_class
 
     def __call__(self, cls, *args, **kwargs):
-        attrs = cls.ro_attributes.union(cls.wo_attributes).union(cls.rw_attributes)
+        attrs = cls.ro_attributes.union(cls.rw_attributes)
 
-        if self.url_class:
+        if self.url_class in urls_classes:
+            urls_classes[self.url_class][frozenset(attrs)] = cls
+        else:
             urls_classes[self.url_class] = {frozenset(attrs): cls}
         return cls
 
@@ -25,24 +26,22 @@ class ClassParser:
 def find_mapping(data, api, url):
     if '_links' in data:
         del data['_links']
-    try:
-        cls = None
+    cls = None
 
-        for attrs, class_ in urls_classes[url].items():
-            print(data.keys(), attrs)
-            if set(data.keys()).issubset(attrs):
-                cls = class_
-                break
+    key_url = url.rpartition('/')[-1]
+    for attrs, class_ in urls_classes[key_url].items():
+        if attrs.issubset(set(data.keys())):
+            cls = class_
+            break
 
-        if cls:
-            if issubclass(cls, ApiObject):
-                return cls(api, url, **data)
-            else:
-                return cls(**data)
-        else:
-            return data
-    except KeyError:
-        return dict(zip(data.keys(), data.values()))
+    if cls:
+        if issubclass(cls, ApiObject):
+            return cls(api, url, **data)
+        elif issubclass(cls, ApiProperty):
+            print(cls)
+            return cls(**data)
+    else:
+        return data
 
 
 def get_dict_data(data):
@@ -60,5 +59,4 @@ def parse_date_time(date_time):
 
 
 def from_json(data, api, url):
-    url_obj = url.rpartition('/')[-1]
-    return json.loads(data, object_hook=lambda d: find_mapping(d, api, url_obj))
+    return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))

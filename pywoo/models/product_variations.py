@@ -31,7 +31,7 @@ class ProductVariation(ApiObject):
         return api.delete_product_variation(product_id, id)
 
     def update(self):
-        return self._api.update_product_variation(self.product_id, self.id, **to_json(self))
+        return self._api.update_product_variation(self.product_id, **to_json(self))
 
     def delete(self):
         return self._api.delete_product_variation(self.product_id, self.id)

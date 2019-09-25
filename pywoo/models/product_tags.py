@@ -24,7 +24,7 @@ class ProductTag(ApiObject):
         return api.delete_product_tag(id)
 
     def update(self):
-        return self._api.update_product_tag(self.id, **to_json(self))
+        return self._api.update_product_tag(**to_json(self))
 
     def delete(self):
         return self._api.delete_product_tag(self.id)

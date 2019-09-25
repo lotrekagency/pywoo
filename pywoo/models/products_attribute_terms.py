@@ -26,7 +26,7 @@ class ProductAttributeTerm(ApiObject):
         return api.delete_product_attribute_term(product_attribute_id, id)
 
     def update(self):
-        return self._api.update_product_attribute_term(self.product_attribute_id, self.id, **to_json(self))
+        return self._api.update_product_attribute_term(self.product_attribute_id, **to_json(self))
 
     def delete(self):
         return self._api.delete_product_attribute_term(self.product_attribute_id, self.id)

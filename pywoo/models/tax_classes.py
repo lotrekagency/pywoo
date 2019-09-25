@@ -20,5 +20,5 @@ class TaxClass(ApiObject):
         return api.delete_tax_class(slug)
 
     def delete(self):
-        return self._api.delete_tax_class(self._slug)
+        return self._api.delete_tax_class(self.slug)
 

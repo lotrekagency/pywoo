@@ -44,4 +44,4 @@ class RefundLineItems(ApiProperty):
 
 @ClassParser(url_class="refunds")
 class RefundLineItemTax(ApiProperty):
-    wo_attributes = {'id', 'total', 'subtotal'}
+    ro_attributes = {'id', 'total', 'subtotal'}

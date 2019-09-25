@@ -76,7 +76,6 @@ class TestShippingZoneMethod(unittest.TestCase):
         api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
 
         obj = ShippingZoneMethod.get_shipping_zone_methods(api, 1, 1)
-        print(obj)
         assert type(obj) == ShippingZoneMethod and obj.id == 1
 
         obj = obj.update()
