@@ -1,5 +1,5 @@
 # Pywoo 🛒
-![PyPI](https://img.shields.io/pypi/v/pywoo)
+[![PyPi](https://img.shields.io/pypi/v/pywoo)](https://pypi.org/project/pywoo/)
 
 Pywoo is a Python 3 wrapper for WooCommerce API.
 
@@ -21,8 +21,12 @@ my_product.update()
 ```
 
 The `Api` object will help you in creating, retrieving, editing and deleting any class exposed by the WooCommerce API.
-
+It transforms the responses of requests into objects in order to let users manage WooCommerce's elements easily. 
 Also, all classes have instance methods for modifing the objects on the go and static methods for doing the same stuff
 the `Api` object does.
 
 
+#### How to run tests
+```
+pytest tests/
+```
