@@ -30,6 +30,9 @@ class Refund(ApiObject):
 
     def delete(self):
         return self._api.delete_refund(self.order_id, self.id)
+    
+    def refresh(self):
+        self.__dict__ = self._api.get_refunds(order_id=self.order_id, id=self.id).__dict__
 
     @property
     def order_id(self):

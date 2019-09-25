@@ -31,6 +31,9 @@ class ShippingZoneMethod(ApiObject):
     def delete(self):
         return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)
 
+    def refresh(self):
+        self.__dict__ = self._api.get_shipping_zone_methods(shipping_zone_id=self.shipping_zone_id, id=self.id).__dict__
+
     @property
     def shipping_zone_id(self):
         return search(r"shipping\/zones\/(\d+)\/.*", self._url).group(1)

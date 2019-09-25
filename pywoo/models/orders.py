@@ -35,6 +35,9 @@ class Order(ApiObject):
 
     def delete(self):
         return self._api.delete_order(self.id)
+    
+    def refresh(self):
+        self.__dict__ = self._api.get_orders(id=self.id).__dict__
 
 
 @ClassParser(url_class="orders")

@@ -91,5 +91,15 @@ class TestProductAttribute(unittest.TestCase):
         obj = obj.delete()
         assert type(obj) == ProductAttribute and obj.id == 1
 
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_product_attributes(1)
+        assert type(obj) == ProductAttribute and obj.id == 1
+
+        obj.refresh()
+        assert type(obj) == ProductAttribute and obj.id == 1
+
 
 

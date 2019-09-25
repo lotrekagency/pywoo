@@ -24,6 +24,9 @@ class OrderNote(ApiObject):
     def delete(self):
         return self._api.delete_order_note(self.order_id, self.id)
     
+    def refresh(self):
+        self.__dict__ = self._api.get_order_notes(order_id=self.order_id, id=self.id).__dict__
+    
     @property
     def order_id(self):
         return search(r"orders\/(\d+)\/.*", self._url).group(1)

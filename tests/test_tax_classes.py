@@ -59,3 +59,4 @@ class TestTaxClass(unittest.TestCase):
 
         obj = obj.delete()
         assert type(obj) == TaxClass and obj.slug == 'tariffa'
+

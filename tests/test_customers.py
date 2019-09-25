@@ -90,5 +90,15 @@ class TestCustomer(unittest.TestCase):
         obj = obj.delete()
         assert type(obj) == Customer and obj.id == 4
 
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_customers(id='4')
+        assert type(obj) == Customer and obj.id == 4
+
+        obj.refresh()
+        assert type(obj) == Customer and obj.id == 4
+
 
 

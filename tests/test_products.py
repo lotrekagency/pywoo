@@ -2,7 +2,6 @@ import unittest
 
 from mock import patch
 
-from pywoo.models.product_categories import ProductCategory
 from pywoo.pywoo import Api
 from pywoo.models.products import Product
 from tests.tools import mock_request
@@ -90,4 +89,14 @@ class TestProduct(unittest.TestCase):
         assert type(obj) == Product and obj.id == 56
 
         obj = obj.delete()
+        assert type(obj) == Product and obj.id == 56
+
+    @patch('pywoo.pywoo.requests.api.request', side_effect=mock_request)
+    def test_object_refresh(self, func):
+        api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
+
+        obj = api.get_products(56)
+        assert type(obj) == Product and obj.id == 56
+
+        obj.refresh()
         assert type(obj) == Product and obj.id == 56

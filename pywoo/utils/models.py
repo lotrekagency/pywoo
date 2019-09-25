@@ -4,7 +4,7 @@ from collections.abc import Mapping
 from pywoo.utils.exceptions import WriteOnlyException, ReadOnlyException
 
 
-class ApiSuperClass:
+class ApiSuperClass(object):
     ro_attributes = set()
     wo_attributes = set()
     rw_attributes = set()
