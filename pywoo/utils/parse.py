@@ -4,7 +4,7 @@ import json
 import pywoo.models
 
 from datetime import datetime
-from pywoo.utils.models import ApiSuperClass, ApiObject, ApiProperty
+from pywoo.utils.models import ApiSuperClass, ApiObject, ApiProperty, ApiActiveProperty
 
 urls_classes = {}
 
@@ -37,8 +37,9 @@ def find_mapping(data, api, url):
     if cls:
         if issubclass(cls, ApiObject):
             return cls(api, url, **data)
+        elif issubclass(cls, ApiActiveProperty):
+            return cls(api, **data)
         elif issubclass(cls, ApiProperty):
-            print(cls)
             return cls(**data)
     else:
         return data
@@ -51,6 +52,7 @@ def get_dict_data(data):
 
 
 def to_json(data):
+    print(get_dict_data(data))
     return get_dict_data(data)
 
 

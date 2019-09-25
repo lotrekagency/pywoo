@@ -13,7 +13,7 @@ class ApiSuperClass:
         self.__dict__ = kwargs
 
     def __setattr__(self, key, value):
-        return super().__setattr__(key,value)
+        return super().__setattr__(key, value)
 
     def __getattr__(self, item):
         return super().__getattr__(item)
@@ -24,6 +24,12 @@ class ApiObject(ApiSuperClass):
         super().__init__(**kwargs)
         self._api = api
         self._url = url
+
+
+class ApiActiveProperty(ApiSuperClass):
+    def __init__(self, api, **kwargs):
+        super().__init__(**kwargs)
+        self._api = api
 
 
 class ApiProperty(ApiSuperClass):

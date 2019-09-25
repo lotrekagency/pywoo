@@ -2,6 +2,7 @@ import unittest
 
 from mock import patch
 
+from pywoo.models.product_categories import ProductCategory
 from pywoo.pywoo import Api
 from pywoo.models.products import Product
 from tests.tools import mock_request

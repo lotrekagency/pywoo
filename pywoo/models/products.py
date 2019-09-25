@@ -1,13 +1,19 @@
-from pywoo.utils.models import ApiObject, ApiProperty
+from pywoo.utils.models import ApiObject, ApiProperty, ApiActiveProperty
 from pywoo.utils.parse import parse_date_time, to_json, ClassParser
 
 
-class ProductCategory(ApiProperty):
+class ProductCategory(ApiActiveProperty):
     rw_attributes = {'id', 'name', 'slug'}
 
+    def get_category(self):
+        self._api.get_product_categories(self.id)
 
-class ProductTag(ApiProperty):
+
+class ProductTag(ApiActiveProperty):
     rw_attributes = {'id', 'name', 'slug'}
+
+    def get_tag(self):
+        self._api.get_product_tags(self.id)
 
 
 @ClassParser(url_class="products")
@@ -25,14 +31,15 @@ class Product(ApiObject):
                      'parent_id', 'purchase_note', 'categories', 'tags', 'images', 'attributes', 'default_attributes',
                      'grouped_products', 'menu_order', 'meta_data'}
 
+    # noinspection PyArgumentList
     def __init__(self, api, url, **kwargs):
         super().__init__(api, url, **kwargs)
         categories = []
         tags = []
-        for cat in (self.categories if self.categories else []):
-            categories.append(ProductCategory(**cat))
-        for tag in (self.tags if self.tags else []):
-            tags.append(ProductTag(**tag))
+        for cat in self.categories:
+            categories.append(ProductCategory(api, **cat))
+        for tag in self.tags:
+            tags.append(ProductTag(api, **tag))
         self.categories = categories
         self.tags = tags
 
@@ -76,10 +83,20 @@ class ProductImage(ApiProperty):
 
 
 @ClassParser(url_class="products")
-class ProductAttribute(ApiProperty):
+class ProductAttribute(ApiActiveProperty):
     rw_attributes = {'id', 'name', 'position', 'visible', 'variation', 'options'}
+
+    def get_product_attribute(self):
+        if self.id == 0:
+            return None
+        return self._api.get_product_attributes(self.id)
 
 
 @ClassParser(url_class="products")
-class ProductDefaultAttribute(ApiProperty):
+class ProductDefaultAttribute(ApiActiveProperty):
     rw_attributes = {'id', 'name', 'option'}
+
+    def get_product_attribute(self):
+        if self.id == 0:
+            return None
+        return self._api.get_product_attributes(self.id)
