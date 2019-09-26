@@ -86,7 +86,6 @@ class TestProductReview(unittest.TestCase):
         api = Api('', 'fake_consumer_key', 'fake_consumer_secret')
 
         obj = api.get_product_reviews(42)
-        print(obj)
         assert type(obj) == ProductReview and obj.id == 42
 
         obj = obj.delete()

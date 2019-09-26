@@ -1,7 +1,7 @@
 Pywoo
 =======
 
-Pywoo is a Python 3 wrapper for WooCommerce’s API.
+Pywoo is a Python 3 wrapper for WooCommerce API.
 
 Installation
 ^^^^^^^^^^^^

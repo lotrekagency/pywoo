@@ -33,7 +33,6 @@ def find_mapping(data, api, url):
 
     for key in data.keys():
         if key.startswith("date"):
-            print(data[key])
             data[key] = parse_date_time(data[key])
 
     if cls:
