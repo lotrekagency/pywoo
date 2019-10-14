@@ -1,7 +1,7 @@
 from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import ClassParser
 
-from pywoo.utils.parse import to_json
+from pywoo.utils.parse import to_dict
 
 
 @ClassParser(url_class="payment_gateways")
@@ -18,7 +18,7 @@ class PaymentGateway(ApiObject):
         return api.update_payment_gateway(id, **kwargs)
 
     def update(self):
-        return self._api.update_payment_gateway(**to_json(self))
+        return self._api.update_payment_gateway(**to_dict(self))
     
     def refresh(self):
         self.__dict__ = self._api.get_payment_gateways(id=self.id).__dict__

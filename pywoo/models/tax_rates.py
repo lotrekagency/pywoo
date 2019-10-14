@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject
-from pywoo.utils.parse import to_json, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="taxes")
@@ -25,7 +25,7 @@ class TaxRate(ApiObject):
         return api.delete_tax_rate(id)
 
     def update(self):
-        return self._api.update_tax_rate(**to_json(self))
+        return self._api.update_tax_rate(**to_dict(self))
 
     def delete(self):
         return self._api.delete_tax_rate(self.id)

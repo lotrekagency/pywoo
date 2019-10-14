@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject, ApiProperty
-from pywoo.utils.parse import to_json, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="categories")
@@ -24,7 +24,7 @@ class ProductCategory(ApiObject):
         return api.delete_product_category(id)
 
     def update(self):
-        return self._api.update_product_category(**to_json(self))
+        return self._api.update_product_category(**to_dict(self))
 
     def delete(self):
         return self._api.delete_product_category(self.id)

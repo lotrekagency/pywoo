@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject, ApiProperty
-from pywoo.utils.parse import to_json, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="customers")
@@ -26,7 +26,7 @@ class Customer(ApiObject):
         return api.delete_customer(id, **params)
 
     def update(self):
-        return self._api.update_customer(**to_json(self))
+        return self._api.update_customer(**to_dict(self))
 
     def delete(self, **params):
         return self._api.delete_customer(self.id, **params)

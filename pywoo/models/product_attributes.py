@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject
-from pywoo.utils.parse import to_json, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="attributes")
@@ -24,7 +24,7 @@ class ProductAttribute(ApiObject):
         return api.delete_product_attribute(id)
 
     def update(self):
-        return self._api.update_product_attribute(**to_json(self))
+        return self._api.update_product_attribute(**to_dict(self))
 
     def delete(self):
         return self._api.delete_product_attribute(self.id)

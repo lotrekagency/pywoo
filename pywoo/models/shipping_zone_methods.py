@@ -1,7 +1,7 @@
 from re import search
 
 from pywoo.utils.models import ApiObject, ApiProperty
-from pywoo.utils.parse import to_json, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="methods")
@@ -26,7 +26,7 @@ class ShippingZoneMethod(ApiObject):
         return api.delete_shipping_zone_method(shipping_zone_id, id)
 
     def update(self):
-        return self._api.update_shipping_zone_method(self.shipping_zone_id, **to_json(self))
+        return self._api.update_shipping_zone_method(self.shipping_zone_id, **to_dict(self))
 
     def delete(self):
         return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)

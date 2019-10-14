@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject
-from pywoo.utils.parse import ClassParser, to_json
+from pywoo.utils.parse import ClassParser, to_dict
 
 
 @ClassParser(url_class="tags")
@@ -24,7 +24,7 @@ class ProductTag(ApiObject):
         return api.delete_product_tag(id)
 
     def update(self):
-        return self._api.update_product_tag(**to_json(self))
+        return self._api.update_product_tag(**to_dict(self))
 
     def delete(self):
         return self._api.delete_product_tag(self.id)

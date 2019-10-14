@@ -46,14 +46,18 @@ def find_mapping(data, api, url):
         return data
 
 
-def get_dict_data(data):
-    data = data.__dict__
-    return {key: (get_dict_data(value) if issubclass(type(value), ApiSuperClass) else value) for key, value in
-            data.items() if not key.startswith("_") and not value is None}
-
-
-def to_json(data):
-    return get_dict_data(data)
+def to_dict(data):
+    if issubclass(type(data), ApiSuperClass):
+        dict_data = data.__dict__
+        return {key: to_dict(value) for key, value in dict_data.items() if
+                not key.startswith("_") and not value is None}
+    elif type(data) == datetime:
+        return data.strftime('%Y-%m-%dT%H:%M:%S')
+    elif type(data) == list:
+        return [to_dict(d) for d in data]
+    elif type(data) == dict:
+        return {key: to_dict(value) for key, value in data.items()}
+    return data
 
 
 def parse_date_time(date_time):

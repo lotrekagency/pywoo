@@ -1,6 +1,6 @@
 from re import search
 from pywoo.utils.models import ApiObject, ApiProperty
-from pywoo.utils.parse import parse_date_time, to_json, ClassParser
+from pywoo.utils.parse import parse_date_time, to_dict, ClassParser
 
 
 @ClassParser(url_class="refunds")
@@ -26,7 +26,7 @@ class Refund(ApiObject):
         return api.delete_refund(order_id, id)
 
     def update(self):
-        return self._api.update_refund(self.order_id, self.id, **to_json(self))
+        return self._api.update_refund(self.order_id, self.id, **to_dict(self))
 
     def delete(self):
         return self._api.delete_refund(self.order_id, self.id)

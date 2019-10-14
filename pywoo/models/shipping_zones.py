@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject
-from pywoo.utils.parse import to_json, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="zones")
@@ -24,7 +24,7 @@ class ShippingZone(ApiObject):
         return api.delete_shipping_zone(id)
 
     def update(self):
-        return self._api.update_shipping_zone(**to_json(self))
+        return self._api.update_shipping_zone(**to_dict(self))
 
     def delete(self):
         return self._api.delete_shipping_zone(self.id)

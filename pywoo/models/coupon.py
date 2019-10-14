@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject
-from pywoo.utils.parse import to_json, parse_date_time, ClassParser
+from pywoo.utils.parse import to_dict, parse_date_time, ClassParser
 
 
 @ClassParser(url_class="coupons")
@@ -28,7 +28,7 @@ class Coupon(ApiObject):
         return api.delete_coupon(id)
 
     def update(self):
-        return self._api.update_coupon(**to_json(self))
+        return self._api.update_coupon(**to_dict(self))
 
     def delete(self):
         return self._api.delete_coupon(self.id)
