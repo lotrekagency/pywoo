@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiProperty
 from pywoo.utils.parse import ClassParser
 
 
-@ClassParser(url_class="locations")
+@ClassParser(url_classes=["locations"])
 class ShippingZoneLocation(ApiProperty):
     rw_attributes = {'code', 'type'}
     

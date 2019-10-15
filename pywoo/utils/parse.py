@@ -7,16 +7,17 @@ urls_classes = {}
 
 
 class ClassParser:
-    def __init__(self, url_class):
-        self.url_class = url_class
+    def __init__(self, url_classes):
+        self.url_classes = url_classes
 
     def __call__(self, cls, *args, **kwargs):
         attrs = cls.ro_attributes.union(cls.rw_attributes)
 
-        if self.url_class in urls_classes:
-            urls_classes[self.url_class][frozenset(attrs)] = cls
-        else:
-            urls_classes[self.url_class] = {frozenset(attrs): cls}
+        for url_class in self.url_classes:
+            if url_class in urls_classes:
+                urls_classes[url_class][frozenset(attrs)] = cls
+            else:
+                urls_classes[url_class] = {frozenset(attrs): cls}
         return cls
 
 
@@ -37,7 +38,7 @@ def find_mapping(data, api, url):
 
     if cls:
         if issubclass(cls, ApiObject):
-            return cls(api, url, **data)
+            return cls(api, url=url, **data)
         elif issubclass(cls, ApiActiveProperty):
             return cls(api, **data)
         elif issubclass(cls, ApiProperty):

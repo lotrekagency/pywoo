@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import to_dict, ClassParser
 
 
-@ClassParser(url_class="categories")
+@ClassParser(url_classes=["categories"])
 class ProductCategory(ApiObject):
     ro_attributes = {'id', 'count'}
     rw_attributes = {'name', 'slug', 'parent', 'description', 'display', 'image', 'menu_order'}
@@ -33,7 +33,7 @@ class ProductCategory(ApiObject):
         self.__dict__ = self._api.get_product_categories(id=self.id).__dict__
 
 
-@ClassParser(url_class="categories")
+@ClassParser(url_classes=["categories"])
 class ProductCategoryImage(ApiProperty):
     ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
     rw_attributes = {'id', 'src', 'name', 'alt'}

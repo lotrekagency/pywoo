@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject, ApiProperty
 from pywoo.utils.parse import parse_date_time, to_dict, ClassParser
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class Order(ApiObject):
     ro_attributes = {'id', 'number', 'order_key', 'created_via', 'version', 'date_created', 'date_created_gmt',
                      'date_modified', 'date_modified_gmt', 'discount_total', 'discount_tax', 'shipping_total',
@@ -40,48 +40,48 @@ class Order(ApiObject):
         self.__dict__ = self._api.get_orders(id=self.id).__dict__
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderBilling(ApiProperty):
     rw_attributes = {'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
                      'country', 'email', 'phone'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderShipping(ApiProperty):
     rw_attributes = {'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
                      'country'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderLineItems(ApiProperty):
     ro_attributes = {'id', 'subtotal_tax', 'total', 'total_tax', 'taxes', 'meta_data', 'sku', 'price'}
     rw_attributes = {'name', 'product_id', 'variation_id', 'quantity', 'tax_class', 'subtotal'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderShippingLine(ApiProperty):
     ro_attributes = {'id', 'total_tax', 'taxes'}
     rw_attributes = {'method_title', 'method_id', 'total', 'meta_data'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderFeeLine(ApiProperty):
     ro_attributes = {'id', 'total_tax', 'taxes'}
     rw_attributes = {'name', 'tax_class', 'tax_status', 'total', 'meta_data'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderCouponLine(ApiProperty):
     ro_attributes = {'id', 'discount', 'discount_tax'}
     rw_attributes = {'code', 'meta_data'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderRefund(ApiProperty):
     ro_attributes = {'id', 'reason', 'total'}
 
 
-@ClassParser(url_class="orders")
+@ClassParser(url_classes=["orders"])
 class OrderTax(ApiProperty):
     ro_attributes = {'id', 'rate_code', 'rate_id', 'label', 'compound', 'tax_total', 'shipping_tax_total'}
     rw_attributes = {'meta_data'}

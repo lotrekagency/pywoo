@@ -23,7 +23,7 @@ class ApiSuperClass(object):
 
 
 class ApiObject(ApiSuperClass):
-    def __init__(self, api, url, **kwargs):
+    def __init__(self, api, url='', **kwargs):
         super().__init__(**kwargs)
         self._api = api
         self._url = url

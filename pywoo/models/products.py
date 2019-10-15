@@ -1,22 +1,10 @@
+from pywoo.models.product_categories import ProductCategory
+from pywoo.models.product_tags import ProductTag
 from pywoo.utils.models import ApiObject, ApiProperty, ApiActiveProperty
 from pywoo.utils.parse import parse_date_time, to_dict, ClassParser
 
 
-class ProductCategory(ApiActiveProperty):
-    rw_attributes = {'id', 'name', 'slug'}
-
-    def get_category(self):
-        self._api.get_product_categories(self.id)
-
-
-class ProductTag(ApiActiveProperty):
-    rw_attributes = {'id', 'name', 'slug'}
-
-    def get_tag(self):
-        self._api.get_product_tags(self.id)
-
-
-@ClassParser(url_class="products")
+@ClassParser(url_classes=["products"])
 class Product(ApiObject):
     ro_attributes = {'id', 'permalink', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt',
                      'price', 'price_html', 'on_sale', 'purchasable', 'total_sales', 'backorders_allowed',
@@ -31,17 +19,10 @@ class Product(ApiObject):
                      'parent_id', 'purchase_note', 'categories', 'tags', 'images', 'attributes', 'default_attributes',
                      'grouped_products', 'menu_order', 'meta_data'}
 
-    # noinspection PyArgumentList
-    def __init__(self, api, url, **kwargs):
-        super().__init__(api, url, **kwargs)
-        categories = []
-        tags = []
-        for cat in self.categories:
-            categories.append(ProductCategory(api, **cat))
-        for tag in self.tags:
-            tags.append(ProductTag(api, **tag))
-        self.categories = categories
-        self.tags = tags
+    def __init__(self, api, **kwargs):
+        super().__init__(api, **kwargs)
+        self.categories = [ProductCategory(api, **cat) for cat in kwargs.get('categories', [])]
+        self.tags = [ProductTag(api, **tag) for tag in kwargs.get('tags', [])]
 
     @classmethod
     def get_products(cls, api, id='', **params):
@@ -69,23 +50,23 @@ class Product(ApiObject):
         self.__dict__ = self._api.get_products(id=self.id).__dict__
 
 
-@ClassParser(url_class="products")
+@ClassParser(url_classes=["products"])
 class ProductDownload(ApiProperty):
     rw_attributes = {'id', 'name', 'file'}
 
 
-@ClassParser(url_class="products")
+@ClassParser(url_classes=["products"])
 class ProductDimension(ApiProperty):
     rw_attributes = {'lenght', 'width', 'height'}
 
 
-@ClassParser(url_class="products")
+@ClassParser(url_classes=["products"])
 class ProductImage(ApiProperty):
     ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
     rw_attributes = {'id', 'src', 'name', 'alt'}
 
 
-@ClassParser(url_class="products")
+@ClassParser(url_classes=["products"])
 class ProductAttribute(ApiActiveProperty):
     rw_attributes = {'id', 'name', 'position', 'visible', 'variation', 'options'}
 
@@ -95,7 +76,7 @@ class ProductAttribute(ApiActiveProperty):
         return self._api.get_product_attributes(self.id)
 
 
-@ClassParser(url_class="products")
+@ClassParser(url_classes=["products"])
 class ProductDefaultAttribute(ApiActiveProperty):
     rw_attributes = {'id', 'name', 'option'}
 

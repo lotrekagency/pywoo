@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import to_dict, parse_date_time, ClassParser
 
 
-@ClassParser(url_class="coupons")
+@ClassParser(url_classes=["coupons"])
 class Coupon(ApiObject):
     ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'usage_count',
                      'used_by'}

@@ -2,7 +2,7 @@ from pywoo.utils.models import ApiObject
 from pywoo.utils.parse import ClassParser, to_dict
 
 
-@ClassParser(url_class="shipping_classes")
+@ClassParser(url_classes=["shipping_classes"])
 class ProductShipping(ApiObject):
     ro_attributes = {'id', 'count'}
     rw_attributes = {'name', 'slug', 'description'}

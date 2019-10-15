@@ -4,7 +4,7 @@ from pywoo.utils.parse import ClassParser
 from pywoo.utils.parse import to_dict
 
 
-@ClassParser(url_class="payment_gateways")
+@ClassParser(url_classes=["payment_gateways"])
 class PaymentGateway(ApiObject):
     ro_attributes = {'id', 'method_title', 'method_description', 'method_supports'}
     rw_attributes = {'title', 'description', 'order', 'enabled', 'settings'}
@@ -24,7 +24,7 @@ class PaymentGateway(ApiObject):
         self.__dict__ = self._api.get_payment_gateways(id=self.id).__dict__
 
 
-@ClassParser(url_class="payment_gateways")
+@ClassParser(url_classes=["payment_gateways"])
 class PaymentGatewaySetting(ApiProperty):
     ro_attributes = {'id', 'label', 'description', 'type', 'default', 'tip', 'placeholder'}
     rw_attributes = {'value'}
