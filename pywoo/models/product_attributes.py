@@ -24,7 +24,7 @@ class ProductAttribute(ApiObject):
         return api.delete_product_attribute(id)
 
     def update(self):
-        return self._api.update_product_attribute(**to_dict(self))
+        self.__dict__ = self._api.update_product_attribute(**to_dict(self)).__dict__
 
     def delete(self):
         return self._api.delete_product_attribute(self.id)

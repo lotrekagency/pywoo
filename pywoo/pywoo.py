@@ -5,7 +5,7 @@ from pywoo.models import *
 from pywoo.utils.parse import from_json
 
 
-class Api:
+class API:
     def __init__(self, url, consumer_key, consumer_secret):
         self.url = url
         self.consumer_key = consumer_key

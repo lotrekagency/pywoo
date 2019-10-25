@@ -25,7 +25,7 @@ class TaxRate(ApiObject):
         return api.delete_tax_rate(id)
 
     def update(self):
-        return self._api.update_tax_rate(**to_dict(self))
+        self.__dict__ = self._api.update_tax_rate(**to_dict(self)).__dict__
 
     def delete(self):
         return self._api.delete_tax_rate(self.id)

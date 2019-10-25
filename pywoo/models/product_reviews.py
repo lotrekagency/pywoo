@@ -24,7 +24,7 @@ class ProductReview(ApiObject):
         return api.delete_product_review(id)
 
     def update(self):
-        return self._api.update_product_review(**to_dict(self))
+        self.__dict__ = self._api.update_product_review(**to_dict(self)).__dict__
 
     def delete(self):
         return self._api.delete_product_review(self.id)

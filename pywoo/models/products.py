@@ -41,7 +41,7 @@ class Product(ApiObject):
         return api.delete_product(id, **params)
 
     def update(self):
-        return self._api.update_product(**to_dict(self))
+        self.__dict__ = self._api.update_product(**to_dict(self)).__dict__
 
     def delete(self):
         return self._api.delete_product(self.id)

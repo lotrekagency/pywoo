@@ -26,7 +26,7 @@ class ShippingZoneMethod(ApiObject):
         return api.delete_shipping_zone_method(shipping_zone_id, id)
 
     def update(self):
-        return self._api.update_shipping_zone_method(self.shipping_zone_id, **to_dict(self))
+        self.__dict__ = self._api.update_shipping_zone_method(self.shipping_zone_id, **to_dict(self)).__dict__
 
     def delete(self):
         return self._api.delete_shipping_zone_method(self.shipping_zone_id, self.instance_id)

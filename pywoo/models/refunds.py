@@ -26,7 +26,7 @@ class Refund(ApiObject):
         return api.delete_refund(order_id, id)
 
     def update(self):
-        return self._api.update_refund(self.order_id, self.id, **to_dict(self))
+        self.__dict__ = self._api.update_refund(self.order_id, self.id, **to_dict(self)).__dict__
 
     def delete(self):
         return self._api.delete_refund(self.order_id, self.id)
