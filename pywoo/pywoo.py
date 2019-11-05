@@ -24,7 +24,7 @@ class Api:
         )
         if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
-        print("\033[1;32;40mSTATUS 200 Created successfully\033[0m")
+        print("\033[1;32;40m[Pywoo] STATUS 200 Created successfully\033[0m")
         return from_json(resp.text, self, url)
 
     def _get(self, url, id='', params={}):
@@ -35,7 +35,7 @@ class Api:
         )
         if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
-        print("\033[1;32;40mSTATUS 200 Read successfully\033[0m")
+        print("\033[1;32;40m[Pywoo] STATUS 200 Read successfully\033[0m")
         return from_json(resp.text, self, url)
 
     def _put(self, url, id, data):
@@ -46,7 +46,7 @@ class Api:
         )
         if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
-        print("\033[1;32;40mSTATUS 200 Updated successfully\033[0m")
+        print("\033[1;32;40m[Pywoo] STATUS 200 Updated successfully\033[0m")
         return from_json(resp.text, self, url)
 
     def _delete(self, url, id, params={}):
@@ -58,7 +58,7 @@ class Api:
         )
         if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
-        print("\033[1;32;40mSTATUS 200 Deleted successfully\033[0m")
+        print("\033[1;32;40m[Pywoo] STATUS 200 Deleted successfully\033[0m")
         return from_json(resp.text, self, url)
 
     def create_coupon(self, **data):
