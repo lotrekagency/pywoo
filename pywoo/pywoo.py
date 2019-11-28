@@ -3,6 +3,7 @@ import requests
 from requests_oauthlib import OAuth1
 from pywoo.models import *
 from pywoo.utils.parse import from_json
+from pywoo.utils.auth import auth_params
 
 
 class Api:
@@ -16,11 +17,18 @@ class Api:
         headers = {}
         return headers
 
+    def _get_auth_params(self):
+        return {
+            'consumer_key' : self.consumer_key,
+            'consumer_secret' : self.consumer_secret
+        } if auth_params.get(self.url.split('/')[-1], None) else {}
+
     def _create(self, url, data):
         resp = requests.post(
             f'{self.url}/{url}',
             json=data,
             headers=self._get_default_headers(),
+            params=self._get_auth_params(),
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if not resp.ok:
@@ -32,9 +40,10 @@ class Api:
     def _get(self, url, id='', params={}):
         resp = requests.get(
             f'{self.url}/{url}/{id}',
-            params=params,
+            params={**params, **self._get_auth_params()},
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
+        print(resp.url)
         if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         if self.console_logs:
@@ -45,6 +54,7 @@ class Api:
         resp = requests.put(
             f'{self.url}/{url}/{id}',
             json=data,
+            params=self._get_auth_params(),
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if not resp.ok:
@@ -57,7 +67,7 @@ class Api:
         resp = requests.delete(
             f'{self.url}/{url}/{id}',
             headers=self._get_default_headers(),
-            params=params,
+            params={**params, **self._get_auth_params()},
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
         if not resp.ok:
