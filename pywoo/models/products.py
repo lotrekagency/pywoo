@@ -18,18 +18,17 @@ class ProductTag(ApiActiveProperty):
 
 @ClassParser(url_class="products")
 class Product(ApiObject):
-    ro_attributes = {'id', 'permalink', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt',
+    ro_attributes = {'id', 'permalink',
                      'price', 'price_html', 'on_sale', 'purchasable', 'total_sales', 'backorders_allowed',
                      'backordered', 'shipping_required', 'shipping_taxable', 'shipping_class_id', 'average_rating',
                      'rating_count', 'related_ids', 'variations'}
     rw_attributes = {'name', 'slug', 'type', 'status', 'featured', 'catalog_visibility', 'description',
-                     'short_description', 'sku', 'regular_price', 'sale_price', 'date_on_sale_from',
-                     'date_on_sale_from_gmt', 'date_on_sale_to', 'date_on_sale_to_gmt', 'virtual', 'downloadable',
+                     'short_description', 'sku', 'regular_price', 'sale_price', 'virtual', 'downloadable',
                      'downloads', 'download_limit', 'download_expiry', 'external_url', 'button_text', 'tax_status',
-                     'tax_class', 'manage_stock', 'stock_quantity', 'stock_status', 'backorders', 'sold_individually',
+                     'tax_class', 'manage_stock', 'stock_quantity', 'backorders', 'sold_individually',
                      'weight', 'dimensions', 'shipping_class', 'reviews_allowed', 'upsell_ids', 'cross_sell_ids',
                      'parent_id', 'purchase_note', 'categories', 'tags', 'images', 'attributes', 'default_attributes',
-                     'grouped_products', 'menu_order', 'meta_data'}
+                     'grouped_products', 'menu_order'}
 
     # noinspection PyArgumentList
     def __init__(self, api, url, **kwargs):
@@ -76,7 +75,7 @@ class ProductDownload(ApiProperty):
 
 @ClassParser(url_class="products")
 class ProductDimension(ApiProperty):
-    rw_attributes = {'lenght', 'width', 'height'}
+    rw_attributes = {'length', 'width', 'height'}
 
 
 @ClassParser(url_class="products")

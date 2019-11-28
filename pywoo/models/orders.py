@@ -4,14 +4,14 @@ from pywoo.utils.parse import parse_date_time, to_dict, ClassParser
 
 @ClassParser(url_class="orders")
 class Order(ApiObject):
-    ro_attributes = {'id', 'number', 'order_key', 'created_via', 'version', 'date_created', 'date_created_gmt',
-                     'date_modified', 'date_modified_gmt', 'discount_total', 'discount_tax', 'shipping_total',
+    ro_attributes = {'id', 'number', 'order_key', 'created_via', 'version', 'date_created',
+                     'date_modified', 'discount_total', 'discount_tax', 'shipping_total',
                      'shipping_tax', 'cart_tax', 'total', 'total_tax', 'prices_include_tax', 'customer_ip_address',
-                     'customer_user_agent', 'date_paid', 'date_paid_gmt', 'date_completed', 'date_completed_gmt',
+                     'customer_user_agent', 'date_paid', 'date_completed',
                      'cart_hash', 'tax_lines', 'refunds'}
     wo_attributes = {'set_paid'}
     rw_attributes = {'parent_id', 'status', 'currency', 'customer_id', 'customer_note', 'billing', 'shipping',
-                     'payment_method', 'payment_method_title', 'transaction_id', 'meta_data', 'line_items',
+                     'payment_method', 'payment_method_title', 'transaction_id', 'line_items',
                      'shipping_lines', 'fee_lines', 'coupon_lines'}
 
     @classmethod

@@ -9,9 +9,9 @@ class ProductVariation(ApiObject):
     ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'permalink',
                      'price', 'on_sale', 'purchasable', 'backorders_allowed', 'backordered', 'shipping_class_id'}
     rw_attributes = {'description', 'sku', 'regular_price', 'sale_price', 'date_on_sale_from',
-                     'date_on_sale_from_gmt', 'date_on_sale_to', 'date_on_sale_to_gmt', 'status', 'virtual',
+                     'date_on_sale_from_gmt', 'date_on_sale_to', 'date_on_sale_to_gmt', 'virtual',
                      'downloadable', 'downloads', 'download_limit', 'download_expiry', 'tax_status', 'tax_class',
-                     'manage_stock', 'stock_quantity', 'stock_status', 'backorders', 'weight', 'dimensions',
+                     'manage_stock', 'stock_quantity', 'backorders', 'weight', 'dimensions',
                      'shipping_class', 'image', 'attributes', 'menu_order', 'meta_data'}
 
     @classmethod

@@ -4,12 +4,11 @@ from pywoo.utils.parse import to_dict, parse_date_time, ClassParser
 
 @ClassParser(url_class="coupons")
 class Coupon(ApiObject):
-    ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'usage_count',
+    ro_attributes = {'id', 'date_created', 'date_modified', 'usage_count',
                      'used_by'}
-    rw_attributes = {'code', 'amount', 'discount_type', 'description', 'date_expires', 'date_expires_gmt',
-                     'individual_use', 'product_ids', 'excluded_product_ids', 'usage_limit', 'usage_limit_per_user',
+    rw_attributes = {'code', 'amount', 'discount_type', 'product_ids', 'usage_limit', 'usage_limit_per_user',
                      'limit_usage_to_x_items', 'free_shipping', 'product_categories', 'excluded_product_categories',
-                     'exclude_sale_items', 'minimum_amount', 'maximum_amount', 'email_restrictions', 'meta_data'}
+                     'exclude_sale_items', 'minimum_amount', 'maximum_amount', 'email_restrictions'}
 
     @classmethod
     def get_coupons(cls, api, id='', **params):

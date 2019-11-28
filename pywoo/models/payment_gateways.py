@@ -6,7 +6,7 @@ from pywoo.utils.parse import to_dict
 
 @ClassParser(url_class="payment_gateways")
 class PaymentGateway(ApiObject):
-    ro_attributes = {'id', 'method_title', 'method_description', 'method_supports'}
+    ro_attributes = {'id', 'method_title', 'method_description'}
     rw_attributes = {'title', 'description', 'order', 'enabled', 'settings'}
 
     @classmethod

@@ -4,10 +4,9 @@ from pywoo.utils.parse import to_dict, ClassParser
 
 @ClassParser(url_class="customers")
 class Customer(ApiObject):
-    ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'role',
-                     'is_paying_customer', 'avatar_url'}
+    ro_attributes = {'id', 'date_created', 'date_modified', 'avatar_url'}
     wo_attributes = {'password'}
-    rw_attributes = {'email', 'first_name', 'last_name', 'username', 'billing', 'shipping', 'meta_data'}
+    rw_attributes = {'email', 'first_name', 'last_name', 'username', 'billing', 'shipping'}
 
     @classmethod
     def get_customers(cls, api, id='', **params):

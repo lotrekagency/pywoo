@@ -6,7 +6,7 @@ from pywoo.utils.parse import parse_date_time, ClassParser
 
 @ClassParser(url_class="notes")
 class OrderNote(ApiObject):
-    ro_attributes = {'id', 'author', 'date_created', 'date_created_gmt'}
+    ro_attributes = {'id', 'date_created'}
     rw_attributes = {'note', 'customer_note'}
 
     @classmethod
