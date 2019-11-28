@@ -43,7 +43,6 @@ class Api:
             params={**params, **self._get_auth_params()},
             auth=OAuth1(self.consumer_key, self.consumer_secret, '', '')
         )
-        print(resp.url)
         if not resp.ok:
             raise Exception(f"\033[1;31;40mHTTP ERROR {resp.status_code} {resp.json()['message']}\033[0m")
         if self.console_logs:
