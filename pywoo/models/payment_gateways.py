@@ -19,7 +19,7 @@ class PaymentGateway(ApiObject):
 
     def update(self):
         return self._api.update_payment_gateway(**to_dict(self))
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_payment_gateways(id=self.id).__dict__
 

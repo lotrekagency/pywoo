@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject, ApiProperty, ApiActiveProperty
-from pywoo.utils.parse import parse_date_time, to_dict, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 class ProductCategory(ApiActiveProperty):
@@ -63,7 +63,7 @@ class Product(ApiObject):
 
     def delete(self):
         return self._api.delete_product(self.id)
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_products(id=self.id).__dict__
 

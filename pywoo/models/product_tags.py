@@ -28,7 +28,6 @@ class ProductTag(ApiObject):
 
     def delete(self):
         return self._api.delete_product_tag(self.id)
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_product_tags(id=self.id).__dict__
-

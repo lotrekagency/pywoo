@@ -28,6 +28,6 @@ class ShippingZone(ApiObject):
 
     def delete(self):
         return self._api.delete_shipping_zone(self.id)
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_shipping_zones(id=self.id).__dict__

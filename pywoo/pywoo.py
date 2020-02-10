@@ -1,7 +1,7 @@
 import requests
 
 from requests_oauthlib import OAuth1
-from pywoo.models import *
+from pywoo.models import * # NOQA
 from pywoo.utils.parse import from_json
 from pywoo.utils.auth import auth_params
 
@@ -19,8 +19,8 @@ class Api:
 
     def _get_auth_params(self):
         return {
-            'consumer_key' : self.consumer_key,
-            'consumer_secret' : self.consumer_secret
+            'consumer_key': self.consumer_key,
+            'consumer_secret': self.consumer_secret
         } if auth_params.get(self.url.split('/')[-1], None) else {}
 
     def _create(self, url, data):

@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject, ApiProperty
-from pywoo.utils.parse import parse_date_time, to_dict, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="orders")
@@ -35,7 +35,7 @@ class Order(ApiObject):
 
     def delete(self):
         return self._api.delete_order(self.id)
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_orders(id=self.id).__dict__
 

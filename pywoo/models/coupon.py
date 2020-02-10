@@ -1,5 +1,5 @@
 from pywoo.utils.models import ApiObject
-from pywoo.utils.parse import to_dict, parse_date_time, ClassParser
+from pywoo.utils.parse import to_dict, ClassParser
 
 
 @ClassParser(url_class="coupons")
@@ -17,7 +17,7 @@ class Coupon(ApiObject):
     @classmethod
     def create_coupon(cls, api, **kwargs):
         return api.create_coupon(**kwargs)
-    
+
     @classmethod
     def edit_coupon(cls, api, id, **kwargs):
         return api.update_coupon(id, **kwargs)

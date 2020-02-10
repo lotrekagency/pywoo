@@ -28,7 +28,6 @@ class ProductAttribute(ApiObject):
 
     def delete(self):
         return self._api.delete_product_attribute(self.id)
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_product_attributes(id=self.id).__dict__
-

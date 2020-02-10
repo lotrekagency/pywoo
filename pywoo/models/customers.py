@@ -29,7 +29,7 @@ class Customer(ApiObject):
 
     def delete(self, **params):
         return self._api.delete_customer(self.id, **params)
-    
+
     def refresh(self):
         self.__dict__ = self._api.get_customers(id=self.id).__dict__
 

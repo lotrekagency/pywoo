@@ -10,13 +10,13 @@ class ApiSuperClass(object):
         self.__dict__ = kwargs
 
     def __setattr__(self, key, value):
-        if not key in self.ro_attributes:
+        if key not in self.ro_attributes:
             return super().__setattr__(key, value)
         else:
             raise ReadOnlyException(key)
 
     def __getattr__(self, item):
-        if not item in self.wo_attributes:
+        if item not in self.wo_attributes:
             return super().__getattr__(item)
         else:
             raise WriteOnlyException(item)

@@ -50,7 +50,7 @@ def to_dict(data):
     if issubclass(type(data), ApiSuperClass):
         dict_data = data.__dict__
         return {key: to_dict(value) for key, value in dict_data.items() if
-                not key.startswith("_") and not value is None}
+                not key.startswith("_") and value is not None}
     elif type(data) == datetime:
         return data.strftime('%Y-%m-%dT%H:%M:%S')
     elif type(data) == list:
