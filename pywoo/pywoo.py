@@ -7,7 +7,7 @@ from pywoo.utils.auth import auth_params
 
 
 class Api:
-    def __init__(self, url, consumer_key, consumer_secret, console_logs=True):
+    def __init__(self, url, consumer_key, consumer_secret, console_logs=False):
         self.url = url
         self.consumer_key = consumer_key
         self.consumer_secret = consumer_secret
