@@ -6,3 +6,5 @@
 /source
 /build
 /*.egg-info
+
+.coverage
