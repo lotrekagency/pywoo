@@ -4,8 +4,8 @@ from pywoo.utils.parse import ClassParser
 
 @ClassParser(url_class="classes")
 class TaxClass(ApiObject):
-    ro_attributes = {'slug'}
-    rw_attributes = {'name'}
+    _ro_attributes = {'slug'}
+    _rw_attributes = {'name'}
 
     @classmethod
     def get_tax_classes(cls, api):

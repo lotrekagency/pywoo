@@ -6,8 +6,8 @@ from pywoo.utils.parse import to_dict, ClassParser
 
 @ClassParser(url_class="terms")
 class ProductAttributeTerm(ApiObject):
-    ro_attributes = {'id', 'count'}
-    rw_attributes = {'name', 'slug', 'description', 'menu_order'}
+    _ro_attributes = {'id', 'count'}
+    _rw_attributes = {'name', 'slug', 'description', 'menu_order'}
 
     @classmethod
     def get_product_attribute_terms(cls, api, product_attribute_id, id='', **params):

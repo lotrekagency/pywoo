@@ -3,14 +3,14 @@ from pywoo.utils.parse import to_dict, ClassParser
 
 
 class ProductCategory(ApiActiveProperty):
-    rw_attributes = {'id', 'name', 'slug'}
+    _rw_attributes = {'id', 'name', 'slug'}
 
     def get_category(self):
         self._api.get_product_categories(self.id)
 
 
 class ProductTag(ApiActiveProperty):
-    rw_attributes = {'id', 'name', 'slug'}
+    _rw_attributes = {'id', 'name', 'slug'}
 
     def get_tag(self):
         self._api.get_product_tags(self.id)
@@ -18,11 +18,11 @@ class ProductTag(ApiActiveProperty):
 
 @ClassParser(url_class="products")
 class Product(ApiObject):
-    ro_attributes = {'id', 'permalink',
+    _ro_attributes = {'id', 'permalink',
                      'price', 'price_html', 'on_sale', 'purchasable', 'total_sales', 'backorders_allowed',
                      'backordered', 'shipping_required', 'shipping_taxable', 'shipping_class_id', 'average_rating',
                      'rating_count', 'related_ids', 'variations'}
-    rw_attributes = {'name', 'slug', 'type', 'status', 'featured', 'catalog_visibility', 'description',
+    _rw_attributes = {'name', 'slug', 'type', 'status', 'featured', 'catalog_visibility', 'description',
                      'short_description', 'sku', 'regular_price', 'sale_price', 'virtual', 'downloadable',
                      'downloads', 'download_limit', 'download_expiry', 'external_url', 'button_text', 'tax_status',
                      'tax_class', 'manage_stock', 'stock_quantity', 'backorders', 'sold_individually',
@@ -70,23 +70,23 @@ class Product(ApiObject):
 
 @ClassParser(url_class="products")
 class ProductDownload(ApiProperty):
-    rw_attributes = {'id', 'name', 'file'}
+    _rw_attributes = {'id', 'name', 'file'}
 
 
 @ClassParser(url_class="products")
 class ProductDimension(ApiProperty):
-    rw_attributes = {'length', 'width', 'height'}
+    _rw_attributes = {'length', 'width', 'height'}
 
 
 @ClassParser(url_class="products")
 class ProductImage(ApiProperty):
-    ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
-    rw_attributes = {'id', 'src', 'name', 'alt'}
+    _ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
+    _rw_attributes = {'id', 'src', 'name', 'alt'}
 
 
 @ClassParser(url_class="products")
 class ProductAttribute(ApiActiveProperty):
-    rw_attributes = {'id', 'name', 'position', 'visible', 'variation', 'options'}
+    _rw_attributes = {'id', 'name', 'position', 'visible', 'variation', 'options'}
 
     def get_product_attribute(self):
         if self.id == 0:
@@ -96,7 +96,7 @@ class ProductAttribute(ApiActiveProperty):
 
 @ClassParser(url_class="products")
 class ProductDefaultAttribute(ApiActiveProperty):
-    rw_attributes = {'id', 'name', 'option'}
+    _rw_attributes = {'id', 'name', 'option'}
 
     def get_product_attribute(self):
         if self.id == 0:

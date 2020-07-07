@@ -1,3 +1,8 @@
+"""
+This module contains classes, functions and global variables used for translating JSON objects into model objects
+and viceversa, and **should not be touched** when using pywoo.
+"""
+
 import json
 
 from datetime import datetime
@@ -7,11 +12,16 @@ urls_classes = {}
 
 
 class ClassParser:
+    """
+    Class used for parsing models classes.
+
+    *Nothing to see here.*
+    """
     def __init__(self, url_class):
         self.url_class = url_class
 
     def __call__(self, cls, *args, **kwargs):
-        attrs = cls.ro_attributes.union(cls.rw_attributes)
+        attrs = cls._ro_attributes.union(cls._rw_attributes)
 
         if self.url_class in urls_classes:
             urls_classes[self.url_class][frozenset(attrs)] = cls
@@ -21,6 +31,17 @@ class ClassParser:
 
 
 def find_mapping(data, api, url):
+    """
+    Function used for matching model classes to JSON objects coming from Woocommerce REST API.
+
+    :param data: JSON data
+    :type data: dict, list
+    :param api: :class:`~pywoo.Api` object
+    :type api: pywoo.Api
+    :param url: Woocommerce REST API url used for retrieving data
+    :type url: str
+    :rtype: object
+    """
     if '_links' in data:
         del data['_links']
     cls = None
@@ -47,6 +68,13 @@ def find_mapping(data, api, url):
 
 
 def to_dict(data):
+    """
+    Function used to transform data models objects in JSON (``dict``, ``list``) data.
+
+    :param data: object data
+    :type data: str
+    :rtype: list, dict
+    """
     if issubclass(type(data), ApiSuperClass):
         dict_data = data.__dict__
         return {key: to_dict(value) for key, value in dict_data.items() if
@@ -61,6 +89,13 @@ def to_dict(data):
 
 
 def parse_date_time(date_time):
+    """
+    Function used to parse datetime strings coming from Woocommerce REST API.
+
+    :param date_time: datetime string in ``%Y-%m-%dT%H:%M:%S`` format
+    :type date_time: str
+    :rtype: datetime.datetime
+    """
     if date_time and isinstance(date_time, str):
         for pattern in ['%Y-%m-%dT%H:%M:%S', '%Y-%m-%d %H:%M:%S.%f']:
             try:
@@ -71,4 +106,15 @@ def parse_date_time(date_time):
 
 
 def from_json(data, api, url):
+    """
+    Function used to load JSON data into models objects.
+
+    :param data: JSON data
+    :type data: dict, list
+    :param api: :class:`~pywoo.Api` object
+    :type api: pywoo.Api
+    :param url: Woocommerce REST API url used for retrieving data
+    :type url: str
+    :rtype: object
+    """
     return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))

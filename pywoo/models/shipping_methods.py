@@ -4,7 +4,7 @@ from pywoo.utils.parse import ClassParser
 
 @ClassParser(url_class="shipping_methods")
 class ShippingMethod(ApiObject):
-    ro_attributes = {'id', 'title', 'description'}
+    _ro_attributes = {'id', 'title', 'description'}
 
     @classmethod
     def get_shipping_methods(cls, api, id='', **params):

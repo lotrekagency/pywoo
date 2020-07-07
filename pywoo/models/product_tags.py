@@ -4,8 +4,8 @@ from pywoo.utils.parse import ClassParser, to_dict
 
 @ClassParser(url_class="tags")
 class ProductTag(ApiObject):
-    ro_attributes = {'id', 'count'}
-    rw_attributes = {'name', 'slug', 'description'}
+    __ro_attributes = {'id', 'count'}
+    _rw_attributes = {'name', 'slug', 'description'}
 
     @classmethod
     def get_product_tags(cls, api, id='', **params):
