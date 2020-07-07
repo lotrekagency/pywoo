@@ -6,9 +6,9 @@ from pywoo.utils.parse import to_dict, ClassParser
 
 @ClassParser(url_class="variations")
 class ProductVariation(ApiObject):
-    ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'permalink',
+    _ro_attributes = {'id', 'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt', 'permalink',
                      'price', 'on_sale', 'purchasable', 'backorders_allowed', 'backordered', 'shipping_class_id'}
-    rw_attributes = {'description', 'sku', 'regular_price', 'sale_price', 'date_on_sale_from',
+    _rw_attributes = {'description', 'sku', 'regular_price', 'sale_price', 'date_on_sale_from',
                      'date_on_sale_from_gmt', 'date_on_sale_to', 'date_on_sale_to_gmt', 'virtual',
                      'downloadable', 'downloads', 'download_limit', 'download_expiry', 'tax_status', 'tax_class',
                      'manage_stock', 'stock_quantity', 'backorders', 'weight', 'dimensions',
@@ -46,20 +46,20 @@ class ProductVariation(ApiObject):
 
 @ClassParser(url_class="variations")
 class ProductVariationDownload(ApiProperty):
-    rw_attributes = {'id', 'name', 'file'}
+    _rw_attributes = {'id', 'name', 'file'}
 
 
 @ClassParser(url_class="variations")
 class ProductVariationDimension(ApiProperty):
-    rw_attributes = {'lenght', 'width', 'height'}
+    _rw_attributes = {'lenght', 'width', 'height'}
 
 
 @ClassParser(url_class="variations")
 class ProductImage(ApiProperty):
-    ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
-    rw_attributes = {'id', 'src', 'name', 'alt'}
+    _ro_attributes = {'date_created', 'date_created_gmt', 'date_modified', 'date_modified_gmt'}
+    _rw_attributes = {'id', 'src', 'name', 'alt'}
 
 
 @ClassParser(url_class="variations")
 class ProductVariationAttribute(ApiProperty):
-    rw_attributes = {'id', 'name', 'option'}
+    _rw_attributes = {'id', 'name', 'option'}

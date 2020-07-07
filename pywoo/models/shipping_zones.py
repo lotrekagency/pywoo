@@ -4,8 +4,8 @@ from pywoo.utils.parse import to_dict, ClassParser
 
 @ClassParser(url_class="zones")
 class ShippingZone(ApiObject):
-    ro_attributes = {'id'}
-    rw_attributes = {'name', 'order'}
+    _ro_attributes = {'id'}
+    _rw_attributes = {'name', 'order'}
 
     @classmethod
     def get_shipping_zone(cls, api, id=''):

@@ -5,9 +5,9 @@ from pywoo.utils.parse import to_dict, ClassParser
 
 @ClassParser(url_class="refunds")
 class Refund(ApiObject):
-    ro_attributes = {'id', 'date_created', 'date_created_gmt'}
-    wo_attributes = {'api_refund'}
-    rw_attributes = {'amount', 'reason', 'refunded_by', 'meta_data', 'line_items'}
+    _ro_attributes = {'id', 'date_created', 'date_created_gmt'}
+    _wo_attributes = {'api_refund'}
+    _rw_attributes = {'amount', 'reason', 'refunded_by', 'meta_data', 'line_items'}
 
     @classmethod
     def get_refunds(cls, api, order_id, id='', **params):
@@ -41,10 +41,10 @@ class Refund(ApiObject):
 
 @ClassParser(url_class="refunds")
 class RefundLineItems(ApiProperty):
-    ro_attributes = {'id', 'subtotal_tax', 'total', 'total_tax', 'taxes', 'meta_data', 'sku', 'price'}
-    rw_attributes = {'name', 'product_id', 'variation_id', 'quantity', 'tax_class', 'subtotal'}
+    _ro_attributes = {'id', 'subtotal_tax', 'total', 'total_tax', 'taxes', 'meta_data', 'sku', 'price'}
+    _rw_attributes = {'name', 'product_id', 'variation_id', 'quantity', 'tax_class', 'subtotal'}
 
 
 @ClassParser(url_class="refunds")
 class RefundLineItemTax(ApiProperty):
-    ro_attributes = {'id', 'total', 'subtotal'}
+    _ro_attributes = {'id', 'total', 'subtotal'}
