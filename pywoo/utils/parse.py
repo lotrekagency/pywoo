@@ -61,8 +61,13 @@ def to_dict(data):
 
 
 def parse_date_time(date_time):
-    return datetime.strptime(date_time, '%Y-%m-%dT%H:%M:%S') if date_time else None
-
+    if date_time:
+        for pattern in ['%Y-%m-%dT%H:%M:%S', '%Y-%m-%d %H:%M:%S.%f']:
+            try:
+                return datetime.strptime(date_time, pattern)
+            except ValueError:
+                pass
+    return None
 
 def from_json(data, api, url):
     return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))
