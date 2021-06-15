@@ -32,7 +32,7 @@ def find_mapping(data, api, url):
             break
 
     for key in data.keys():
-        if key.startswith("date"):
+        if key.startswith("date") and isinstance(data[key], str):
             data[key] = parse_date_time(data[key])
 
     if cls:
@@ -61,7 +61,7 @@ def to_dict(data):
 
 
 def parse_date_time(date_time):
-    if date_time:
+    if date_time and isinstance(date_time, str):
         for pattern in ['%Y-%m-%dT%H:%M:%S', '%Y-%m-%d %H:%M:%S.%f']:
             try:
                 return datetime.strptime(date_time, pattern)
