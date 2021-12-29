@@ -1,0 +1,34 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: [ "Test and Coverage" ]
+    branches: [ master ]
+    types:
+      - completed
+
+jobs:
+  gen_docs:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    concurrency: release
+    name: Upload documentation to Github pages
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - name: Install dependencies 📦
+      run: |
+        pip install -r requirements-docs.txt
+    - name: Generate docs with Sphinx
+      run: |
+        make docs
+    - name: Deploy docs
+      uses: JamesIves/github-pages-deploy-action@4.1.7
+      with:
+        branch: gh-pages
+        folder: pywoo_docs
+
