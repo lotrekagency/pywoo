@@ -1,0 +1,27 @@
+:py:mod:`pywoo.utils.exceptions`
+================================
+
+.. py:module:: pywoo.utils.exceptions
+
+
+Module Contents
+---------------
+
+.. py:exception:: ReadOnlyException(key)
+
+
+
+   Exception raised when trying to edit a readonly attribute.
+
+   *Nothing to see here.*
+
+
+.. py:exception:: WriteOnlyException(key)
+
+
+
+   Exception raised when trying to read a writeonly attribute.
+
+   *Nothing to see here.*
+
+

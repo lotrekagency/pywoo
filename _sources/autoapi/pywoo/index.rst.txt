@@ -1,0 +1,25 @@
+:py:mod:`pywoo`
+===============
+
+.. py:module:: pywoo
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   models/index.rst
+   utils/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   pywoo/index.rst
+
+

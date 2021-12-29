@@ -1,0 +1,61 @@
+:py:mod:`pywoo.models.tax_classes`
+==================================
+
+.. py:module:: pywoo.models.tax_classes
+
+
+Module Contents
+---------------
+
+.. py:class:: TaxClass
+
+
+
+   Class for handling tax class objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#tax-classes>`__
+
+   .. py:method:: get_tax_classes(cls, api)
+      :classmethod:
+
+      Get all tax classes
+
+      :param api: API object
+      :type api: pywoo.Api
+      :rtype: list of pywoo.models.tax_classes.TaxClass,
+          pywoo.models.tax_classes.TaxClass
+
+
+   .. py:method:: create_tax_class(cls, api, **data)
+      :classmethod:
+
+      Create tax class
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param data: Tax classes along with their properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#tax-classes>`__)
+      :rtype: pywoo.models.tax_classes.TaxClass
+
+
+   .. py:method:: delete_tax_class(cls, api, slug)
+      :classmethod:
+
+      Delete tax class by slug
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param slug: Tax class slug
+      :type slug: str
+      :rtype: pywoo.models.tax_classes.TaxClass
+
+
+   .. py:method:: delete(self)
+
+      Deletes tax class. The object can't be used anymore after its deletion.
+
+      :return: Deleted tax class
+      :rtype: pywoo.models.tax_classes.TaxClass
+
+
+

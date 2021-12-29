@@ -1,0 +1,46 @@
+:py:mod:`pywoo.models.shipping_zone_locations`
+==============================================
+
+.. py:module:: pywoo.models.shipping_zone_locations
+
+
+Module Contents
+---------------
+
+.. py:class:: ShippingZoneLocation
+
+
+
+   Class for handling shipping zone locations objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-methods>`__
+
+   .. py:method:: get_shipping_zone_locations(cls, api, shipping_zone_id)
+      :classmethod:
+
+      Get all or single shipping method by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param shipping_zone_id: Shipping zone id
+      :type shipping_zone_id: int, str
+      :rtype: list of pywoo.models.shipping_zone_locations.ShippingZoneLocation,
+          pywoo.models.shipping_zone_locations.ShippingZoneLocation
+
+
+   .. py:method:: edit_shipping_zone_locations(cls, api, shipping_zone_id, shipping_locations=[])
+      :classmethod:
+
+      Change shipping locations by shippin zone id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param shipping_zone_id: Shipping zone id
+      :type shipping_zone_id: int, str
+      :param shipping_locations: Shipping locations
+      :type shipping_locations: list of dicts
+      :rtype: list of pywoo.models.shipping_zone_locations.ShippingZoneLocation,
+          pywoo.models.shipping_zone_locations.ShippingZoneLocation
+
+
+

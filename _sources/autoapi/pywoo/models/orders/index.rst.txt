@@ -1,0 +1,173 @@
+:py:mod:`pywoo.models.orders`
+=============================
+
+.. py:module:: pywoo.models.orders
+
+
+Module Contents
+---------------
+
+.. py:class:: Order
+
+
+
+   Class for handling order objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties>`__
+
+   .. py:method:: get_orders(cls, api, id='', **params)
+      :classmethod:
+
+      Get all orders or a single order by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: If specified gets a single order by id
+      :type id: int, str
+      :param params: Parameters that can be used when retrieving order(s);
+          list of parameters:
+           - `Single order <https://woocommerce.github.io/woocommerce-rest-api-docs/#retrieve-an-order>`_
+           - `List of orders <https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders>`_
+      :rtype: list of pywoo.models.orders.Order, pywoo.models.orders.Order
+
+
+   .. py:method:: create_order(cls, api, **data)
+      :classmethod:
+
+      Create new order
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param data: Properties for creating a new order (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties>`__)
+      :rtype: pywoo.models.orders.Order
+
+
+   .. py:method:: edit_order(cls, api, id, **data)
+      :classmethod:
+
+      Update order properties by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Order id
+      :type id: int, str
+      :param data: Properties to update (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties>`__)
+      :rtype: pywoo.models.orders.Order
+
+
+   .. py:method:: delete_order(cls, api, id, force=True)
+      :classmethod:
+
+      Delete order by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Order id
+      :type id: int, str
+      :param force: Whether to permanently delete order or not
+      :type force: bool
+      :rtype: pywoo.models.orders.Order
+
+
+   .. py:method:: update(self)
+
+      Push order properties to Woocommerce REST API.
+
+      **Note**: Woocommerce might update properties when pushing data, but these won't be updated
+      on the object itself. If you want to have your properties updated you can call the
+      :func:`~pywoo.models.orders.Order.refresh()` method or use the returned object which is updated.
+
+      :return: Order with updated properties coming from the REST API
+      :rtype: pywoo.models.orders.Order
+
+
+   .. py:method:: delete(self, force=True)
+
+      Delete order. The object can't be used anymore after its deletion.
+
+      :param force: Whether to permanently delete order or not
+      :type force: bool
+      :return: Deleted coupon code
+      :rtype: pywoo.models.coupon.Coupon
+
+
+   .. py:method:: refresh(self)
+
+      Refresh order properties from Woocommerce REST API
+
+
+
+.. py:class:: OrderBilling
+
+
+
+   Class for handling order billing properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-billing-properties>`__
+
+
+.. py:class:: OrderShipping
+
+
+
+   Class for handling order shipping properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-shipping-properties>`__
+
+
+.. py:class:: OrderLineItems
+
+
+
+   Class for handling order line item properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-line-items-properties>`__
+
+
+.. py:class:: OrderShippingLine
+
+
+
+   Class for handling order shipping lines properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-shipping-line-properties>`__
+
+
+.. py:class:: OrderFeeLine
+
+
+
+   Class for handling order fee line properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-fee-line-properties>`__
+
+
+.. py:class:: OrderCouponLine
+
+
+
+   Class for handling order coupon line properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-coupon-line-properties>`__
+
+
+.. py:class:: OrderRefund
+
+
+
+   Class for handling order refund properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-properties>`__
+
+
+.. py:class:: OrderTax
+
+
+
+   Class for handling order tax properties inside :class:`~pywoo.models.orders.Order` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-tax-properties>`__
+
+

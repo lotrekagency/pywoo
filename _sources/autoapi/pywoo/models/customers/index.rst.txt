@@ -1,0 +1,117 @@
+:py:mod:`pywoo.models.customers`
+================================
+
+.. py:module:: pywoo.models.customers
+
+
+Module Contents
+---------------
+
+.. py:class:: Customer
+
+
+
+   Class for handling customer objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-properties>`__
+
+   .. py:method:: get_customers(cls, api, id='', **params)
+      :classmethod:
+
+      Get all customers of a single customer by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: If specified gets a single customer by id
+      :type id: int, str
+      :param params: Parameters that should be used only when retrieving a list of customers (`Full list of parameters
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-customers>`__)
+      :rtype: list of pywoo.models.customers.Customer, pywoo.models.customers.Customer
+
+
+   .. py:method:: create_customer(cls, api, **data)
+      :classmethod:
+
+      Create a new customer
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param data: Properties for creating a new customer (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-properties>`__)
+      :rtype: pywoo.models.customers.Customer
+
+
+   .. py:method:: edit_customer(cls, api, id, **data)
+      :classmethod:
+
+      Update customer's properties by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Customer id
+      :type id: int, str
+      :param data: Properties to update (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-properties>`__)
+      :rtype: pywoo.models.customers.Customer
+
+
+   .. py:method:: delete_customer(cls, api, id, **params)
+      :classmethod:
+
+      Delete customer by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Customer id
+      :type id: int, str
+      :param params: Additional parameters for deletion (`Full list of parameters
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#delete-a-customer>`__)
+      :rtype: pywoo.models.customers.Customer
+
+
+   .. py:method:: update(self)
+
+      Push customer properties to Woocommerce REST API.
+
+      **Note**: Woocommerce might update properties when pushing data, but these won't be updated
+      on the object itself. If you want to have your properties updated you can call the
+      :func:`~pywoo.models.customers.Customer.refresh()` method or use the returned object which is updated.
+
+      :return: Customer with updated properties coming from the REST API
+      :rtype: pywoo.models.customers.Customer
+
+
+   .. py:method:: delete(self, **params)
+
+      Delete customer. The object can't be used anymore after its deletion.
+
+      :param params: Additional parameters for deletion (`Full list of parameters
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#delete-a-customer>`__)
+      :return: Deleted customer
+      :rtype: pywoo.models.customers.Customer
+
+
+   .. py:method:: refresh(self)
+
+      Refresh customer properties from Woocommerce REST API
+
+
+
+.. py:class:: CustomerBilling
+
+
+
+   Class for handling customer billing properties inside :class:`~pywoo.models.customers.Customer` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-billing-properties>`__
+
+
+.. py:class:: CustomerShipping
+
+
+
+   Class for handling customer shipping properties inside :class:`~pywoo.models.customers.Customer` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-shipping-properties>`__
+
+

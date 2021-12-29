@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pywoo.models.payment_gateways &mdash; pywoo  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pywoo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pywoo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.models.payment_gateways</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/pywoo/models/payment_gateways/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pywoo.models.payment_gateways">
+<span id="pywoo-models-payment-gateways"></span><h1><a class="reference internal" href="#module-pywoo.models.payment_gateways" title="pywoo.models.payment_gateways"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.models.payment_gateways</span></code></a><a class="headerlink" href="#module-pywoo.models.payment_gateways" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.payment_gateways.PaymentGateway">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.payment_gateways.</span></span><span class="sig-name descname"><span class="pre">PaymentGateway</span></span><a class="headerlink" href="#pywoo.models.payment_gateways.PaymentGateway" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling payment gateway objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#payment-gateway-properties">List of parameters</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.payment_gateways.PaymentGateway.get_payment_gateways">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_payment_gateways</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.payment_gateways.PaymentGateway.get_payment_gateways" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or a single payment gateway by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – API object</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a payment gateway by id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.payment_gateways.PaymentGateway, <a class="reference internal" href="#pywoo.models.payment_gateways.PaymentGateway" title="pywoo.models.payment_gateways.PaymentGateway">pywoo.models.payment_gateways.PaymentGateway</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.payment_gateways.PaymentGateway.edit_payment_gateway">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edit_payment_gateway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.payment_gateways.PaymentGateway.edit_payment_gateway" title="Permalink to this definition"></a></dt>
+<dd><p>Change payment gateway’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – API object</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Payment gateway id</p></li>
+<li><p><strong>data</strong> – Payment gateway properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#payment-gateway-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pywoo.models.payment_gateways.PaymentGateway" title="pywoo.models.payment_gateways.PaymentGateway">pywoo.models.payment_gateways.PaymentGateway</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.payment_gateways.PaymentGateway.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.payment_gateways.PaymentGateway.update" title="Permalink to this definition"></a></dt>
+<dd><p>Push payment gateway properties to Woocommerce REST API.</p>
+<p><strong>Note</strong>: Woocommerce might update properties when pushing data, but these won’t be updated
+on the object itself. If you want to have your properties updated you can call the
+<a class="reference internal" href="#pywoo.models.payment_gateways.PaymentGateway.refresh" title="pywoo.models.payment_gateways.PaymentGateway.refresh"><code class="xref py py-func docutils literal notranslate"><span class="pre">refresh()</span></code></a> method or use the returned object
+which is updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Payment gateway with updated properties coming from the REST API</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pywoo.models.payment_gateways.PaymentGateway" title="pywoo.models.payment_gateways.PaymentGateway">pywoo.models.payment_gateways.PaymentGateway</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.payment_gateways.PaymentGateway.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.payment_gateways.PaymentGateway.refresh" title="Permalink to this definition"></a></dt>
+<dd><p>Refresh payment gateway properties from Woocommerce REST API</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.payment_gateways.PaymentGatewaySetting">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.payment_gateways.</span></span><span class="sig-name descname"><span class="pre">PaymentGatewaySetting</span></span><a class="headerlink" href="#pywoo.models.payment_gateways.PaymentGatewaySetting" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling payment gateway settings inside <a class="reference internal" href="#pywoo.models.payment_gateways.PaymentGateway" title="pywoo.models.payment_gateways.PaymentGateway"><code class="xref py py-class docutils literal notranslate"><span class="pre">PaymentGateway</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#payment-gateway-settings-properties">List of parameters</a></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Lotrèk.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+:py:mod:`pywoo.utils.models`
+============================
+
+.. py:module:: pywoo.utils.models
+
+
+Module Contents
+---------------
+
+.. py:class:: ApiSuperClass(**kwargs)
+
+
+
+   Main class inherited by all the objects returned by the library.
+
+
+.. py:class:: ApiObject(api, url, **kwargs)
+
+
+
+   Class used to represent the main object on every response from Woocommerce.
+
+   *Nothing to see here.*
+
+
+.. py:class:: ApiActiveProperty(api, **kwargs)
+
+
+
+   Class used to represent the objects contained in :class:`~pywoo.utils.models.ApiObject` objects.
+   Has also additional methods for retrieving data without having to call the main object.
+
+   *Nothing to see here.*
+
+
+.. py:class:: ApiProperty(**kwargs)
+
+
+
+   Class used to represent the objects contained in :class:`~pywoo.utils.models.ApiObject` objects.
+
+   *Nothing to see here.*
+
+
+.. py:class:: MetaData(**kwargs)
+
+
+
+   Class used to represent the meta data about Woocommerce/Wordpress.
+
+   *Nothing to see here.*
+
+

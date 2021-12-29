@@ -1,0 +1,149 @@
+:py:mod:`pywoo.models.product_variations`
+=========================================
+
+.. py:module:: pywoo.models.product_variations
+
+
+Module Contents
+---------------
+
+.. py:class:: ProductVariation
+
+
+
+   Class for handling product variation objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-properties>`__
+
+   .. py:method:: get_product_variations(cls, api, product_id, id='', **params)
+      :classmethod:
+
+      Get all or single product variation by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param product_id: Parent Product ID
+      :type product_id: int, str
+      :param id: If specified gets a single product variation by id
+      :type id: int, str
+      :param params: Parameters that should be used only when retrieving more product variations (`Full list of
+          parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-variations>`__)
+      :rtype: list of pywoo.models.product_variations.ProductVariation,
+          pywoo.models.product_variations.ProductVariation
+
+
+   .. py:method:: create_product_variation(cls, api, product_id, **data)
+      :classmethod:
+
+      Create new product variation
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param product_id: Parent Product ID
+      :type product_id: int, str
+      :param data: Product variation properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-properties>`__)
+      :rtype: pywoo.models.product_variations.ProductVariation
+
+
+   .. py:method:: edit_product_variation(cls, api, product_id, id, **data)
+      :classmethod:
+
+      Change product variation's properties
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param product_id: Parent Product ID
+      :type product_id: int, str
+      :param id: Product variation id
+      :type id: int, str
+      :param data: Product variation properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-properties>`__)
+      :rtype: pywoo.models.product_variations.ProductVariation
+
+
+   .. py:method:: delete_product_variation(cls, api, product_id, id)
+      :classmethod:
+
+      Delete a product variation by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param product_id: Parent Product ID
+      :type product_id: int, str
+      :param id: Product variation id
+      :type id: int, str
+      :rtype: pywoo.models.product_variations.ProductVariation
+
+
+   .. py:method:: update(self)
+
+      Push product variation properties to Woocommerce REST API.
+
+      **Note**: Woocommerce might update properties when pushing data, but these won't be updated
+      on the object itself. If you want to have your properties updated you can call the
+      :func:`~pywoo.models.product_variations.ProductVariation.refresh()` method or use the returned object
+      which is updated.
+
+      :return: Product variation with updated properties coming from the REST API
+      :rtype: pywoo.models.product_variations.ProductVariation
+
+
+   .. py:method:: delete(self)
+
+      Delete product variation. The object can't be used anymore after its deletion.
+
+      :return: Deleted product tag
+      :rtype: pywoo.models.product_variations.ProductVariation
+
+
+   .. py:method:: refresh(self)
+
+      Refresh product variation properties from Woocommerce REST API
+
+
+   .. py:method:: product_id(self)
+      :property:
+
+
+
+.. py:class:: ProductVariationDownload
+
+
+
+   Class for handling downloads inside :class:`~pywoo.models.product_variations.ProductVariation` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-downloads-properties>`__
+
+
+.. py:class:: ProductVariationDimension
+
+
+
+   Class for handling dimensions inside :class:`~pywoo.models.product_variations.ProductVariation` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-dimensions-properties>`__
+
+
+.. py:class:: ProductImage
+
+
+
+   Class for handling images inside :class:`~pywoo.models.product_variations.ProductVariation` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-image-properties>`__
+
+
+.. py:class:: ProductVariationAttribute
+
+
+
+   Class for handling product attributes inside :class:`~pywoo.models.product_variations.ProductVariation` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-attributes-properties>`__
+
+

@@ -1,0 +1,197 @@
+:py:mod:`pywoo.models.products`
+===============================
+
+.. py:module:: pywoo.models.products
+
+
+Module Contents
+---------------
+
+.. py:class:: ProductCategory
+
+
+
+   Class for handling product categories inside :class:`~pywoo.models.products.Product` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-categories-properties>`__
+
+   .. py:method:: get_category(self)
+
+      Get associated product category object from API
+
+      :rtype: pywoo.models.product_categories.ProductCategory
+
+
+
+.. py:class:: ProductTag
+
+
+
+   Class for handling product tags inside :class:`~pywoo.models.products.Product` objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-tags-properties>`__
+
+   .. py:method:: get_tag(self)
+
+      Get associated product tag object from API
+
+      :rtype: pywoo.models.product_tags.ProductTag
+
+
+
+.. py:class:: Product(api, url, **kwargs)
+
+
+
+   Class for handling product objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-tags-properties>`__
+
+   .. py:method:: get_products(cls, api, id='', **params)
+      :classmethod:
+
+      Get all or a single product by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: If specified gets a product by id
+      :type id: int, str
+      :param params: Parameters that should be used only when retrieving more products (`Full list of
+          parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-products>`__)
+      :rtype: list of pywoo.models.products.Product,
+          pywoo.models.products.Product
+
+
+   .. py:method:: create_product(cls, api, **data)
+      :classmethod:
+
+      Creates a new product
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param data: Product properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties>`__)
+      :rtype: pywoo.models.products.Product
+
+
+   .. py:method:: edit_product(cls, api, id, **data)
+      :classmethod:
+
+      Change product's properties
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Product id
+      :type id: int, str
+      :param data: Product properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties>`__)
+      :rtype: pywoo.models.products.Product
+
+
+   .. py:method:: delete_product(cls, api, id, **params)
+      :classmethod:
+
+      Delete a product by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Product id
+      :type id: int, str
+      :param params: Delete parameters (`Full list of parameters
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#delete-a-product>`__)
+      :rtype: pywoo.models.products.Products
+
+
+   .. py:method:: update(self)
+
+      Push product properties to Woocommerce REST API.
+
+      **Note**: Woocommerce might update properties when pushing data, but these won't be updated
+      on the object itself. If you want to have your properties updated you can call the
+      :func:`~pywoo.models.products.Product.refresh()` method or use the returned object
+      which is updated.
+
+      :return: Product with updated properties coming from the REST API
+      :rtype: pywoo.models.products.Product
+
+
+   .. py:method:: delete(self, force=True)
+
+      Deletes product. The object can't be used anymore after its deletion.
+
+      :param force: Whether to permanently delete product or not
+      :type force: bool
+      :return: Deleted product
+      :rtype: pywoo.models.products.Product
+
+
+   .. py:method:: refresh(self)
+
+      Refresh product properties from Woocommerce REST API
+
+
+
+.. py:class:: ProductDownload
+
+
+
+   Class for handling downloads inside :class:`~pywoo.models.products.Product` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-downloads-properties>`__
+
+
+.. py:class:: ProductDimension
+
+
+
+   Class for handling dimensions inside :class:`~pywoo.models.products.Product` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-dimensions-properties>`__
+
+
+.. py:class:: ProductImage
+
+
+
+   Class for handling images inside :class:`~pywoo.models.products.Product` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-images-properties>`__
+
+
+.. py:class:: ProductAttribute
+
+
+
+   Class for handling product attributes inside :class:`~pywoo.models.products.Product` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attributes-properties>`__
+
+   .. py:method:: get_product_attribute(self)
+
+      Get associated product attribute object from API
+
+      :rtype: pywoo.models.product_attributes.ProductAttribute
+
+
+
+.. py:class:: ProductDefaultAttribute
+
+
+
+   Class for handling product default variation attributes inside :class:`~pywoo.models.products.Product` objects
+
+   `List of properties
+   <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-default-attributes-properties>`__
+
+   .. py:method:: get_product_attribute(self)
+
+      Get associated product attribute object from API
+
+      :rtype: pywoo.models.product_attributes.ProductAttribute
+
+
+

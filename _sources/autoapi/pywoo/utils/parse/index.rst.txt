@@ -1,0 +1,71 @@
+:py:mod:`pywoo.utils.parse`
+===========================
+
+.. py:module:: pywoo.utils.parse
+
+.. autoapi-nested-parse::
+
+   This module contains classes, functions and global variables used for translating JSON objects into model objects
+   and viceversa, and **should not be touched** when using pywoo.
+
+
+
+Module Contents
+---------------
+
+.. py:data:: urls_classes
+   
+
+   
+
+.. py:class:: ClassParser(url_class)
+
+   Class used for parsing models classes.
+
+   *Nothing to see here.*
+
+
+.. py:function:: find_mapping(data, api, url)
+
+   Function used for matching model classes to JSON objects coming from Woocommerce REST API.
+
+   :param data: JSON data
+   :type data: dict, list
+   :param api: :class:`~pywoo.Api` object
+   :type api: pywoo.Api
+   :param url: Woocommerce REST API url used for retrieving data
+   :type url: str
+   :rtype: object
+
+
+.. py:function:: to_dict(data)
+
+   Function used to transform data models objects in JSON (``dict``, ``list``) data.
+
+   :param data: object data
+   :type data: str
+   :rtype: list, dict
+
+
+.. py:function:: parse_date_time(date_time)
+
+   Function used to parse datetime strings coming from Woocommerce REST API.
+
+   :param date_time: datetime string in ``%Y-%m-%dT%H:%M:%S`` format
+   :type date_time: str
+   :rtype: datetime.datetime
+
+
+.. py:function:: from_json(data, api, url)
+
+   Function used to load JSON data into models objects.
+
+   :param data: JSON data
+   :type data: dict, list
+   :param api: :class:`~pywoo.Api` object
+   :type api: pywoo.Api
+   :param url: Woocommerce REST API url used for retrieving data
+   :type url: str
+   :rtype: object
+
+

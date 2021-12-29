@@ -1,0 +1,36 @@
+:py:mod:`pywoo.models.shipping_methods`
+=======================================
+
+.. py:module:: pywoo.models.shipping_methods
+
+
+Module Contents
+---------------
+
+.. py:class:: ShippingMethod
+
+
+
+   Class for handling shipping methods objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-methods>`__
+
+   .. py:method:: get_shipping_methods(cls, api, id='')
+      :classmethod:
+
+      Get all or single shipping method by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: If specified gets a shipping method by id
+      :type id: int, str
+      :rtype: list of pywoo.models.shipping_methods.ShippingMethod,
+          pywoo.models.shipping_methods.ShippingMethod
+
+
+   .. py:method:: refresh(self)
+
+      Refresh shipping method properties from Woocommerce REST API
+
+
+

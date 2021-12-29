@@ -1,0 +1,95 @@
+:py:mod:`pywoo.models.shipping_zones`
+=====================================
+
+.. py:module:: pywoo.models.shipping_zones
+
+
+Module Contents
+---------------
+
+.. py:class:: ShippingZone
+
+
+
+   Class for handling shipping zone objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-zones>`__
+
+   .. py:method:: get_shipping_zone(cls, api, id='')
+      :classmethod:
+
+      Get all or single shipping zone by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: If specified gets a shipping zone by id
+      :type id: int, str
+      :rtype: list of pywoo.models.shipping_zone.ShippingZone,
+          pywoo.models.shipping_zone.ShippingZone
+
+
+   .. py:method:: create_shipping_zone(cls, api, **data)
+      :classmethod:
+
+      Create shipping zone
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param data: Shipping zone properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-zone-properties>`__)
+      :rtype: pywoo.models.shipping_zone.ShippingZone
+
+
+   .. py:method:: edit_shipping_zone(cls, api, id, **data)
+      :classmethod:
+
+      Change shipping zone's properties
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Shipping zone id
+      :type id: int, str
+      :param data: Shipping zone properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-zone-properties>`__)
+      :rtype: pywoo.models.shipping_zone.ShippingZone
+
+
+   .. py:method:: delete_shipping_zone(cls, api, id)
+      :classmethod:
+
+      Delete shipping zone by id
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param id: Shipping zone id
+      :type id: int, str
+      :rtype: pywoo.models.shipping_zone.ShippingZone
+
+
+   .. py:method:: update(self)
+
+      Push shipping zone properties to Woocommerce REST API.
+
+      **Note**: Woocommerce might update properties when pushing data, but these won't be updated
+      on the object itself. If you want to have your properties updated you can call the
+      :func:`~pywoo.models.shipping_zone.ShippingZone.refresh()` method or use the returned object
+      which is updated.
+
+      :return: Shipping zone with updated properties coming from the REST API
+      :rtype: pywoo.models.shipping_zone.ShippingZone
+
+
+   .. py:method:: delete(self)
+
+      Deletes shipping zone. The object can't be used anymore after its deletion.
+
+      :return: Deleted shipping zone
+      :rtype: pywoo.models.shipping_zone.ShippingZone
+
+
+   .. py:method:: refresh(self)
+
+      Refresh shipping zone properties from Woocommerce REST API
+
+
+

@@ -1,0 +1,84 @@
+:py:mod:`pywoo.models.orders_notes`
+===================================
+
+.. py:module:: pywoo.models.orders_notes
+
+
+Module Contents
+---------------
+
+.. py:class:: OrderNote
+
+
+
+   Class for handling order note objects
+
+   `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-note-properties>`__
+
+   .. py:method:: get_order_notes(cls, api, order_id, id='')
+      :classmethod:
+
+      Get all notes or single note from order
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param order_id: Order id
+      :type order_id: int, str
+      :param id: If specified gets a order note by id
+      :type id: int, str
+      :rtype: list of pywoo.models.order_notes.OrderNote, pywoo.models.order_notes.OrderNote
+
+
+   .. py:method:: create_order_note(cls, api, order_id, **data)
+      :classmethod:
+
+      Add new note to order
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param order_id: Order id
+      :type order_id: int, str
+      :param data: Order note properties (`Full list of properties
+          <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-note-properties>`__)
+      :rtype: pywoo.models.order_notes.OrderNote
+
+
+   .. py:method:: delete_order_note(cls, api, order_id, id)
+      :classmethod:
+
+      Delete note from order
+
+      :param api: API object
+      :type api: pywoo.Api
+      :param order_id: Order id
+      :type order_id: int, str
+      :param id: Order note id
+      :type id: int, str
+      :rtype: pywoo.models.order_notes.OrderNote
+
+
+   .. py:method:: delete(self)
+
+      Push order note properties to Woocommerce REST API.
+
+      **Note**: Woocommerce might update properties when pushing data, but these won't be updated
+      on the object itself. If you want to have your properties updated you can call the
+      :func:`~pywoo.models.orders_notes.OrderNote.refresh()` method or use the returned object which is updated.
+
+      :return: Order note with updated properties coming from the REST API
+      :rtype: pywoo.models.orders_notes.OrderNote
+
+
+   .. py:method:: refresh(self)
+
+      Refresh order note properties from Woocommerce REST API
+
+
+   .. py:method:: order_id(self)
+      :property:
+
+      :return: Order ID
+      :rtype: str
+
+
+

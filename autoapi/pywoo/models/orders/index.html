@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pywoo.models.orders &mdash; pywoo  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pywoo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pywoo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.models.orders</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/pywoo/models/orders/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pywoo.models.orders">
+<span id="pywoo-models-orders"></span><h1><a class="reference internal" href="#module-pywoo.models.orders" title="pywoo.models.orders"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.models.orders</span></code></a><a class="headerlink" href="#module-pywoo.models.orders" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">Order</span></span><a class="headerlink" href="#pywoo.models.orders.Order" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties">List of parameters</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.get_orders">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.get_orders" title="Permalink to this definition"></a></dt>
+<dd><p>Get all orders or a single order by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – API object</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a single order by id</p></li>
+<li><p><strong>params</strong> – <p>Parameters that can be used when retrieving order(s);
+list of parameters:</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#retrieve-an-order">Single order</a></p></li>
+<li><p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders">List of orders</a></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.orders.Order, <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.create_order">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.create_order" title="Permalink to this definition"></a></dt>
+<dd><p>Create new order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – API object</p></li>
+<li><p><strong>data</strong> – Properties for creating a new order (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.edit_order">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edit_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.edit_order" title="Permalink to this definition"></a></dt>
+<dd><p>Update order properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – API object</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>data</strong> – Properties to update (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.delete_order">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.delete_order" title="Permalink to this definition"></a></dt>
+<dd><p>Delete order by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – API object</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Whether to permanently delete order or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.update" title="Permalink to this definition"></a></dt>
+<dd><p>Push order properties to Woocommerce REST API.</p>
+<p><strong>Note</strong>: Woocommerce might update properties when pushing data, but these won’t be updated
+on the object itself. If you want to have your properties updated you can call the
+<a class="reference internal" href="#pywoo.models.orders.Order.refresh" title="pywoo.models.orders.Order.refresh"><code class="xref py py-func docutils literal notranslate"><span class="pre">refresh()</span></code></a> method or use the returned object which is updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order with updated properties coming from the REST API</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete order. The object can’t be used anymore after its deletion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>force</strong> (<em>bool</em>) – Whether to permanently delete order or not</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Deleted coupon code</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../coupon/index.html#pywoo.models.coupon.Coupon" title="pywoo.models.coupon.Coupon">pywoo.models.coupon.Coupon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.models.orders.Order.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.models.orders.Order.refresh" title="Permalink to this definition"></a></dt>
+<dd><p>Refresh order properties from Woocommerce REST API</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderBilling">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderBilling</span></span><a class="headerlink" href="#pywoo.models.orders.OrderBilling" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order billing properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-billing-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderShipping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderShipping</span></span><a class="headerlink" href="#pywoo.models.orders.OrderShipping" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order shipping properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-shipping-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderLineItems">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderLineItems</span></span><a class="headerlink" href="#pywoo.models.orders.OrderLineItems" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order line item properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-line-items-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderShippingLine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderShippingLine</span></span><a class="headerlink" href="#pywoo.models.orders.OrderShippingLine" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order shipping lines properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-shipping-line-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderFeeLine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderFeeLine</span></span><a class="headerlink" href="#pywoo.models.orders.OrderFeeLine" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order fee line properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-fee-line-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderCouponLine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderCouponLine</span></span><a class="headerlink" href="#pywoo.models.orders.OrderCouponLine" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order coupon line properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-coupon-line-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderRefund">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderRefund</span></span><a class="headerlink" href="#pywoo.models.orders.OrderRefund" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order refund properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-properties">List of parameters</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.models.orders.OrderTax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.models.orders.</span></span><span class="sig-name descname"><span class="pre">OrderTax</span></span><a class="headerlink" href="#pywoo.models.orders.OrderTax" title="Permalink to this definition"></a></dt>
+<dd><p>Class for handling order tax properties inside <a class="reference internal" href="#pywoo.models.orders.Order" title="pywoo.models.orders.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a> objects</p>
+<p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-tax-properties">List of parameters</a></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Lotrèk.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

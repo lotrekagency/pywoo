@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pywoo.pywoo &mdash; pywoo  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pywoo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pywoo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.pywoo</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/pywoo/pywoo/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pywoo.pywoo">
+<span id="pywoo-pywoo"></span><h1><a class="reference internal" href="#module-pywoo.pywoo" title="pywoo.pywoo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.pywoo</span></code></a><a class="headerlink" href="#module-pywoo.pywoo" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.pywoo.</span></span><span class="sig-name descname"><span class="pre">Api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumer_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumer_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console_logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api" title="Permalink to this definition"></a></dt>
+<dd><p>Main client class used for sending all the requests to Woocommerce REST API. Even model objects pass from this
+class for doing requests.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_coupon">
+<span class="sig-name descname"><span class="pre">create_coupon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_coupon" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new coupon</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Properties for creating a new coupon code (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#coupon-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/coupon/index.html#pywoo.models.coupon.Coupon" title="pywoo.models.coupon.Coupon">pywoo.models.coupon.Coupon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_coupons">
+<span class="sig-name descname"><span class="pre">get_coupons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_coupons" title="Permalink to this definition"></a></dt>
+<dd><p>Get all coupon codes or a single coupon code by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a single coupon code by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of coupon codes (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-coupons">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.coupon.Coupon, <a class="reference internal" href="../models/coupon/index.html#pywoo.models.coupon.Coupon" title="pywoo.models.coupon.Coupon">pywoo.models.coupon.Coupon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_coupon">
+<span class="sig-name descname"><span class="pre">update_coupon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_coupon" title="Permalink to this definition"></a></dt>
+<dd><p>Update coupon code properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Coupon code id</p></li>
+<li><p><strong>data</strong> – Properties to update (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#coupon-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/coupon/index.html#pywoo.models.coupon.Coupon" title="pywoo.models.coupon.Coupon">pywoo.models.coupon.Coupon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_coupon">
+<span class="sig-name descname"><span class="pre">delete_coupon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_coupon" title="Permalink to this definition"></a></dt>
+<dd><p>Delete coupon code by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Coupon code id</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Whether to permanently delete coupon or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/coupon/index.html#pywoo.models.coupon.Coupon" title="pywoo.models.coupon.Coupon">pywoo.models.coupon.Coupon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_customer">
+<span class="sig-name descname"><span class="pre">create_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_customer" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new customer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Properties for creating a new customer (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/customers/index.html#pywoo.models.customers.Customer" title="pywoo.models.customers.Customer">pywoo.models.customers.Customer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_customers">
+<span class="sig-name descname"><span class="pre">get_customers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_customers" title="Permalink to this definition"></a></dt>
+<dd><p>Get all customers of a single customer by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a single customer by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of customers (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-customers">Full list of parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.customers.Customer, <a class="reference internal" href="../models/customers/index.html#pywoo.models.customers.Customer" title="pywoo.models.customers.Customer">pywoo.models.customers.Customer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_customer">
+<span class="sig-name descname"><span class="pre">update_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_customer" title="Permalink to this definition"></a></dt>
+<dd><p>Update customer’s properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Customer id</p></li>
+<li><p><strong>data</strong> – Properties to update (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/customers/index.html#pywoo.models.customers.Customer" title="pywoo.models.customers.Customer">pywoo.models.customers.Customer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_customer">
+<span class="sig-name descname"><span class="pre">delete_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_customer" title="Permalink to this definition"></a></dt>
+<dd><p>Delete customer by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Customer id</p></li>
+<li><p><strong>params</strong> – Additional parameters for deletion (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#delete-a-customer">Full list of parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/customers/index.html#pywoo.models.customers.Customer" title="pywoo.models.customers.Customer">pywoo.models.customers.Customer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_order">
+<span class="sig-name descname"><span class="pre">create_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_order" title="Permalink to this definition"></a></dt>
+<dd><p>Create new order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Properties for creating a new order (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/orders/index.html#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_orders">
+<span class="sig-name descname"><span class="pre">get_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_orders" title="Permalink to this definition"></a></dt>
+<dd><p>Get all orders or a single order by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a single order by id</p></li>
+<li><p><strong>params</strong> – <p>Parameters that can be used when retrieving order(s);
+list of parameters:</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#retrieve-an-order">Single order</a></p></li>
+<li><p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders">List of orders</a></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.orders.Order, <a class="reference internal" href="../models/orders/index.html#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_order">
+<span class="sig-name descname"><span class="pre">update_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_order" title="Permalink to this definition"></a></dt>
+<dd><p>Update order properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>data</strong> – Properties to update (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/orders/index.html#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_order">
+<span class="sig-name descname"><span class="pre">delete_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_order" title="Permalink to this definition"></a></dt>
+<dd><p>Delete order by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Whether to permanently delete order or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/orders/index.html#pywoo.models.orders.Order" title="pywoo.models.orders.Order">pywoo.models.orders.Order</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_order_note">
+<span class="sig-name descname"><span class="pre">create_order_note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_order_note" title="Permalink to this definition"></a></dt>
+<dd><p>Add new note to order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>data</strong> – Order note properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-note-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pywoo.models.order_notes.OrderNote</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_order_notes">
+<span class="sig-name descname"><span class="pre">get_order_notes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_order_notes" title="Permalink to this definition"></a></dt>
+<dd><p>Get all notes or single note from order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a order note by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of order notes (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-order-notes">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.order_notes.OrderNote, pywoo.models.order_notes.OrderNote</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_order_note">
+<span class="sig-name descname"><span class="pre">delete_order_note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_order_note" title="Permalink to this definition"></a></dt>
+<dd><p>Delete note from order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Order note id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pywoo.models.order_notes.OrderNote</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_refund">
+<span class="sig-name descname"><span class="pre">create_refund</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_refund" title="Permalink to this definition"></a></dt>
+<dd><p>Create refund by order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>data</strong> – Refund properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/refunds/index.html#pywoo.models.refunds.Refund" title="pywoo.models.refunds.Refund">pywoo.models.refunds.Refund</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_refunds">
+<span class="sig-name descname"><span class="pre">get_refunds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_refunds" title="Permalink to this definition"></a></dt>
+<dd><p>Get refunds or single refund from order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a refund by id</p></li>
+<li><p><strong>params</strong> – <p>Parameters that can be used when retrieving refund(s);
+list of parameters:</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#retrieve-a-refund">Single refund</a></p></li>
+<li><p><a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-refunds">List of refunds</a></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.refunds.Refund, <a class="reference internal" href="../models/refunds/index.html#pywoo.models.refunds.Refund" title="pywoo.models.refunds.Refund">pywoo.models.refunds.Refund</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_refund">
+<span class="sig-name descname"><span class="pre">update_refund</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_refund" title="Permalink to this definition"></a></dt>
+<dd><p>Update refund from order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Refund id</p></li>
+<li><p><strong>data</strong> – Refund properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/refunds/index.html#pywoo.models.refunds.Refund" title="pywoo.models.refunds.Refund">pywoo.models.refunds.Refund</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_refund">
+<span class="sig-name descname"><span class="pre">delete_refund</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_refund" title="Permalink to this definition"></a></dt>
+<dd><p>Delete refund from order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_id</strong> (<em>int</em><em>, </em><em>str</em>) – Order id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Refund id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/refunds/index.html#pywoo.models.refunds.Refund" title="pywoo.models.refunds.Refund">pywoo.models.refunds.Refund</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product">
+<span class="sig-name descname"><span class="pre">create_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product" title="Permalink to this definition"></a></dt>
+<dd><p>Create new product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Product properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/products/index.html#pywoo.models.products.Product" title="pywoo.models.products.Product">pywoo.models.products.Product</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_products">
+<span class="sig-name descname"><span class="pre">get_products</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_products" title="Permalink to this definition"></a></dt>
+<dd><p>Get all products or a single product by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of products (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-products">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.products.Product, <a class="reference internal" href="../models/products/index.html#pywoo.models.products.Product" title="pywoo.models.products.Product">pywoo.models.products.Product</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product">
+<span class="sig-name descname"><span class="pre">update_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product" title="Permalink to this definition"></a></dt>
+<dd><p>Change product’s properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product id</p></li>
+<li><p><strong>data</strong> – Product properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/products/index.html#pywoo.models.products.Product" title="pywoo.models.products.Product">pywoo.models.products.Product</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product">
+<span class="sig-name descname"><span class="pre">delete_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product" title="Permalink to this definition"></a></dt>
+<dd><p>Delete product by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product id</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Whether to permanently delete product or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/products/index.html#pywoo.models.products.Product" title="pywoo.models.products.Product">pywoo.models.products.Product</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_variation">
+<span class="sig-name descname"><span class="pre">create_product_variation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_variation" title="Permalink to this definition"></a></dt>
+<dd><p>Create variation in product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product id</p></li>
+<li><p><strong>data</strong> – Product variation properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_variations/index.html#pywoo.models.product_variations.ProductVariation" title="pywoo.models.product_variations.ProductVariation">pywoo.models.product_variations.ProductVariation</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_variations">
+<span class="sig-name descname"><span class="pre">get_product_variations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_variations" title="Permalink to this definition"></a></dt>
+<dd><p>Get all variations or single variation in product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a variation by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of variations (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-variations">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.product_variations.ProductVariation,
+<a class="reference internal" href="../models/product_variations/index.html#pywoo.models.product_variations.ProductVariation" title="pywoo.models.product_variations.ProductVariation">pywoo.models.product_variations.ProductVariation</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_variation">
+<span class="sig-name descname"><span class="pre">update_product_variation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_variation" title="Permalink to this definition"></a></dt>
+<dd><p>Change variation’s properties in product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Variation id</p></li>
+<li><p><strong>data</strong> – Product variation properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_variations/index.html#pywoo.models.product_variations.ProductVariation" title="pywoo.models.product_variations.ProductVariation">pywoo.models.product_variations.ProductVariation</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_variation">
+<span class="sig-name descname"><span class="pre">delete_product_variation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_variation" title="Permalink to this definition"></a></dt>
+<dd><p>Delete variation from product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Variation id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_variations/index.html#pywoo.models.product_variations.ProductVariation" title="pywoo.models.product_variations.ProductVariation">pywoo.models.product_variations.ProductVariation</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_attribute">
+<span class="sig-name descname"><span class="pre">create_product_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_attribute" title="Permalink to this definition"></a></dt>
+<dd><p>Create product attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Product attribute properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attribute-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_attributes/index.html#pywoo.models.product_attributes.ProductAttribute" title="pywoo.models.product_attributes.ProductAttribute">pywoo.models.product_attributes.ProductAttribute</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_attributes">
+<span class="sig-name descname"><span class="pre">get_product_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_attributes" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single product attribute by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product attribute by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of product attributes (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-attributes">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_attributes/index.html#pywoo.models.product_attributes.ProductAttribute" title="pywoo.models.product_attributes.ProductAttribute">pywoo.models.product_attributes.ProductAttribute</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_attribute">
+<span class="sig-name descname"><span class="pre">update_product_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_attribute" title="Permalink to this definition"></a></dt>
+<dd><p>Change product attribute’s properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute id</p></li>
+<li><p><strong>data</strong> – Product attribute properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attribute-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_attributes/index.html#pywoo.models.product_attributes.ProductAttribute" title="pywoo.models.product_attributes.ProductAttribute">pywoo.models.product_attributes.ProductAttribute</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_attribute">
+<span class="sig-name descname"><span class="pre">delete_product_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_attribute" title="Permalink to this definition"></a></dt>
+<dd><p>Delete product attribute by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_attributes/index.html#pywoo.models.product_attributes.ProductAttribute" title="pywoo.models.product_attributes.ProductAttribute">pywoo.models.product_attributes.ProductAttribute</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_attribute_term">
+<span class="sig-name descname"><span class="pre">create_product_attribute_term</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_attribute_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_attribute_term" title="Permalink to this definition"></a></dt>
+<dd><p>Create new product attribute term</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_attribute_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute id</p></li>
+<li><p><strong>data</strong> – Product attribute term properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attribute-term-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pywoo.models.product_attribute_terms.ProductAttributeTerm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_attribute_terms">
+<span class="sig-name descname"><span class="pre">get_product_attribute_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_attribute_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_attribute_terms" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single product attribute term from product attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_attribute_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product attribute term by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of product attributes terms (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-attribute-terms">Full
+list of parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.product_attribute_terms.ProductAttributeTerm,
+pywoo.models.product_attribute_terms.ProductAttributeTerm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_attribute_term">
+<span class="sig-name descname"><span class="pre">update_product_attribute_term</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_attribute_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_attribute_term" title="Permalink to this definition"></a></dt>
+<dd><p>Change product attribute term’s properties by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_attribute_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute term id</p></li>
+<li><p><strong>data</strong> – Product attribute term properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attribute-term-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pywoo.models.product_attribute_terms.ProductAttributeTerm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_attribute_term">
+<span class="sig-name descname"><span class="pre">delete_product_attribute_term</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_attribute_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_attribute_term" title="Permalink to this definition"></a></dt>
+<dd><p>Delete product attribute term from product attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>product_attribute_id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product attribute term id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pywoo.models.product_attribute_terms.ProductAttributeTerm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_category">
+<span class="sig-name descname"><span class="pre">create_product_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_category" title="Permalink to this definition"></a></dt>
+<dd><p>Create new product category</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Product category properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-category-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_categories/index.html#pywoo.models.product_categories.ProductCategory" title="pywoo.models.product_categories.ProductCategory">pywoo.models.product_categories.ProductCategory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_categories">
+<span class="sig-name descname"><span class="pre">get_product_categories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_categories" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or a single product category by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product category by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving a list of product category (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-categories">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.product_categories.ProductCategory, <a class="reference internal" href="../models/product_categories/index.html#pywoo.models.product_categories.ProductCategory" title="pywoo.models.product_categories.ProductCategory">pywoo.models.product_categories.ProductCategory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_category">
+<span class="sig-name descname"><span class="pre">update_product_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_category" title="Permalink to this definition"></a></dt>
+<dd><p>Change product category’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product category id</p></li>
+<li><p><strong>data</strong> – Product category properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-category-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_categories/index.html#pywoo.models.product_categories.ProductCategory" title="pywoo.models.product_categories.ProductCategory">pywoo.models.product_categories.ProductCategory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_category">
+<span class="sig-name descname"><span class="pre">delete_product_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_category" title="Permalink to this definition"></a></dt>
+<dd><p>Delete product category by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product category id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_categories/index.html#pywoo.models.product_categories.ProductCategory" title="pywoo.models.product_categories.ProductCategory">pywoo.models.product_categories.ProductCategory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_shipping_class">
+<span class="sig-name descname"><span class="pre">create_product_shipping_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_shipping_class" title="Permalink to this definition"></a></dt>
+<dd><p>Create new product shipping class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Product shipping class properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-shipping-class-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_shipping_classes/index.html#pywoo.models.product_shipping_classes.ProductShipping" title="pywoo.models.product_shipping_classes.ProductShipping">pywoo.models.product_shipping_classes.ProductShipping</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_shipping_classes">
+<span class="sig-name descname"><span class="pre">get_product_shipping_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_shipping_classes" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single product shipping class by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product shipping class by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving more product shipping classes (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-shipping-classes">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.product_shipping_classes.ProductShipping,
+<a class="reference internal" href="../models/product_shipping_classes/index.html#pywoo.models.product_shipping_classes.ProductShipping" title="pywoo.models.product_shipping_classes.ProductShipping">pywoo.models.product_shipping_classes.ProductShipping</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_shipping_class">
+<span class="sig-name descname"><span class="pre">update_product_shipping_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_shipping_class" title="Permalink to this definition"></a></dt>
+<dd><p>Change product shipping class’ properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product shipping class id</p></li>
+<li><p><strong>data</strong> – Product shipping class properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-shipping-class-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_shipping_classes/index.html#pywoo.models.product_shipping_classes.ProductShipping" title="pywoo.models.product_shipping_classes.ProductShipping">pywoo.models.product_shipping_classes.ProductShipping</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_shipping_class">
+<span class="sig-name descname"><span class="pre">delete_product_shipping_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_shipping_class" title="Permalink to this definition"></a></dt>
+<dd><p>Delete product shipping class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>,</em><em>str</em>) – Product shipping class id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_shipping_classes/index.html#pywoo.models.product_shipping_classes.ProductShipping" title="pywoo.models.product_shipping_classes.ProductShipping">pywoo.models.product_shipping_classes.ProductShipping</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_tag">
+<span class="sig-name descname"><span class="pre">create_product_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_tag" title="Permalink to this definition"></a></dt>
+<dd><p>Create new product tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Product tag properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-tag-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_tags/index.html#pywoo.models.product_tags.ProductTag" title="pywoo.models.product_tags.ProductTag">pywoo.models.product_tags.ProductTag</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_tags">
+<span class="sig-name descname"><span class="pre">get_product_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_tags" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single product tag by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product tag by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving more product tags (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-tags">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.product_tags.ProductTag, <a class="reference internal" href="../models/product_tags/index.html#pywoo.models.product_tags.ProductTag" title="pywoo.models.product_tags.ProductTag">pywoo.models.product_tags.ProductTag</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_tag">
+<span class="sig-name descname"><span class="pre">update_product_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_tag" title="Permalink to this definition"></a></dt>
+<dd><p>Change product tag’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product tag id</p></li>
+<li><p><strong>data</strong> – Product tag properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-tag-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_tags/index.html#pywoo.models.product_tags.ProductTag" title="pywoo.models.product_tags.ProductTag">pywoo.models.product_tags.ProductTag</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_tag">
+<span class="sig-name descname"><span class="pre">delete_product_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_tag" title="Permalink to this definition"></a></dt>
+<dd><p>Delete a product tag by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product tag id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_tags/index.html#pywoo.models.product_tags.ProductTag" title="pywoo.models.product_tags.ProductTag">pywoo.models.product_tags.ProductTag</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_product_review">
+<span class="sig-name descname"><span class="pre">create_product_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_product_review" title="Permalink to this definition"></a></dt>
+<dd><p>Create new product review</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Product review properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-review-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_reviews/index.html#pywoo.models.product_reviews.ProductReview" title="pywoo.models.product_reviews.ProductReview">pywoo.models.product_reviews.ProductReview</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_product_reviews">
+<span class="sig-name descname"><span class="pre">get_product_reviews</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_product_reviews" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or a single product review by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a product review by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving more product reviews (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-reviews">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.product_reviews.ProductReview, <a class="reference internal" href="../models/product_reviews/index.html#pywoo.models.product_reviews.ProductReview" title="pywoo.models.product_reviews.ProductReview">pywoo.models.product_reviews.ProductReview</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_product_review">
+<span class="sig-name descname"><span class="pre">update_product_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_product_review" title="Permalink to this definition"></a></dt>
+<dd><p>Change product review’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product review id</p></li>
+<li><p><strong>data</strong> – Product review properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#product-review-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_reviews/index.html#pywoo.models.product_reviews.ProductReview" title="pywoo.models.product_reviews.ProductReview">pywoo.models.product_reviews.ProductReview</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_product_review">
+<span class="sig-name descname"><span class="pre">delete_product_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_product_review" title="Permalink to this definition"></a></dt>
+<dd><p>Delete a product review by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Product review id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/product_reviews/index.html#pywoo.models.product_reviews.ProductReview" title="pywoo.models.product_reviews.ProductReview">pywoo.models.product_reviews.ProductReview</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_tax_rate">
+<span class="sig-name descname"><span class="pre">create_tax_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_tax_rate" title="Permalink to this definition"></a></dt>
+<dd><p>Create new tax rate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Tax rate properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#tax-rate-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/tax_rates/index.html#pywoo.models.tax_rates.TaxRate" title="pywoo.models.tax_rates.TaxRate">pywoo.models.tax_rates.TaxRate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_tax_rates">
+<span class="sig-name descname"><span class="pre">get_tax_rates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_tax_rates" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or a single tax rate by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a tax rate by id</p></li>
+<li><p><strong>params</strong> – Parameters that should be used only when retrieving more tax rates (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-tax-rates">Full list of
+parameters</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.tax_rates.TaxRate, <a class="reference internal" href="../models/tax_rates/index.html#pywoo.models.tax_rates.TaxRate" title="pywoo.models.tax_rates.TaxRate">pywoo.models.tax_rates.TaxRate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_tax_rate">
+<span class="sig-name descname"><span class="pre">update_tax_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_tax_rate" title="Permalink to this definition"></a></dt>
+<dd><p>Change tax rate’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Tax rate id</p></li>
+<li><p><strong>data</strong> – Tax rate properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#tax-rate-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/tax_rates/index.html#pywoo.models.tax_rates.TaxRate" title="pywoo.models.tax_rates.TaxRate">pywoo.models.tax_rates.TaxRate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_tax_rate">
+<span class="sig-name descname"><span class="pre">delete_tax_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_tax_rate" title="Permalink to this definition"></a></dt>
+<dd><p>Delete a tax rate by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Tax rate id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/tax_rates/index.html#pywoo.models.tax_rates.TaxRate" title="pywoo.models.tax_rates.TaxRate">pywoo.models.tax_rates.TaxRate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_tax_class">
+<span class="sig-name descname"><span class="pre">create_tax_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_tax_class" title="Permalink to this definition"></a></dt>
+<dd><p>Create new tax class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Tax class properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#tax-class-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/tax_classes/index.html#pywoo.models.tax_classes.TaxClass" title="pywoo.models.tax_classes.TaxClass">pywoo.models.tax_classes.TaxClass</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_tax_classes">
+<span class="sig-name descname"><span class="pre">get_tax_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_tax_classes" title="Permalink to this definition"></a></dt>
+<dd><p>Get all tax classes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of pywoo.models.tax_classes.TaxClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_tax_class">
+<span class="sig-name descname"><span class="pre">delete_tax_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_tax_class" title="Permalink to this definition"></a></dt>
+<dd><p>Delete a tax class by slug</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – Tax class slug</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/tax_classes/index.html#pywoo.models.tax_classes.TaxClass" title="pywoo.models.tax_classes.TaxClass">pywoo.models.tax_classes.TaxClass</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_payment_gateways">
+<span class="sig-name descname"><span class="pre">get_payment_gateways</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_payment_gateways" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or a single payment gateway by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a payment gateway by id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.payment_gateways.PaymentGateway, <a class="reference internal" href="../models/payment_gateways/index.html#pywoo.models.payment_gateways.PaymentGateway" title="pywoo.models.payment_gateways.PaymentGateway">pywoo.models.payment_gateways.PaymentGateway</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_payment_gateway">
+<span class="sig-name descname"><span class="pre">update_payment_gateway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_payment_gateway" title="Permalink to this definition"></a></dt>
+<dd><p>Change payment gateway’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Payment gateway id</p></li>
+<li><p><strong>data</strong> – Payment gateway properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#payment-gateway-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/payment_gateways/index.html#pywoo.models.payment_gateways.PaymentGateway" title="pywoo.models.payment_gateways.PaymentGateway">pywoo.models.payment_gateways.PaymentGateway</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_shipping_zone">
+<span class="sig-name descname"><span class="pre">create_shipping_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_shipping_zone" title="Permalink to this definition"></a></dt>
+<dd><p>Create new shipping zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Shipping zone properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-zone-properties">Full list of properties</a>)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/shipping_zones/index.html#pywoo.models.shipping_zones.ShippingZone" title="pywoo.models.shipping_zones.ShippingZone">pywoo.models.shipping_zones.ShippingZone</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_shipping_zones">
+<span class="sig-name descname"><span class="pre">get_shipping_zones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_shipping_zones" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single shipping zones by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a shipping zone by id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.shipping_zones.ShippingZone, <a class="reference internal" href="../models/shipping_zones/index.html#pywoo.models.shipping_zones.ShippingZone" title="pywoo.models.shipping_zones.ShippingZone">pywoo.models.shipping_zones.ShippingZone</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_shipping_zone">
+<span class="sig-name descname"><span class="pre">update_shipping_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_shipping_zone" title="Permalink to this definition"></a></dt>
+<dd><p>Change shipping zone’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p></li>
+<li><p><strong>data</strong> – Shipping zone properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-zone-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/shipping_zones/index.html#pywoo.models.shipping_zones.ShippingZone" title="pywoo.models.shipping_zones.ShippingZone">pywoo.models.shipping_zones.ShippingZone</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_shipping_zone">
+<span class="sig-name descname"><span class="pre">delete_shipping_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_shipping_zone" title="Permalink to this definition"></a></dt>
+<dd><p>Delete a shipping zone by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/shipping_zones/index.html#pywoo.models.shipping_zones.ShippingZone" title="pywoo.models.shipping_zones.ShippingZone">pywoo.models.shipping_zones.ShippingZone</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_shipping_zone_locations">
+<span class="sig-name descname"><span class="pre">get_shipping_zone_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_zone_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_shipping_zone_locations" title="Permalink to this definition"></a></dt>
+<dd><p>Get all shipping zone locations by shipping zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shipping_zone_id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.shipping_zone_locations.ShippingZoneLocation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_shipping_zone_locations">
+<span class="sig-name descname"><span class="pre">update_shipping_zone_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_zone_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_shipping_zone_locations" title="Permalink to this definition"></a></dt>
+<dd><p>Change shipping zone locations’ properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipping_zone_id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p></li>
+<li><p><strong>shipping_locations</strong> (<em>list of pywoo.models.shipping_zone_locations.ShippingZoneLocation</em>) – List of shipping locations (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-location-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.shipping_zone_locations.ShippingZoneLocation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.create_shipping_zone_method">
+<span class="sig-name descname"><span class="pre">create_shipping_zone_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_zone_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.create_shipping_zone_method" title="Permalink to this definition"></a></dt>
+<dd><p>Include shipping zone method in shipping zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipping_zone_id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p></li>
+<li><p><strong>data</strong> – Shipping zone method properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-method-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/shipping_zone_methods/index.html#pywoo.models.shipping_zone_methods.ShippingZoneMethod" title="pywoo.models.shipping_zone_methods.ShippingZoneMethod">pywoo.models.shipping_zone_methods.ShippingZoneMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_shipping_zone_methods">
+<span class="sig-name descname"><span class="pre">get_shipping_zone_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_zone_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_shipping_zone_methods" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single shipping zone method in shipping zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipping_zone_id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a shipping zone method by id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.shipping_zone_methods.ShippingZoneMethod,
+<a class="reference internal" href="../models/shipping_zone_methods/index.html#pywoo.models.shipping_zone_methods.ShippingZoneMethod" title="pywoo.models.shipping_zone_methods.ShippingZoneMethod">pywoo.models.shipping_zone_methods.ShippingZoneMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.update_shipping_zone_method">
+<span class="sig-name descname"><span class="pre">update_shipping_zone_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_zone_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.update_shipping_zone_method" title="Permalink to this definition"></a></dt>
+<dd><p>Change shipping zone method’s properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipping_zone_id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone method id</p></li>
+<li><p><strong>data</strong> – Shipping zone method properties (<a class="reference external" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#shipping-method-properties">Full list of properties</a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/shipping_zone_methods/index.html#pywoo.models.shipping_zone_methods.ShippingZoneMethod" title="pywoo.models.shipping_zone_methods.ShippingZoneMethod">pywoo.models.shipping_zone_methods.ShippingZoneMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.delete_shipping_zone_method">
+<span class="sig-name descname"><span class="pre">delete_shipping_zone_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_zone_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.delete_shipping_zone_method" title="Permalink to this definition"></a></dt>
+<dd><p>Delete a shipping zone method by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipping_zone_id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone id</p></li>
+<li><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – Shipping zone method id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../models/shipping_zone_methods/index.html#pywoo.models.shipping_zone_methods.ShippingZoneMethod" title="pywoo.models.shipping_zone_methods.ShippingZoneMethod">pywoo.models.shipping_zone_methods.ShippingZoneMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pywoo.pywoo.Api.get_shipping_methods">
+<span class="sig-name descname"><span class="pre">get_shipping_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.pywoo.Api.get_shipping_methods" title="Permalink to this definition"></a></dt>
+<dd><p>Get all or single shipping method by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>str</em>) – If specified gets a shipping method by id</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of pywoo.models.shipping_zones.ShippingZone, <a class="reference internal" href="../models/shipping_zones/index.html#pywoo.models.shipping_zones.ShippingZone" title="pywoo.models.shipping_zones.ShippingZone">pywoo.models.shipping_zones.ShippingZone</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Lotrèk.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pywoo.utils.parse &mdash; pywoo  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pywoo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pywoo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.utils.parse</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/pywoo/utils/parse/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pywoo.utils.parse">
+<span id="pywoo-utils-parse"></span><h1><a class="reference internal" href="#module-pywoo.utils.parse" title="pywoo.utils.parse"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pywoo.utils.parse</span></code></a><a class="headerlink" href="#module-pywoo.utils.parse" title="Permalink to this headline"></a></h1>
+<p>This module contains classes, functions and global variables used for translating JSON objects into model objects
+and viceversa, and <strong>should not be touched</strong> when using pywoo.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pywoo.utils.parse.urls_classes">
+<span class="sig-prename descclassname"><span class="pre">pywoo.utils.parse.</span></span><span class="sig-name descname"><span class="pre">urls_classes</span></span><a class="headerlink" href="#pywoo.utils.parse.urls_classes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pywoo.utils.parse.ClassParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pywoo.utils.parse.</span></span><span class="sig-name descname"><span class="pre">ClassParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.utils.parse.ClassParser" title="Permalink to this definition"></a></dt>
+<dd><p>Class used for parsing models classes.</p>
+<p><em>Nothing to see here.</em></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pywoo.utils.parse.find_mapping">
+<span class="sig-prename descclassname"><span class="pre">pywoo.utils.parse.</span></span><span class="sig-name descname"><span class="pre">find_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.utils.parse.find_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Function used for matching model classes to JSON objects coming from Woocommerce REST API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em><em>, </em><em>list</em>) – JSON data</p></li>
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – <code class="xref py py-class docutils literal notranslate"><span class="pre">Api</span></code> object</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – Woocommerce REST API url used for retrieving data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pywoo.utils.parse.to_dict">
+<span class="sig-prename descclassname"><span class="pre">pywoo.utils.parse.</span></span><span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.utils.parse.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Function used to transform data models objects in JSON (<code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>) data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>str</em>) – object data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list, dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pywoo.utils.parse.parse_date_time">
+<span class="sig-prename descclassname"><span class="pre">pywoo.utils.parse.</span></span><span class="sig-name descname"><span class="pre">parse_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.utils.parse.parse_date_time" title="Permalink to this definition"></a></dt>
+<dd><p>Function used to parse datetime strings coming from Woocommerce REST API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>date_time</strong> (<em>str</em>) – datetime string in <code class="docutils literal notranslate"><span class="pre">%Y-%m-%dT%H:%M:%S</span></code> format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>datetime.datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pywoo.utils.parse.from_json">
+<span class="sig-prename descclassname"><span class="pre">pywoo.utils.parse.</span></span><span class="sig-name descname"><span class="pre">from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pywoo.utils.parse.from_json" title="Permalink to this definition"></a></dt>
+<dd><p>Function used to load JSON data into models objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em><em>, </em><em>list</em>) – JSON data</p></li>
+<li><p><strong>api</strong> (<a class="reference internal" href="../../pywoo/index.html#pywoo.pywoo.Api" title="pywoo.pywoo.Api"><em>pywoo.Api</em></a>) – <code class="xref py py-class docutils literal notranslate"><span class="pre">Api</span></code> object</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – Woocommerce REST API url used for retrieving data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Lotrèk.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
