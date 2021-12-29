@@ -78,8 +78,8 @@ class Product(ApiObject):
         :type id: int, str
         :param params: Parameters that should be used only when retrieving more products (`Full list of
             parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-products>`__)
-        :rtype: list of pywoo.models.products.Products,
-            pywoo.models.products.Products
+        :rtype: list of pywoo.models.products.Product,
+            pywoo.models.products.Product
         """
         return api.get_products(id, **params)
 
@@ -92,7 +92,7 @@ class Product(ApiObject):
         :type api: pywoo.Api
         :param data: Product properties (`Full list of properties
             <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties>`__)
-        :rtype: pywoo.models.products.Products
+        :rtype: pywoo.models.products.Product
         """
         return api.create_product(**data)
 
@@ -107,7 +107,7 @@ class Product(ApiObject):
         :type id: int, str
         :param data: Product properties (`Full list of properties
             <https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties>`__)
-        :rtype: pywoo.models.products.Products
+        :rtype: pywoo.models.products.Product
         """
         return api.update_product(id, **data)
 
@@ -136,7 +136,7 @@ class Product(ApiObject):
         which is updated.
 
         :return: Product with updated properties coming from the REST API
-        :rtype: pywoo.models.products.Products
+        :rtype: pywoo.models.products.Product
         """
         return self._api.update_product(**to_dict(self))
 
@@ -147,7 +147,7 @@ class Product(ApiObject):
         :param force: Whether to permanently delete product or not
         :type force: bool
         :return: Deleted product
-        :rtype: pywoo.models.products.Products
+        :rtype: pywoo.models.products.Product
         """
         return self._api.delete_product(self.id, force)
 
