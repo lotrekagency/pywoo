@@ -69,5 +69,6 @@ def parse_date_time(date_time):
                 pass
     return None
 
+
 def from_json(data, api, url):
     return json.loads(data, object_hook=lambda d: find_mapping(d, api, url))

@@ -6,7 +6,7 @@ clean:
 
 test: clean
 	@flake8 pywoo
-	@pytest --cov pywoo -s --cov-report term-missing
+	@pytest --cov=pywoo -s --cov-report=xml --cov-report=term-missing
 
 docs: clean
 	@sphinx-build -b html ./docs pywoo_docs
