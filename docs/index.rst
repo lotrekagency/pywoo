@@ -6,12 +6,16 @@
 Welcome to pywoo's documentation!
 =================================
 
-All the example links in this documentation are relative to Woocommerce REST API **v3**, anyway this doesn't mean
-that this library doesn't work with older versions of the REST API.
+Pywoo is a Python 3 wrapper for WooCommerce API. 
+
+All the example links in this documentation are relative to Woocommerce REST API **v3**, anyway 
+this library works also with older versions of the REST API.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   quickstart
 
 
 
