@@ -30,7 +30,7 @@ class ShippingZone(ApiObject):
     def create_shipping_zone(cls, api, **data):
         """
         Create shipping zone
-        
+
         :param api: API object
         :type api: pywoo.Api
         :param data: Shipping zone properties (`Full list of properties

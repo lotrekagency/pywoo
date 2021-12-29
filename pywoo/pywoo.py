@@ -366,7 +366,7 @@ class Api:
         :type force: bool
         :rtype: pywoo.models.products.Product
         """
-        return self._delete('products', id, {'force' : force})
+        return self._delete('products', id, {'force': force})
 
     def create_product_variation(self, product_id, **data):
         """

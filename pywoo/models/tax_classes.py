@@ -28,7 +28,7 @@ class TaxClass(ApiObject):
     def create_tax_class(cls, api, **data):
         """
         Create tax class
-        
+
         :param api: API object
         :type api: pywoo.Api
         :param data: Tax classes along with their properties (`Full list of properties
@@ -41,7 +41,7 @@ class TaxClass(ApiObject):
     def delete_tax_class(cls, api, slug):
         """
         Delete tax class by slug
-        
+
         :param api: API object
         :type api: pywoo.Api
         :param slug: Tax class slug

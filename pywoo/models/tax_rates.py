@@ -10,8 +10,10 @@ class TaxRate(ApiObject):
     `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#tax-rates>`__
     """
     _ro_attributes = {'id'}
-    _rw_attributes = {'country', 'state', 'postcode', 'city', 'rate', 'name', 'priority', 'compound', 'shipping',
-                     'order', 'class'}
+    _rw_attributes = {
+        'country', 'state', 'postcode', 'city', 'rate', 'name', 'priority', 'compound', 'shipping',
+        'order', 'class'
+    }
 
     @classmethod
     def get_tax_rates(cls, api, id='', **params):

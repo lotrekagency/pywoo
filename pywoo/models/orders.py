@@ -9,15 +9,19 @@ class Order(ApiObject):
 
     `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties>`__
     """
-    _ro_attributes = {'id', 'number', 'order_key', 'created_via', 'version', 'date_created',
-                     'date_modified', 'discount_total', 'discount_tax', 'shipping_total',
-                     'shipping_tax', 'cart_tax', 'total', 'total_tax', 'prices_include_tax', 'customer_ip_address',
-                     'customer_user_agent', 'date_paid', 'date_completed',
-                     'cart_hash', 'tax_lines', 'refunds'}
+    _ro_attributes = {
+        'id', 'number', 'order_key', 'created_via', 'version', 'date_created',
+        'date_modified', 'discount_total', 'discount_tax', 'shipping_total',
+        'shipping_tax', 'cart_tax', 'total', 'total_tax', 'prices_include_tax', 'customer_ip_address',
+        'customer_user_agent', 'date_paid', 'date_completed',
+        'cart_hash', 'tax_lines', 'refunds'
+    }
     _wo_attributes = {'set_paid'}
-    _rw_attributes = {'parent_id', 'status', 'currency', 'customer_id', 'customer_note', 'billing', 'shipping',
-                     'payment_method', 'payment_method_title', 'transaction_id', 'line_items',
-                     'shipping_lines', 'fee_lines', 'coupon_lines'}
+    _rw_attributes = {
+        'parent_id', 'status', 'currency', 'customer_id', 'customer_note', 'billing', 'shipping',
+        'payment_method', 'payment_method_title', 'transaction_id', 'line_items',
+        'shipping_lines', 'fee_lines', 'coupon_lines'
+    }
 
     @classmethod
     def get_orders(cls, api, id='', **params):
@@ -117,8 +121,10 @@ class OrderBilling(ApiProperty):
 
     `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-billing-properties>`__
     """
-    _rw_attributes = {'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
-                     'country', 'email', 'phone'}
+    _rw_attributes = {
+        'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
+        'country', 'email', 'phone'
+    }
 
 
 @ClassParser(url_class="orders")
@@ -128,8 +134,10 @@ class OrderShipping(ApiProperty):
 
     `List of parameters <https://woocommerce.github.io/woocommerce-rest-api-docs/#order-shipping-properties>`__
     """
-    _rw_attributes = {'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
-                     'country'}
+    _rw_attributes = {
+        'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode',
+        'country'
+    }
 
 
 @ClassParser(url_class="orders")

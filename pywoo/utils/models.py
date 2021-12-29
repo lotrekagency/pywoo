@@ -8,19 +8,19 @@ class ApiSuperClass(object):
     _ro_attributes = set()
     """
     A set containing readonly attributes. By default is initialized with attributes from Woocommerce REST API v3.
-    
+
     *Don't edit this unless you want to use this library with other versions of the Woocommerce REST API.*
     """
     _wo_attributes = set()
     """
     A set containing writeonly attributes. By default is initialized with attributes from Woocommerce REST API v3.
-    
+
     *Don't edit this unless you want to use this library with other versions of the Woocommerce REST API.*
     """
     _rw_attributes = set()
     """
     A set containing read/write attributes. By default is initialized with attributes from Woocommerce REST API v3.
-    
+
     *Don't edit this unless you want to use this library with other versions of the Woocommerce REST API.*
     """
 

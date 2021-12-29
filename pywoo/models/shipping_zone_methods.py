@@ -34,7 +34,7 @@ class ShippingZoneMethod(ApiObject):
     def create_shipping_zone_method(cls, api, shipping_zone_id, **data):
         """
         Create shipping zone method
-        
+
         :param api: API object
         :type api: pywoo.Api
         :param shipping_zone_id: Shipping zone id
